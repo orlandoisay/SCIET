@@ -54,7 +54,7 @@
             this.lblServer.AutoSize = true;
             this.lblServer.Location = new System.Drawing.Point(11, 54);
             this.lblServer.Name = "lblServer";
-            this.lblServer.Size = new System.Drawing.Size(58, 19);
+            this.lblServer.Size = new System.Drawing.Size(59, 19);
             this.lblServer.TabIndex = 2;
             this.lblServer.Text = "Servidor";
             // 
@@ -81,7 +81,7 @@
             this.lblPort.AutoSize = true;
             this.lblPort.Location = new System.Drawing.Point(190, 54);
             this.lblPort.Name = "lblPort";
-            this.lblPort.Size = new System.Drawing.Size(48, 19);
+            this.lblPort.Size = new System.Drawing.Size(49, 19);
             this.lblPort.TabIndex = 5;
             this.lblPort.Text = "Puerto";
             // 

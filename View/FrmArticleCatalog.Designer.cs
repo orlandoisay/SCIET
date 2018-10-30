@@ -35,32 +35,31 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.idArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlDetails = new System.Windows.Forms.Panel();
-            this.pnlAddEdit = new System.Windows.Forms.Panel();
-            this.pbxDetails = new System.Windows.Forms.PictureBox();
-            this.pbxAddEdit = new System.Windows.Forms.PictureBox();
-            this.lblIdArticle = new System.Windows.Forms.Label();
-            this.lblNameArticle = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtaDescriptionDetails = new System.Windows.Forms.RichTextBox();
             this.lblQuantityArticle = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnAttach = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.txtIdArticle = new System.Windows.Forms.TextBox();
-            this.txtNameArticle = new System.Windows.Forms.TextBox();
+            this.txtaDescriptionDetails = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblNameArticle = new System.Windows.Forms.Label();
+            this.lblIdArticle = new System.Windows.Forms.Label();
+            this.pbxDetails = new System.Windows.Forms.PictureBox();
+            this.pnlAddEdit = new System.Windows.Forms.Panel();
             this.txtaDescriptionAddEdit = new System.Windows.Forms.RichTextBox();
-            this.btnEditQuantity = new System.Windows.Forms.Button();
+            this.txtNameArticle = new System.Windows.Forms.TextBox();
+            this.txtIdArticle = new System.Windows.Forms.TextBox();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnAttach = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pbxAddEdit = new System.Windows.Forms.PictureBox();
+            this.idArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticles)).BeginInit();
             this.pnlDetails.SuspendLayout();
-            this.pnlAddEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDetails)).BeginInit();
+            this.pnlAddEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +103,7 @@
             this.dgvArticles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idArticle,
-            this.nameArticle,
+            this.name,
             this.quantityArticle});
             this.dgvArticles.Location = new System.Drawing.Point(9, 71);
             this.dgvArticles.Name = "dgvArticles";
@@ -146,32 +145,8 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // idArticle
-            // 
-            this.idArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idArticle.HeaderText = "Clave";
-            this.idArticle.Name = "idArticle";
-            this.idArticle.ReadOnly = true;
-            this.idArticle.Width = 59;
-            // 
-            // nameArticle
-            // 
-            this.nameArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.nameArticle.HeaderText = "Nombre";
-            this.nameArticle.Name = "nameArticle";
-            this.nameArticle.ReadOnly = true;
-            // 
-            // quantityArticle
-            // 
-            this.quantityArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.quantityArticle.HeaderText = "Existencia";
-            this.quantityArticle.Name = "quantityArticle";
-            this.quantityArticle.ReadOnly = true;
-            this.quantityArticle.Width = 80;
-            // 
             // pnlDetails
             // 
-            this.pnlDetails.Controls.Add(this.btnEditQuantity);
             this.pnlDetails.Controls.Add(this.lblQuantityArticle);
             this.pnlDetails.Controls.Add(this.txtaDescriptionDetails);
             this.pnlDetails.Controls.Add(this.label3);
@@ -180,9 +155,67 @@
             this.pnlDetails.Controls.Add(this.pbxDetails);
             this.pnlDetails.Location = new System.Drawing.Point(9, 227);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(500, 160);
+            this.pnlDetails.Size = new System.Drawing.Size(500, 150);
             this.pnlDetails.TabIndex = 7;
             this.pnlDetails.Visible = false;
+            // 
+            // lblQuantityArticle
+            // 
+            this.lblQuantityArticle.AutoSize = true;
+            this.lblQuantityArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblQuantityArticle.Location = new System.Drawing.Point(394, 128);
+            this.lblQuantityArticle.Name = "lblQuantityArticle";
+            this.lblQuantityArticle.Size = new System.Drawing.Size(83, 19);
+            this.lblQuantityArticle.TabIndex = 9;
+            this.lblQuantityArticle.Text = "Existencia: --";
+            // 
+            // txtaDescriptionDetails
+            // 
+            this.txtaDescriptionDetails.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.txtaDescriptionDetails.Location = new System.Drawing.Point(109, 23);
+            this.txtaDescriptionDetails.Name = "txtaDescriptionDetails";
+            this.txtaDescriptionDetails.Size = new System.Drawing.Size(388, 100);
+            this.txtaDescriptionDetails.TabIndex = 13;
+            this.txtaDescriptionDetails.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label3.Location = new System.Drawing.Point(106, 3);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 19);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Descripción:";
+            // 
+            // lblNameArticle
+            // 
+            this.lblNameArticle.AutoSize = true;
+            this.lblNameArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblNameArticle.Location = new System.Drawing.Point(3, 128);
+            this.lblNameArticle.Name = "lblNameArticle";
+            this.lblNameArticle.Size = new System.Drawing.Size(78, 19);
+            this.lblNameArticle.TabIndex = 11;
+            this.lblNameArticle.Text = "Nombre: --";
+            // 
+            // lblIdArticle
+            // 
+            this.lblIdArticle.AutoSize = true;
+            this.lblIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblIdArticle.Location = new System.Drawing.Point(3, 3);
+            this.lblIdArticle.Name = "lblIdArticle";
+            this.lblIdArticle.Size = new System.Drawing.Size(60, 19);
+            this.lblIdArticle.TabIndex = 10;
+            this.lblIdArticle.Text = "Clave: --";
+            // 
+            // pbxDetails
+            // 
+            this.pbxDetails.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pbxDetails.Location = new System.Drawing.Point(3, 25);
+            this.pbxDetails.Name = "pbxDetails";
+            this.pbxDetails.Size = new System.Drawing.Size(100, 100);
+            this.pbxDetails.TabIndex = 9;
+            this.pbxDetails.TabStop = false;
             // 
             // pnlAddEdit
             // 
@@ -202,122 +235,30 @@
             this.pnlAddEdit.TabIndex = 8;
             this.pnlAddEdit.Visible = false;
             // 
-            // pbxDetails
+            // txtaDescriptionAddEdit
             // 
-            this.pbxDetails.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pbxDetails.Location = new System.Drawing.Point(3, 25);
-            this.pbxDetails.Name = "pbxDetails";
-            this.pbxDetails.Size = new System.Drawing.Size(100, 100);
-            this.pbxDetails.TabIndex = 9;
-            this.pbxDetails.TabStop = false;
+            this.txtaDescriptionAddEdit.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.txtaDescriptionAddEdit.Location = new System.Drawing.Point(109, 75);
+            this.txtaDescriptionAddEdit.Name = "txtaDescriptionAddEdit";
+            this.txtaDescriptionAddEdit.Size = new System.Drawing.Size(388, 79);
+            this.txtaDescriptionAddEdit.TabIndex = 9;
+            this.txtaDescriptionAddEdit.Text = "";
             // 
-            // pbxAddEdit
+            // txtNameArticle
             // 
-            this.pbxAddEdit.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pbxAddEdit.Location = new System.Drawing.Point(6, 25);
-            this.pbxAddEdit.Name = "pbxAddEdit";
-            this.pbxAddEdit.Size = new System.Drawing.Size(100, 100);
-            this.pbxAddEdit.TabIndex = 0;
-            this.pbxAddEdit.TabStop = false;
+            this.txtNameArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.txtNameArticle.Location = new System.Drawing.Point(186, 25);
+            this.txtNameArticle.Name = "txtNameArticle";
+            this.txtNameArticle.Size = new System.Drawing.Size(311, 25);
+            this.txtNameArticle.TabIndex = 8;
             // 
-            // lblIdArticle
+            // txtIdArticle
             // 
-            this.lblIdArticle.AutoSize = true;
-            this.lblIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblIdArticle.Location = new System.Drawing.Point(3, 3);
-            this.lblIdArticle.Name = "lblIdArticle";
-            this.lblIdArticle.Size = new System.Drawing.Size(60, 19);
-            this.lblIdArticle.TabIndex = 10;
-            this.lblIdArticle.Text = "Clave: --";
-            // 
-            // lblNameArticle
-            // 
-            this.lblNameArticle.AutoSize = true;
-            this.lblNameArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblNameArticle.Location = new System.Drawing.Point(3, 128);
-            this.lblNameArticle.Name = "lblNameArticle";
-            this.lblNameArticle.Size = new System.Drawing.Size(78, 19);
-            this.lblNameArticle.TabIndex = 11;
-            this.lblNameArticle.Text = "Nombre: --";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label3.Location = new System.Drawing.Point(106, 3);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 19);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Descripción:";
-            // 
-            // txtaDescriptionDetails
-            // 
-            this.txtaDescriptionDetails.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtaDescriptionDetails.Location = new System.Drawing.Point(109, 23);
-            this.txtaDescriptionDetails.Name = "txtaDescriptionDetails";
-            this.txtaDescriptionDetails.Size = new System.Drawing.Size(388, 100);
-            this.txtaDescriptionDetails.TabIndex = 13;
-            this.txtaDescriptionDetails.Text = "";
-            // 
-            // lblQuantityArticle
-            // 
-            this.lblQuantityArticle.AutoSize = true;
-            this.lblQuantityArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblQuantityArticle.Location = new System.Drawing.Point(367, 3);
-            this.lblQuantityArticle.Name = "lblQuantityArticle";
-            this.lblQuantityArticle.Size = new System.Drawing.Size(83, 19);
-            this.lblQuantityArticle.TabIndex = 9;
-            this.lblQuantityArticle.Text = "Existencia: --";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label5.Location = new System.Drawing.Point(106, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 19);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Clave:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label6.Location = new System.Drawing.Point(182, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 19);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Nombre:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label7.Location = new System.Drawing.Point(109, 53);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 19);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Descripción:";
-            // 
-            // btnAttach
-            // 
-            this.btnAttach.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnAttach.Location = new System.Drawing.Point(6, 131);
-            this.btnAttach.Name = "btnAttach";
-            this.btnAttach.Size = new System.Drawing.Size(100, 23);
-            this.btnAttach.TabIndex = 4;
-            this.btnAttach.Text = "Adjuntar";
-            this.btnAttach.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnSave.Location = new System.Drawing.Point(344, 164);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 5;
-            this.btnSave.Text = "Guardar";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.txtIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.txtIdArticle.Location = new System.Drawing.Point(110, 25);
+            this.txtIdArticle.Name = "txtIdArticle";
+            this.txtIdArticle.Size = new System.Drawing.Size(70, 25);
+            this.txtIdArticle.TabIndex = 7;
             // 
             // btnCancel
             // 
@@ -329,40 +270,87 @@
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // txtIdArticle
+            // btnSave
             // 
-            this.txtIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtIdArticle.Location = new System.Drawing.Point(110, 25);
-            this.txtIdArticle.Name = "txtIdArticle";
-            this.txtIdArticle.Size = new System.Drawing.Size(70, 25);
-            this.txtIdArticle.TabIndex = 7;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnSave.Location = new System.Drawing.Point(344, 164);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 5;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
             // 
-            // txtNameArticle
+            // btnAttach
             // 
-            this.txtNameArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtNameArticle.Location = new System.Drawing.Point(186, 25);
-            this.txtNameArticle.Name = "txtNameArticle";
-            this.txtNameArticle.Size = new System.Drawing.Size(311, 25);
-            this.txtNameArticle.TabIndex = 8;
+            this.btnAttach.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnAttach.Location = new System.Drawing.Point(6, 131);
+            this.btnAttach.Name = "btnAttach";
+            this.btnAttach.Size = new System.Drawing.Size(100, 23);
+            this.btnAttach.TabIndex = 4;
+            this.btnAttach.Text = "Adjuntar";
+            this.btnAttach.UseVisualStyleBackColor = true;
             // 
-            // txtaDescriptionAddEdit
+            // label7
             // 
-            this.txtaDescriptionAddEdit.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtaDescriptionAddEdit.Location = new System.Drawing.Point(109, 75);
-            this.txtaDescriptionAddEdit.Name = "txtaDescriptionAddEdit";
-            this.txtaDescriptionAddEdit.Size = new System.Drawing.Size(388, 79);
-            this.txtaDescriptionAddEdit.TabIndex = 9;
-            this.txtaDescriptionAddEdit.Text = "";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label7.Location = new System.Drawing.Point(109, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(79, 19);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Descripción:";
             // 
-            // btnEditQuantity
+            // label6
             // 
-            this.btnEditQuantity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnEditQuantity.Location = new System.Drawing.Point(364, 127);
-            this.btnEditQuantity.Name = "btnEditQuantity";
-            this.btnEditQuantity.Size = new System.Drawing.Size(133, 23);
-            this.btnEditQuantity.TabIndex = 14;
-            this.btnEditQuantity.Text = "Modificar existencia";
-            this.btnEditQuantity.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label6.Location = new System.Drawing.Point(182, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 19);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Nombre:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label5.Location = new System.Drawing.Point(106, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 19);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Clave:";
+            // 
+            // pbxAddEdit
+            // 
+            this.pbxAddEdit.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pbxAddEdit.Location = new System.Drawing.Point(6, 25);
+            this.pbxAddEdit.Name = "pbxAddEdit";
+            this.pbxAddEdit.Size = new System.Drawing.Size(100, 100);
+            this.pbxAddEdit.TabIndex = 0;
+            this.pbxAddEdit.TabStop = false;
+            // 
+            // idArticle
+            // 
+            this.idArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idArticle.HeaderText = "Clave";
+            this.idArticle.Name = "idArticle";
+            this.idArticle.ReadOnly = true;
+            this.idArticle.Width = 59;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.HeaderText = "Nombre";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // quantityArticle
+            // 
+            this.quantityArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.quantityArticle.HeaderText = "Existencia";
+            this.quantityArticle.Name = "quantityArticle";
+            this.quantityArticle.ReadOnly = true;
+            this.quantityArticle.Width = 80;
             // 
             // FrmArticleCatalog
             // 
@@ -383,9 +371,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticles)).EndInit();
             this.pnlDetails.ResumeLayout(false);
             this.pnlDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDetails)).EndInit();
             this.pnlAddEdit.ResumeLayout(false);
             this.pnlAddEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -398,9 +386,6 @@
         private System.Windows.Forms.RadioButton rbtnIdArticle;
         private System.Windows.Forms.RadioButton rbtnNameArticle;
         private System.Windows.Forms.DataGridView dgvArticles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idArticle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameArticle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityArticle;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
@@ -422,6 +407,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pbxAddEdit;
-        private System.Windows.Forms.Button btnEditQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idArticle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityArticle;
     }
 }

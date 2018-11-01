@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Data
 {
@@ -33,7 +34,42 @@ namespace Data
 
         }
 
-       
+        /// <summary>
+        /// Ejecuta una consulta en la base de datos.
+        /// </summary>
+        /// <param name="com"></param>
+        /// Contiene la consulta a ingresar en la base de datos.
+        /// <returns>
+        /// Retorna todas las columnas y filas obtenidas por la consulta.
+        /// </returns>
+        public DataTable ejecutarConsulta(MySqlCommand com)
+        {
+            try
+            {
+                if (Conectar())
+                {
+                    com.Connection = conexion;
+                    MySqlDataAdapter objAdapter = new MySqlDataAdapter(com);
+                    DataTable resultado = new DataTable();
+                    objAdapter.Fill(resultado);
+                    return resultado;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (conexion != null)
+                    conexion.Close();
+            }
+
+        }
 
         /// <summary>
         /// Ejecuta una sentencia en la base de datos.

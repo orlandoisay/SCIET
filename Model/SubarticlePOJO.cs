@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    class SubarticlePOJO
+    public class SubarticlePOJO
     {
 
         public int IdSubarticle { get; set; }
-        public String Size { get; set; }
-        public String Color { get; set; }
+        public string Size { get; set; }
+        public string Color { get; set; }
         public decimal Cost { get; set; }
         public decimal Price1 { get; set; }
         public decimal Price2 { get; set; }
@@ -22,7 +22,7 @@ namespace Model
 
         public SubarticlePOJO() { }
 
-        public SubarticlePOJO(int idSubarticle, String size, String color, decimal cost, decimal price1,
+        public SubarticlePOJO(int idSubarticle, string size, string color, decimal cost, decimal price1,
             decimal price2, decimal price3, decimal price4, int quantity, int idArticle)
         {
             IdSubarticle = idSubarticle;

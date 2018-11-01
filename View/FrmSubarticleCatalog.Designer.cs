@@ -43,7 +43,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnChangeQuantity = new System.Windows.Forms.Button();
-            this.txtSize = new System.Windows.Forms.TextBox();
             this.txtIdSubarticle = new System.Windows.Forms.TextBox();
             this.txtColor = new System.Windows.Forms.TextBox();
             this.spnQuantity = new System.Windows.Forms.NumericUpDown();
@@ -64,6 +63,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlAddEdit = new System.Windows.Forms.Panel();
+            this.lblName = new System.Windows.Forms.Label();
+            this.cbxSize = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnMenudeo)).BeginInit();
@@ -218,14 +219,8 @@
             this.btnChangeQuantity.TabIndex = 5;
             this.btnChangeQuantity.Text = "Modificar existencia";
             this.btnChangeQuantity.UseVisualStyleBackColor = true;
-            // 
-            // txtSize
-            // 
-            this.txtSize.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtSize.Location = new System.Drawing.Point(7, 77);
-            this.txtSize.Name = "txtSize";
-            this.txtSize.Size = new System.Drawing.Size(75, 25);
-            this.txtSize.TabIndex = 6;
+            this.btnChangeQuantity.Visible = false;
+            this.btnChangeQuantity.Click += new System.EventHandler(this.btnChangeQuantity_Click);
             // 
             // txtIdSubarticle
             // 
@@ -400,13 +395,14 @@
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pnlAddEdit
             // 
+            this.pnlAddEdit.Controls.Add(this.cbxSize);
             this.pnlAddEdit.Controls.Add(this.spnCosto);
             this.pnlAddEdit.Controls.Add(this.btnCancel);
             this.pnlAddEdit.Controls.Add(this.btnSave);
-            this.pnlAddEdit.Controls.Add(this.txtSize);
             this.pnlAddEdit.Controls.Add(this.txtIdSubarticle);
             this.pnlAddEdit.Controls.Add(this.label9);
             this.pnlAddEdit.Controls.Add(this.txtColor);
@@ -427,12 +423,41 @@
             this.pnlAddEdit.Name = "pnlAddEdit";
             this.pnlAddEdit.Size = new System.Drawing.Size(670, 106);
             this.pnlAddEdit.TabIndex = 25;
+            this.pnlAddEdit.Visible = false;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblName.Location = new System.Drawing.Point(12, 205);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(78, 19);
+            this.lblName.TabIndex = 26;
+            this.lblName.Text = "Nombre: --";
+            // 
+            // cbxSize
+            // 
+            this.cbxSize.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.cbxSize.FormattingEnabled = true;
+            this.cbxSize.Items.AddRange(new object[] {
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL",
+            "XXL",
+            "XXXL"});
+            this.cbxSize.Location = new System.Drawing.Point(7, 75);
+            this.cbxSize.Name = "cbxSize";
+            this.cbxSize.Size = new System.Drawing.Size(75, 25);
+            this.cbxSize.TabIndex = 25;
             // 
             // FrmSubarticleCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 345);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.pnlAddEdit);
             this.Controls.Add(this.btnChangeQuantity);
             this.Controls.Add(this.btnDelete);
@@ -464,7 +489,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnChangeQuantity;
-        private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.TextBox txtIdSubarticle;
         private System.Windows.Forms.TextBox txtColor;
         private System.Windows.Forms.NumericUpDown spnQuantity;
@@ -494,5 +518,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio3;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio4;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.ComboBox cbxSize;
     }
 }

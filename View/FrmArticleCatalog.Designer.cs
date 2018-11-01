@@ -32,6 +32,9 @@
             this.rbtnIdArticle = new System.Windows.Forms.RadioButton();
             this.rbtnNameArticle = new System.Windows.Forms.RadioButton();
             this.dgvArticles = new System.Windows.Forms.DataGridView();
+            this.idArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -53,9 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pbxAddEdit = new System.Windows.Forms.PictureBox();
-            this.idArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityArticle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnShowSubarticles = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticles)).BeginInit();
             this.pnlDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDetails)).BeginInit();
@@ -112,6 +113,29 @@
             this.dgvArticles.TabIndex = 3;
             this.dgvArticles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticles_CellClick);
             // 
+            // idArticle
+            // 
+            this.idArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idArticle.HeaderText = "Clave";
+            this.idArticle.Name = "idArticle";
+            this.idArticle.ReadOnly = true;
+            this.idArticle.Width = 59;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.HeaderText = "Nombre";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // quantityArticle
+            // 
+            this.quantityArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.quantityArticle.HeaderText = "Existencia";
+            this.quantityArticle.Name = "quantityArticle";
+            this.quantityArticle.ReadOnly = true;
+            this.quantityArticle.Width = 80;
+            // 
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Light", 10F);
@@ -147,6 +171,7 @@
             // 
             // pnlDetails
             // 
+            this.pnlDetails.Controls.Add(this.btnShowSubarticles);
             this.pnlDetails.Controls.Add(this.lblQuantityArticle);
             this.pnlDetails.Controls.Add(this.txtaDescriptionDetails);
             this.pnlDetails.Controls.Add(this.label3);
@@ -155,7 +180,7 @@
             this.pnlDetails.Controls.Add(this.pbxDetails);
             this.pnlDetails.Location = new System.Drawing.Point(9, 227);
             this.pnlDetails.Name = "pnlDetails";
-            this.pnlDetails.Size = new System.Drawing.Size(500, 150);
+            this.pnlDetails.Size = new System.Drawing.Size(500, 190);
             this.pnlDetails.TabIndex = 7;
             this.pnlDetails.Visible = false;
             // 
@@ -163,7 +188,7 @@
             // 
             this.lblQuantityArticle.AutoSize = true;
             this.lblQuantityArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblQuantityArticle.Location = new System.Drawing.Point(394, 128);
+            this.lblQuantityArticle.Location = new System.Drawing.Point(382, 128);
             this.lblQuantityArticle.Name = "lblQuantityArticle";
             this.lblQuantityArticle.Size = new System.Drawing.Size(83, 19);
             this.lblQuantityArticle.TabIndex = 9;
@@ -229,7 +254,7 @@
             this.pnlAddEdit.Controls.Add(this.label6);
             this.pnlAddEdit.Controls.Add(this.label5);
             this.pnlAddEdit.Controls.Add(this.pbxAddEdit);
-            this.pnlAddEdit.Location = new System.Drawing.Point(9, 383);
+            this.pnlAddEdit.Location = new System.Drawing.Point(9, 423);
             this.pnlAddEdit.Name = "pnlAddEdit";
             this.pnlAddEdit.Size = new System.Drawing.Size(500, 190);
             this.pnlAddEdit.TabIndex = 8;
@@ -269,6 +294,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -279,6 +305,7 @@
             this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAttach
             // 
@@ -329,28 +356,16 @@
             this.pbxAddEdit.TabIndex = 0;
             this.pbxAddEdit.TabStop = false;
             // 
-            // idArticle
+            // btnShowSubarticles
             // 
-            this.idArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idArticle.HeaderText = "Clave";
-            this.idArticle.Name = "idArticle";
-            this.idArticle.ReadOnly = true;
-            this.idArticle.Width = 59;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.HeaderText = "Nombre";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // quantityArticle
-            // 
-            this.quantityArticle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.quantityArticle.HeaderText = "Existencia";
-            this.quantityArticle.Name = "quantityArticle";
-            this.quantityArticle.ReadOnly = true;
-            this.quantityArticle.Width = 80;
+            this.btnShowSubarticles.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowSubarticles.Location = new System.Drawing.Point(386, 164);
+            this.btnShowSubarticles.Name = "btnShowSubarticles";
+            this.btnShowSubarticles.Size = new System.Drawing.Size(111, 23);
+            this.btnShowSubarticles.TabIndex = 14;
+            this.btnShowSubarticles.Text = "Ver subproductos";
+            this.btnShowSubarticles.UseVisualStyleBackColor = true;
+            this.btnShowSubarticles.Click += new System.EventHandler(this.btnShowSubarticles_Click);
             // 
             // FrmArticleCatalog
             // 
@@ -410,5 +425,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idArticle;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityArticle;
+        private System.Windows.Forms.Button btnShowSubarticles;
     }
 }

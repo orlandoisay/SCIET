@@ -7,12 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
+using Data;
 
 namespace View
 {
-    public partial class modifyQuantity : Form
+    public partial class FrmModifyQuantity : Form
     {
-        public modifyQuantity()
+
+        List<BatchPOJO> batchesList = new List<BatchPOJO>();
+
+        public FrmModifyQuantity()
         {
             InitializeComponent();
             dgvModify.Rows.Add();
@@ -39,7 +44,7 @@ namespace View
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void spnInputOutput_ValueChanged(object sender, EventArgs e)
@@ -54,10 +59,23 @@ namespace View
                 btnAddRemove.Text = "Agregar";
                 btnReturn.Visible = false;
             } else {
-                btnAddRemove.Text = "Quitar";
+                btnAddRemove.Text = "Retirar";
                 btnReturn.Visible = true;
             }
 
         }
+
+        public void updateTable()
+        {
+
+            dgvModify.Rows.Clear();
+            batchesList = BatchDAO.getAllById(1);
+            for (int i = 0; i < batchesList.Count; i++)
+            {
+                dgvModify.Rows.Add(batchesList[i].Date, batchesList[i].Reason);
+            }
+
+        }
+
     }
 }

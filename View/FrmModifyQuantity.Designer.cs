@@ -1,6 +1,6 @@
 ﻿namespace View
 {
-    partial class modifyQuantity
+    partial class FrmModifyQuantity
     {
         /// <summary>
         /// Required designer variable.

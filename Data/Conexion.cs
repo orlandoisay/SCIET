@@ -42,6 +42,7 @@ namespace Data
         /// <returns>
         /// Retorna todas las columnas y filas obtenidas por la consulta.
         /// </returns>
+        /// XS,S,M,L,XL,XXL,XXXL
         public DataTable ejecutarConsulta(MySqlCommand com)
         {
             try

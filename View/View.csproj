@@ -92,11 +92,11 @@
     <Compile Include="FrmSubarticleCatalog.Designer.cs">
       <DependentUpon>FrmSubarticleCatalog.cs</DependentUpon>
     </Compile>
-    <Compile Include="modifyQuantity.cs">
+    <Compile Include="FrmModifyQuantity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modifyQuantity.Designer.cs">
-      <DependentUpon>modifyQuantity.cs</DependentUpon>
+    <Compile Include="FrmModifyQuantity.Designer.cs">
+      <DependentUpon>FrmModifyQuantity.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -121,8 +121,8 @@
     <EmbeddedResource Include="FrmSubarticleCatalog.resx">
       <DependentUpon>FrmSubarticleCatalog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modifyQuantity.resx">
-      <DependentUpon>modifyQuantity.cs</DependentUpon>
+    <EmbeddedResource Include="FrmModifyQuantity.resx">
+      <DependentUpon>FrmModifyQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

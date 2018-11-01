@@ -71,6 +71,7 @@
             this.pbLogo.Location = new System.Drawing.Point(19, 74);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(149, 143);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbLogo.TabIndex = 3;
             this.pbLogo.TabStop = false;
             // 
@@ -84,6 +85,7 @@
             this.btnLogo.TabIndex = 4;
             this.btnLogo.Text = "Cambiar logotipo";
             this.btnLogo.UseVisualStyleBackColor = true;
+            this.btnLogo.Click += new System.EventHandler(this.btnLogo_Click);
             // 
             // FrmSettingsGeneral
             // 

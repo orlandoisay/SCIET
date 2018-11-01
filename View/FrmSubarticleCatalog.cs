@@ -15,6 +15,7 @@ namespace View
     public partial class FrmSubarticleCatalog : Form
     {
         List<SubarticlePOJO> subarticlesList = new List<SubarticlePOJO>();
+        int selectedItem;
 
         public FrmSubarticleCatalog()
         {
@@ -32,6 +33,16 @@ namespace View
         {
             pnlAddEdit.Visible = true;
             btnChangeQuantity.Visible = false;
+
+            txtIdSubarticle.Text = subarticlesList[selectedItem].IdSubarticle+"";
+            cbxSize.SelectedText = subarticlesList[selectedItem].Size;
+            txtColor.Text = subarticlesList[selectedItem].Color;
+            spnQuantity.Value = subarticlesList[selectedItem].Quantity;
+            spnPrice1.Value = subarticlesList[selectedItem].Price1;
+            spnPrice2.Value = subarticlesList[selectedItem].Price2;
+            spnPrice3.Value = subarticlesList[selectedItem].Price3;
+            spnPrice4.Value = subarticlesList[selectedItem].Price4;
+            spnCost.Value = subarticlesList[selectedItem].Cost;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -52,6 +63,8 @@ namespace View
 
                 dgvSubarticles.Rows[e.RowIndex].Selected = true;
                 btnChangeQuantity.Visible = true;
+
+                selectedItem = e.RowIndex;
 
             }
             catch (Exception)
@@ -90,6 +103,7 @@ namespace View
         private void btnCancel_Click(object sender, EventArgs e)
         {
             pnlAddEdit.Visible = false;
+            btnChangeQuantity.Visible = true;
         }
 
         private void btnChangeQuantity_Click(object sender, EventArgs e)

@@ -46,11 +46,11 @@
             this.txtIdSubarticle = new System.Windows.Forms.TextBox();
             this.txtColor = new System.Windows.Forms.TextBox();
             this.spnQuantity = new System.Windows.Forms.NumericUpDown();
-            this.spnMenudeo = new System.Windows.Forms.NumericUpDown();
-            this.spnMayoreo = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.spnCosto = new System.Windows.Forms.NumericUpDown();
-            this.spnMedioMayoreo = new System.Windows.Forms.NumericUpDown();
+            this.spnPrice1 = new System.Windows.Forms.NumericUpDown();
+            this.spnPrice3 = new System.Windows.Forms.NumericUpDown();
+            this.spnPrice4 = new System.Windows.Forms.NumericUpDown();
+            this.spnCost = new System.Windows.Forms.NumericUpDown();
+            this.spnPrice2 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,11 +67,11 @@
             this.lblName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnMenudeo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnMayoreo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnCosto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnMedioMayoreo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnCost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice2)).BeginInit();
             this.pnlAddEdit.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -247,45 +247,50 @@
             this.spnQuantity.Size = new System.Drawing.Size(75, 25);
             this.spnQuantity.TabIndex = 8;
             // 
-            // spnMenudeo
+            // spnPrice1
             // 
-            this.spnMenudeo.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnMenudeo.Location = new System.Drawing.Point(169, 25);
-            this.spnMenudeo.Name = "spnMenudeo";
-            this.spnMenudeo.Size = new System.Drawing.Size(100, 25);
-            this.spnMenudeo.TabIndex = 9;
+            this.spnPrice1.DecimalPlaces = 2;
+            this.spnPrice1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnPrice1.Location = new System.Drawing.Point(169, 25);
+            this.spnPrice1.Name = "spnPrice1";
+            this.spnPrice1.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice1.TabIndex = 9;
             // 
-            // spnMayoreo
+            // spnPrice3
             // 
-            this.spnMayoreo.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnMayoreo.Location = new System.Drawing.Point(169, 76);
-            this.spnMayoreo.Name = "spnMayoreo";
-            this.spnMayoreo.Size = new System.Drawing.Size(100, 25);
-            this.spnMayoreo.TabIndex = 10;
+            this.spnPrice3.DecimalPlaces = 2;
+            this.spnPrice3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnPrice3.Location = new System.Drawing.Point(169, 76);
+            this.spnPrice3.Name = "spnPrice3";
+            this.spnPrice3.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice3.TabIndex = 10;
             // 
-            // numericUpDown4
+            // spnPrice4
             // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.numericUpDown4.Location = new System.Drawing.Point(275, 77);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(100, 25);
-            this.numericUpDown4.TabIndex = 11;
+            this.spnPrice4.DecimalPlaces = 2;
+            this.spnPrice4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnPrice4.Location = new System.Drawing.Point(275, 77);
+            this.spnPrice4.Name = "spnPrice4";
+            this.spnPrice4.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice4.TabIndex = 11;
             // 
-            // spnCosto
+            // spnCost
             // 
-            this.spnCosto.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnCosto.Location = new System.Drawing.Point(381, 76);
-            this.spnCosto.Name = "spnCosto";
-            this.spnCosto.Size = new System.Drawing.Size(100, 25);
-            this.spnCosto.TabIndex = 12;
+            this.spnCost.DecimalPlaces = 2;
+            this.spnCost.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnCost.Location = new System.Drawing.Point(381, 76);
+            this.spnCost.Name = "spnCost";
+            this.spnCost.Size = new System.Drawing.Size(100, 25);
+            this.spnCost.TabIndex = 12;
             // 
-            // spnMedioMayoreo
+            // spnPrice2
             // 
-            this.spnMedioMayoreo.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnMedioMayoreo.Location = new System.Drawing.Point(275, 26);
-            this.spnMedioMayoreo.Name = "spnMedioMayoreo";
-            this.spnMedioMayoreo.Size = new System.Drawing.Size(100, 25);
-            this.spnMedioMayoreo.TabIndex = 13;
+            this.spnPrice2.DecimalPlaces = 2;
+            this.spnPrice2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnPrice2.Location = new System.Drawing.Point(275, 26);
+            this.spnPrice2.Name = "spnPrice2";
+            this.spnPrice2.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice2.TabIndex = 13;
             // 
             // label1
             // 
@@ -401,7 +406,7 @@
             // pnlAddEdit
             // 
             this.pnlAddEdit.Controls.Add(this.cbxSize);
-            this.pnlAddEdit.Controls.Add(this.spnCosto);
+            this.pnlAddEdit.Controls.Add(this.spnCost);
             this.pnlAddEdit.Controls.Add(this.btnCancel);
             this.pnlAddEdit.Controls.Add(this.btnSave);
             this.pnlAddEdit.Controls.Add(this.txtIdSubarticle);
@@ -410,13 +415,13 @@
             this.pnlAddEdit.Controls.Add(this.label8);
             this.pnlAddEdit.Controls.Add(this.spnQuantity);
             this.pnlAddEdit.Controls.Add(this.label7);
-            this.pnlAddEdit.Controls.Add(this.spnMenudeo);
+            this.pnlAddEdit.Controls.Add(this.spnPrice1);
             this.pnlAddEdit.Controls.Add(this.label6);
-            this.pnlAddEdit.Controls.Add(this.spnMayoreo);
+            this.pnlAddEdit.Controls.Add(this.spnPrice3);
             this.pnlAddEdit.Controls.Add(this.label5);
-            this.pnlAddEdit.Controls.Add(this.numericUpDown4);
+            this.pnlAddEdit.Controls.Add(this.spnPrice4);
             this.pnlAddEdit.Controls.Add(this.label4);
-            this.pnlAddEdit.Controls.Add(this.spnMedioMayoreo);
+            this.pnlAddEdit.Controls.Add(this.spnPrice2);
             this.pnlAddEdit.Controls.Add(this.label3);
             this.pnlAddEdit.Controls.Add(this.label1);
             this.pnlAddEdit.Controls.Add(this.label2);
@@ -470,11 +475,11 @@
             this.Text = "FrmSubarticleCatalog";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnMenudeo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnMayoreo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnCosto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spnMedioMayoreo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnCost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnPrice2)).EndInit();
             this.pnlAddEdit.ResumeLayout(false);
             this.pnlAddEdit.PerformLayout();
             this.ResumeLayout(false);
@@ -493,11 +498,11 @@
         private System.Windows.Forms.TextBox txtIdSubarticle;
         private System.Windows.Forms.TextBox txtColor;
         private System.Windows.Forms.NumericUpDown spnQuantity;
-        private System.Windows.Forms.NumericUpDown spnMenudeo;
-        private System.Windows.Forms.NumericUpDown spnMayoreo;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.NumericUpDown spnCosto;
-        private System.Windows.Forms.NumericUpDown spnMedioMayoreo;
+        private System.Windows.Forms.NumericUpDown spnPrice1;
+        private System.Windows.Forms.NumericUpDown spnPrice3;
+        private System.Windows.Forms.NumericUpDown spnPrice4;
+        private System.Windows.Forms.NumericUpDown spnCost;
+        private System.Windows.Forms.NumericUpDown spnPrice2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

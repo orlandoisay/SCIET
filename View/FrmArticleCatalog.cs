@@ -15,7 +15,7 @@ namespace View
     public partial class FrmArticleCatalog : Form
     {
         List<ArticlePOJO> articlesList = new List<ArticlePOJO>();
-        //List<ArticlePOJO> articlesList;
+        int selectedItem;
 
         public FrmArticleCatalog()
         {
@@ -36,6 +36,10 @@ namespace View
             pnlDetails.Visible = false;
             pnlAddEdit.Visible = true;
             pnlAddEdit.Location = new Point(pnlDetails.Location.X, pnlDetails.Location.Y);
+
+            txtIdArticle.Text = articlesList[selectedItem].IdArticle + "";
+            txtNameArticle.Text = articlesList[selectedItem].Name;
+            txtaDescriptionAddEdit.Text = articlesList[selectedItem].Description;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -57,6 +61,12 @@ namespace View
                 dgvArticles.Rows[e.RowIndex].Selected = true;
                 pnlDetails.Visible = true;
                 pnlAddEdit.Visible = false;
+
+                selectedItem = e.RowIndex;
+
+                lblIdArticle.Text = "Clave: "+articlesList[selectedItem].IdArticle;
+                lblNameArticle.Text = articlesList[selectedItem].Name;
+                txtaDescriptionDetails.Text = articlesList[selectedItem].Description;
                 
             }
             catch (Exception)

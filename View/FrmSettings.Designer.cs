@@ -83,7 +83,8 @@
             this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(154, 0);
             this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(467, 390);
+            this.pnlContent.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
+            this.pnlContent.Size = new System.Drawing.Size(480, 390);
             this.pnlContent.TabIndex = 1;
             // 
             // FrmSettings
@@ -91,7 +92,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(621, 390);
+            this.ClientSize = new System.Drawing.Size(634, 390);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;

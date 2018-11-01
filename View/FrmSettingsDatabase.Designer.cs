@@ -37,6 +37,7 @@
             this.txtPort = new System.Windows.Forms.TextBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblHeader
@@ -91,7 +92,6 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(173, 25);
             this.txtServer.TabIndex = 6;
-            this.txtServer.Text = "localhost";
             // 
             // txtPort
             // 
@@ -99,7 +99,6 @@
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(64, 25);
             this.txtPort.TabIndex = 7;
-            this.txtPort.Text = "3306";
             // 
             // txtUser
             // 
@@ -107,7 +106,6 @@
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(148, 25);
             this.txtUser.TabIndex = 8;
-            this.txtUser.Text = "root";
             // 
             // txtPassword
             // 
@@ -115,8 +113,22 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(172, 25);
             this.txtPassword.TabIndex = 9;
-            this.txtPassword.Text = "root";
             this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.Location = new System.Drawing.Point(350, 344);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(102, 32);
+            this.btnSave.TabIndex = 10;
+            this.btnSave.Text = "Guardar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FrmSettingsDatabase
             // 
@@ -124,7 +136,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.ClientSize = new System.Drawing.Size(453, 360);
+            this.ClientSize = new System.Drawing.Size(464, 388);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPort);
@@ -135,6 +148,7 @@
             this.Controls.Add(this.lblServer);
             this.Controls.Add(this.lblHeader);
             this.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmSettingsDatabase";
             this.Text = "FrmSettingsDatabase";
@@ -154,5 +168,6 @@
         private System.Windows.Forms.TextBox txtPort;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Button btnSave;
     }
 }

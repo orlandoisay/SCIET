@@ -12,19 +12,11 @@ namespace View
 {
     public partial class FrmSettings : Form
     {
+        private Form currentForm = null;
+
         public FrmSettings()
         {
             InitializeComponent();  
-        }
-
-        public void displayForm(Form subform)
-        {
-            pnlContent.Controls.Clear();
-            subform.TopLevel = false;
-            pnlContent.Controls.Add(subform);
-            subform.FormBorderStyle = FormBorderStyle.None;
-            subform.Dock = DockStyle.Fill;
-            subform.Show();
         }
 
         private void btnGeneral_Click(object sender, EventArgs e)
@@ -36,5 +28,18 @@ namespace View
         {
             displayForm(new FrmSettingsDatabase());
         }
+
+        public void displayForm(Form subform)
+        {
+            pnlContent.Controls.Clear();
+            subform.TopLevel = false;
+            pnlContent.Controls.Add(subform);
+            subform.FormBorderStyle = FormBorderStyle.None;
+            subform.Dock = DockStyle.Fill;
+            subform.Show();
+
+            currentForm = subform;
+        }
+
     }
 }

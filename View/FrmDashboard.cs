@@ -15,11 +15,18 @@ namespace View
         public FrmDashboard()
         {
             InitializeComponent();
+            Load();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
             (new FrmSettings()).ShowDialog();
+            Load();
+        }
+
+        public void Load()
+        {
+            pbLogo.ImageLocation = Common.Util.GetLogoPath();
         }
     }
 }

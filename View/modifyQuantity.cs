@@ -5,20 +5,16 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace View
 {
-    public partial class FrmLogin : Form
+    public partial class modifyQuantity : Form
     {
-        public FrmLogin()
+        public modifyQuantity()
         {
             InitializeComponent();
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

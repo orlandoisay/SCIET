@@ -35,6 +35,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmArticleCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArticleCatalog.Designer.cs">
+      <DependentUpon>FrmArticleCatalog.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,10 +86,28 @@
     <Compile Include="FrmSettingsGeneral.Designer.cs">
       <DependentUpon>FrmSettingsGeneral.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSubarticleCatalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSubarticleCatalog.Designer.cs">
+      <DependentUpon>FrmSubarticleCatalog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modifyQuantity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modifyQuantity.Designer.cs">
+      <DependentUpon>modifyQuantity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmArticleCatalog.resx">
+      <DependentUpon>FrmArticleCatalog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDashboard.resx">
       <DependentUpon>FrmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettings.resx">
       <DependentUpon>FrmSettings.cs</DependentUpon>
@@ -89,6 +117,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSettingsGeneral.resx">
       <DependentUpon>FrmSettingsGeneral.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSubarticleCatalog.resx">
+      <DependentUpon>FrmSubarticleCatalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifyQuantity.resx">
+      <DependentUpon>modifyQuantity.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -127,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\MySql.Data.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

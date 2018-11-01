@@ -30,6 +30,15 @@
         {
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvSubarticles = new System.Windows.Forms.DataGridView();
+            this.idSubarticles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.precio4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -55,15 +64,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlAddEdit = new System.Windows.Forms.Panel();
-            this.idSubarticles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnMenudeo)).BeginInit();
@@ -102,6 +102,79 @@
             this.dgvSubarticles.ReadOnly = true;
             this.dgvSubarticles.Size = new System.Drawing.Size(670, 150);
             this.dgvSubarticles.TabIndex = 1;
+            this.dgvSubarticles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubarticles_CellClick);
+            // 
+            // idSubarticles
+            // 
+            this.idSubarticles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.idSubarticles.HeaderText = "Clave";
+            this.idSubarticles.Name = "idSubarticles";
+            this.idSubarticles.ReadOnly = true;
+            this.idSubarticles.Width = 59;
+            // 
+            // size
+            // 
+            this.size.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.size.HeaderText = "Talla";
+            this.size.Name = "size";
+            this.size.ReadOnly = true;
+            this.size.Width = 55;
+            // 
+            // color
+            // 
+            this.color.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.color.HeaderText = "Color";
+            this.color.Name = "color";
+            this.color.ReadOnly = true;
+            this.color.Width = 56;
+            // 
+            // cost
+            // 
+            this.cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cost.HeaderText = "Costo";
+            this.cost.Name = "cost";
+            this.cost.ReadOnly = true;
+            this.cost.Width = 59;
+            // 
+            // precio1
+            // 
+            this.precio1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.precio1.HeaderText = "Menudeo";
+            this.precio1.Name = "precio1";
+            this.precio1.ReadOnly = true;
+            this.precio1.Width = 77;
+            // 
+            // precio2
+            // 
+            this.precio2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.precio2.HeaderText = "Medio mayoreo";
+            this.precio2.Name = "precio2";
+            this.precio2.ReadOnly = true;
+            this.precio2.Width = 96;
+            // 
+            // precio3
+            // 
+            this.precio3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.precio3.HeaderText = "Mayoreo";
+            this.precio3.Name = "precio3";
+            this.precio3.ReadOnly = true;
+            this.precio3.Width = 73;
+            // 
+            // precio4
+            // 
+            this.precio4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.precio4.HeaderText = "Especial";
+            this.precio4.Name = "precio4";
+            this.precio4.ReadOnly = true;
+            this.precio4.Width = 72;
+            // 
+            // quantity
+            // 
+            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.quantity.HeaderText = "Existencia";
+            this.quantity.Name = "quantity";
+            this.quantity.ReadOnly = true;
+            this.quantity.Width = 80;
             // 
             // btnAdd
             // 
@@ -112,6 +185,7 @@
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -122,6 +196,7 @@
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -132,6 +207,7 @@
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnChangeQuantity
             // 
@@ -198,7 +274,6 @@
             this.numericUpDown4.Name = "numericUpDown4";
             this.numericUpDown4.Size = new System.Drawing.Size(100, 25);
             this.numericUpDown4.TabIndex = 11;
-            this.numericUpDown4.ValueChanged += new System.EventHandler(this.numericUpDown4_ValueChanged);
             // 
             // spnCosto
             // 
@@ -215,7 +290,6 @@
             this.spnMedioMayoreo.Name = "spnMedioMayoreo";
             this.spnMedioMayoreo.Size = new System.Drawing.Size(100, 25);
             this.spnMedioMayoreo.TabIndex = 13;
-            this.spnMedioMayoreo.ValueChanged += new System.EventHandler(this.numericUpDown6_ValueChanged);
             // 
             // label1
             // 
@@ -296,7 +370,6 @@
             this.label8.Size = new System.Drawing.Size(58, 19);
             this.label8.TabIndex = 21;
             this.label8.Text = "Especial:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -355,78 +428,6 @@
             this.pnlAddEdit.Size = new System.Drawing.Size(670, 106);
             this.pnlAddEdit.TabIndex = 25;
             // 
-            // idSubarticles
-            // 
-            this.idSubarticles.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.idSubarticles.HeaderText = "Clave";
-            this.idSubarticles.Name = "idSubarticles";
-            this.idSubarticles.ReadOnly = true;
-            this.idSubarticles.Width = 59;
-            // 
-            // size
-            // 
-            this.size.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.size.HeaderText = "Talla";
-            this.size.Name = "size";
-            this.size.ReadOnly = true;
-            this.size.Width = 55;
-            // 
-            // color
-            // 
-            this.color.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.color.HeaderText = "Color";
-            this.color.Name = "color";
-            this.color.ReadOnly = true;
-            this.color.Width = 56;
-            // 
-            // cost
-            // 
-            this.cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.cost.HeaderText = "Costo";
-            this.cost.Name = "cost";
-            this.cost.ReadOnly = true;
-            this.cost.Width = 59;
-            // 
-            // precio1
-            // 
-            this.precio1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.precio1.HeaderText = "Menudeo";
-            this.precio1.Name = "precio1";
-            this.precio1.ReadOnly = true;
-            this.precio1.Width = 77;
-            // 
-            // precio2
-            // 
-            this.precio2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.precio2.HeaderText = "Medio mayoreo";
-            this.precio2.Name = "precio2";
-            this.precio2.ReadOnly = true;
-            this.precio2.Width = 96;
-            // 
-            // precio3
-            // 
-            this.precio3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.precio3.HeaderText = "Mayoreo";
-            this.precio3.Name = "precio3";
-            this.precio3.ReadOnly = true;
-            this.precio3.Width = 73;
-            // 
-            // precio4
-            // 
-            this.precio4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.precio4.HeaderText = "Especial";
-            this.precio4.Name = "precio4";
-            this.precio4.ReadOnly = true;
-            this.precio4.Width = 72;
-            // 
-            // quantity
-            // 
-            this.quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.quantity.HeaderText = "Existencia";
-            this.quantity.Name = "quantity";
-            this.quantity.ReadOnly = true;
-            this.quantity.Width = 80;
-            // 
             // FrmSubarticleCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,7 +442,6 @@
             this.Controls.Add(this.txtBuscar);
             this.Name = "FrmSubarticleCatalog";
             this.Text = "FrmSubarticleCatalog";
-            this.Load += new System.EventHandler(this.FrmSubarticleCatalog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnMenudeo)).EndInit();

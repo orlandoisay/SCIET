@@ -36,9 +36,9 @@
             this.lblCurrentAmount = new System.Windows.Forms.Label();
             this.spnInputOutput = new System.Windows.Forms.NumericUpDown();
             this.dgvModify = new System.Windows.Forms.DataGridView();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modify = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.spnInputOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModify)).BeginInit();
             this.SuspendLayout();
@@ -72,16 +72,19 @@
             this.btnClean.TabIndex = 2;
             this.btnClean.Text = "Limpiar historial";
             this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
             // 
             // btnAddRemove
             // 
             this.btnAddRemove.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnAddRemove.Location = new System.Drawing.Point(118, 212);
             this.btnAddRemove.Name = "btnAddRemove";
-            this.btnAddRemove.Size = new System.Drawing.Size(75, 25);
+            this.btnAddRemove.Size = new System.Drawing.Size(83, 25);
             this.btnAddRemove.TabIndex = 3;
             this.btnAddRemove.Text = "Agregar";
             this.btnAddRemove.UseVisualStyleBackColor = true;
+            this.btnAddRemove.Visible = false;
+            this.btnAddRemove.Click += new System.EventHandler(this.btnAddRemove_Click);
             // 
             // btnClose
             // 
@@ -92,6 +95,7 @@
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblCurrentAmount
             // 
@@ -107,9 +111,15 @@
             // 
             this.spnInputOutput.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.spnInputOutput.Location = new System.Drawing.Point(12, 212);
+            this.spnInputOutput.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.spnInputOutput.Name = "spnInputOutput";
             this.spnInputOutput.Size = new System.Drawing.Size(100, 25);
             this.spnInputOutput.TabIndex = 7;
+            this.spnInputOutput.ValueChanged += new System.EventHandler(this.spnInputOutput_ValueChanged);
             // 
             // dgvModify
             // 
@@ -119,21 +129,12 @@
             this.dgvModify.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.date,
             this.modify});
+            this.dgvModify.Enabled = false;
             this.dgvModify.Location = new System.Drawing.Point(12, 37);
             this.dgvModify.Name = "dgvModify";
             this.dgvModify.ReadOnly = true;
             this.dgvModify.Size = new System.Drawing.Size(300, 150);
             this.dgvModify.TabIndex = 8;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnReturn.Location = new System.Drawing.Point(118, 242);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(75, 25);
-            this.btnReturn.TabIndex = 4;
-            this.btnReturn.Text = "Devolución";
-            this.btnReturn.UseVisualStyleBackColor = true;
             // 
             // date
             // 
@@ -149,6 +150,18 @@
             this.modify.HeaderText = "Modificación";
             this.modify.Name = "modify";
             this.modify.ReadOnly = true;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnReturn.Location = new System.Drawing.Point(118, 242);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(83, 25);
+            this.btnReturn.TabIndex = 4;
+            this.btnReturn.Text = "Devolución";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Visible = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // modifyQuantity
             // 

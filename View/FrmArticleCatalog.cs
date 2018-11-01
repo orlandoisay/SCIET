@@ -35,6 +35,11 @@ namespace View
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar el registro?", "Info",
+                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.No)
+                return;
+
         }
 
         private void dgvArticles_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -15,25 +15,39 @@ namespace View
         public FrmSubarticleCatalog()
         {
             InitializeComponent();
+            dgvSubarticles.Rows.Add();
         }
 
-        private void FrmSubarticleCatalog_Load(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
+            pnlAddEdit.Visible = true;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            pnlAddEdit.Visible = true;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar el registro?", "Info",
+                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.No)
+                return;
 
         }
 
-        private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+        private void dgvSubarticles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
+            try
+            {
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
-        {
+            }
+            catch (Exception)
+            {
+            }
 
         }
     }

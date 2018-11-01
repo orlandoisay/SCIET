@@ -67,6 +67,35 @@ namespace Data
             }
         }
 
+        public static ArticlePOJO getTotalQuantity(int idArticle)
+        {
+            try
+            {
+                var list = new List<ArticlePOJO>();
+
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("SELECT SUM(s.quantity) as totalQuantity FROM " +
+                    "articles a JOIN subarticles s USING(idArticle) WHERE idArticle = @P0;");
+                cmd.Parameters.AddWithValue("@P0", idArticle);
+
+                DataTable dt = con.ejecutarConsulta(cmd);
+
+                if (dt.Rows.Count != 1)
+                    return null;
+
+                return DataRowAObjeto(dt.Rows[0]);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
         public static int insertArticle(ArticlePOJO newArticle)
         {
             try

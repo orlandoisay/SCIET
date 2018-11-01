@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvSubarticles = new System.Windows.Forms.DataGridView();
             this.idSubarticles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,8 +63,8 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlAddEdit = new System.Windows.Forms.Panel();
-            this.lblName = new System.Windows.Forms.Label();
             this.cbxSize = new System.Windows.Forms.ComboBox();
+            this.lblName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnMenudeo)).BeginInit();
@@ -75,13 +75,14 @@
             this.pnlAddEdit.SuspendLayout();
             this.SuspendLayout();
             // 
-            // txtBuscar
+            // txtSearch
             // 
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtBuscar.Location = new System.Drawing.Point(12, 12);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(250, 25);
-            this.txtBuscar.TabIndex = 0;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.txtSearch.Location = new System.Drawing.Point(12, 12);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(250, 25);
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dgvSubarticles
             // 
@@ -425,16 +426,6 @@
             this.pnlAddEdit.TabIndex = 25;
             this.pnlAddEdit.Visible = false;
             // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblName.Location = new System.Drawing.Point(12, 205);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(78, 19);
-            this.lblName.TabIndex = 26;
-            this.lblName.Text = "Nombre: --";
-            // 
             // cbxSize
             // 
             this.cbxSize.Font = new System.Drawing.Font("Segoe UI Light", 10F);
@@ -452,6 +443,16 @@
             this.cbxSize.Size = new System.Drawing.Size(75, 25);
             this.cbxSize.TabIndex = 25;
             // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblName.Location = new System.Drawing.Point(12, 205);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(78, 19);
+            this.lblName.TabIndex = 26;
+            this.lblName.Text = "Nombre: --";
+            // 
             // FrmSubarticleCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -464,7 +465,7 @@
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvSubarticles);
-            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.txtSearch);
             this.Name = "FrmSubarticleCatalog";
             this.Text = "FrmSubarticleCatalog";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).EndInit();
@@ -483,7 +484,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgvSubarticles;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;

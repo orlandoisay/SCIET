@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.rbtnIdArticle = new System.Windows.Forms.RadioButton();
             this.rbtnNameArticle = new System.Windows.Forms.RadioButton();
             this.dgvArticles = new System.Windows.Forms.DataGridView();
@@ -64,13 +64,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtBuscar
+            // txtSearch
             // 
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtBuscar.Location = new System.Drawing.Point(9, 7);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(250, 25);
-            this.txtBuscar.TabIndex = 0;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.txtSearch.Location = new System.Drawing.Point(9, 7);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(250, 25);
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // rbtnIdArticle
             // 
@@ -380,7 +381,7 @@
             this.Controls.Add(this.dgvArticles);
             this.Controls.Add(this.rbtnNameArticle);
             this.Controls.Add(this.rbtnIdArticle);
-            this.Controls.Add(this.txtBuscar);
+            this.Controls.Add(this.txtSearch);
             this.Name = "FrmArticleCatalog";
             this.Text = "FrmArticleCatalog";
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticles)).EndInit();
@@ -397,7 +398,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.RadioButton rbtnIdArticle;
         private System.Windows.Forms.RadioButton rbtnNameArticle;
         private System.Windows.Forms.DataGridView dgvArticles;

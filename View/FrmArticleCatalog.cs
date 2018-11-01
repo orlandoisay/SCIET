@@ -20,8 +20,8 @@ namespace View
         public FrmArticleCatalog()
         {
             InitializeComponent();
-            dgvArticles.Rows.Add();
-            //updateTable();
+            //dgvArticles.Rows.Add();
+            updateTable();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -84,12 +84,56 @@ namespace View
         {
 
             dgvArticles.Rows.Clear();
-            articlesList = ArticleDAO.getAll();
+            //articlesList = ArticleDAO.getAll();
+            // Prueba:
+            ArticlePOJO pro1 = new ArticlePOJO(1000,"Blusa","Bonita","D:");
+            ArticlePOJO pro2 = new ArticlePOJO(1001, "Pantalon", "ni idea", "C:");
+            ArticlePOJO pro3 = new ArticlePOJO(1002, "Botas", "Maso", "E:");
+            ArticlePOJO pro4 = new ArticlePOJO(1003, "Bufanda", "Calientita", "F:");
+            ArticlePOJO pro5 = new ArticlePOJO(1004, "Bolsa", "Grande", "G:");
+            articlesList.Add(pro1);
+            articlesList.Add(pro2);
+            articlesList.Add(pro3);
+            articlesList.Add(pro4);
+            articlesList.Add(pro5);
+
+            //articlesList = ArticleDAO.getAll();
             for (int i = 0; i < articlesList.Count; i++)
             {
                 dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
             }
 
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            filterResults(txtSearch.Text.ToLower());
+        }
+
+        // Método de búsqueda
+        public void filterResults(string parameter)
+        {
+            dgvArticles.Rows.Clear();
+            for (int i = 0; i < articlesList.Count; i++)
+            {
+                if (rbtnNameArticle.Checked == true) {
+
+                    if (articlesList[i].Name.ToLower().Contains(parameter) == true)
+                    {
+                        dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
+                    }
+
+                } else if (rbtnIdArticle.Checked == true) {
+
+                    if ((articlesList[i].IdArticle+"").Contains(parameter) == true)
+                    {
+                        dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
+                    }
+
+                }
+                
+            }
+        }
+
     }
 }

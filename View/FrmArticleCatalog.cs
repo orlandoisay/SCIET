@@ -15,7 +15,8 @@ namespace View
     public partial class FrmArticleCatalog : Form
     {
         List<ArticlePOJO> articlesList = new List<ArticlePOJO>();
-        int selectedItem;
+        ArticlePOJO selectedItem;
+        int index;
 
         public FrmArticleCatalog()
         {
@@ -29,6 +30,10 @@ namespace View
             pnlDetails.Visible = false;
             pnlAddEdit.Visible = true;
             pnlAddEdit.Location = new Point(pnlDetails.Location.X, pnlDetails.Location.Y);
+
+            cleanPanelAddEdit();
+            btnSave.Text = "Guardar";
+            spnIdArticle.Enabled = true;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -37,9 +42,12 @@ namespace View
             pnlAddEdit.Visible = true;
             pnlAddEdit.Location = new Point(pnlDetails.Location.X, pnlDetails.Location.Y);
 
-            txtIdArticle.Text = articlesList[selectedItem].IdArticle + "";
-            txtNameArticle.Text = articlesList[selectedItem].Name;
-            txtaDescriptionAddEdit.Text = articlesList[selectedItem].Description;
+            cleanPanelAddEdit();
+            spnIdArticle.Value = selectedItem.IdArticle;
+            txtNameArticle.Text = selectedItem.Name;
+            txtaDescriptionAddEdit.Text = selectedItem.Description;
+            btnSave.Text = "Cambiar";
+            spnIdArticle.Enabled = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -50,6 +58,11 @@ namespace View
             if (dr == DialogResult.No)
                 return;
 
+            ArticleDAO.deleteById(selectedItem.IdArticle);
+            updateTable();
+            cleanPanelAddEdit();
+            pnlAddEdit.Visible = false;
+
         }
 
         private void dgvArticles_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -57,60 +70,103 @@ namespace View
 
             try
             {
-
-                dgvArticles.Rows[e.RowIndex].Selected = true;
+                index = e.RowIndex;
+                dgvArticles.Rows[index].Selected = true;
                 pnlDetails.Visible = true;
                 pnlAddEdit.Visible = false;
 
-                selectedItem = e.RowIndex;
+                selectedItem = ArticleDAO.getOneById(int.Parse(dgvArticles.Rows[index].Cells[0].Value + ""));
 
-                lblIdArticle.Text = "Clave: "+articlesList[selectedItem].IdArticle;
-                lblNameArticle.Text = articlesList[selectedItem].Name;
-                txtaDescriptionDetails.Text = articlesList[selectedItem].Description;
-                
+                fillDetails(selectedItem, index);
             }
             catch (Exception)
             {
             }
-            
+
         }
 
         private void btnShowSubarticles_Click(object sender, EventArgs e)
         {
-            new FrmSubarticleCatalog().ShowDialog();
+            new FrmSubarticleCatalog(selectedItem.IdArticle).ShowDialog();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
 
+            if (btnSave.Text == "Guardar")
+            {
+                if (((spnIdArticle.Value) + "") == "" || txtNameArticle.Text == "")
+                {
+                    MessageBox.Show("Clave y nombre son campos obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (ArticleDAO.getOneById(int.Parse((spnIdArticle.Value) + "")) != null)
+                {
+                    MessageBox.Show("Clave duplicada, pruebe con otra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea guardar el producto?", "Info",
+                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No)
+                    return;
+
+                ArticlePOJO newArticle = new ArticlePOJO();
+                newArticle.IdArticle = int.Parse(spnIdArticle.Text);
+                newArticle.Name = txtNameArticle.Text;
+                newArticle.Description = txtaDescriptionAddEdit.Text;
+                newArticle.Image = null;
+                ArticleDAO.insertArticle(newArticle);
+                updateTable();
+
+                cleanPanelAddEdit();
+                pnlAddEdit.Visible = false;
+
+            }
+            else
+            {
+
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea cambiar el producto?", "Info",
+                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No)
+                    return;
+
+                ArticlePOJO newArticle = new ArticlePOJO();
+                newArticle.IdArticle = int.Parse((spnIdArticle.Value) + "");
+                newArticle.Name = txtNameArticle.Text;
+                newArticle.Description = txtaDescriptionAddEdit.Text;
+                newArticle.Image = null;
+                ArticleDAO.updateArticle(newArticle);
+                updateTable();
+
+                cleanPanelAddEdit();
+                pnlAddEdit.Visible = false;
+
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            cleanPanelAddEdit();
             pnlAddEdit.Visible = false;
+            fillDetails(selectedItem, index);
+            pnlDetails.Visible = true;
         }
 
         public void updateTable()
         {
 
             dgvArticles.Rows.Clear();
-            //articlesList = ArticleDAO.getAll();
-            // Prueba:
-            ArticlePOJO pro1 = new ArticlePOJO(1000,"Blusa","Bonita","D:");
-            ArticlePOJO pro2 = new ArticlePOJO(1001, "Pantalon", "ni idea", "C:");
-            ArticlePOJO pro3 = new ArticlePOJO(1002, "Botas", "Maso", "E:");
-            ArticlePOJO pro4 = new ArticlePOJO(1003, "Bufanda", "Calientita", "F:");
-            ArticlePOJO pro5 = new ArticlePOJO(1004, "Bolsa", "Grande", "G:");
-            articlesList.Add(pro1);
-            articlesList.Add(pro2);
-            articlesList.Add(pro3);
-            articlesList.Add(pro4);
-            articlesList.Add(pro5);
+            articlesList = ArticleDAO.getAll();
+            int quantity;
 
-            //articlesList = ArticleDAO.getAll();
             for (int i = 0; i < articlesList.Count; i++)
             {
-                dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
+
+                quantity = ArticleDAO.getTotalQuantity(articlesList[i].IdArticle);
+
+                dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, quantity);
             }
 
         }
@@ -126,23 +182,41 @@ namespace View
             dgvArticles.Rows.Clear();
             for (int i = 0; i < articlesList.Count; i++)
             {
-                if (rbtnNameArticle.Checked == true) {
+                if (rbtnNameArticle.Checked == true)
+                {
 
                     if (articlesList[i].Name.ToLower().Contains(parameter) == true)
                     {
                         dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
                     }
 
-                } else if (rbtnIdArticle.Checked == true) {
+                }
+                else if (rbtnIdArticle.Checked == true)
+                {
 
-                    if ((articlesList[i].IdArticle+"").Contains(parameter) == true)
+                    if ((articlesList[i].IdArticle + "").Contains(parameter) == true)
                     {
                         dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
                     }
 
                 }
-                
+
             }
+        }
+
+        public void cleanPanelAddEdit()
+        {
+            spnIdArticle.Value = 1;
+            txtNameArticle.Text = "";
+            txtaDescriptionAddEdit.Text = "";
+        }
+
+        public void fillDetails(ArticlePOJO article, int index)
+        {
+            lblIdArticle.Text = "Clave: " + article.IdArticle;
+            lblNameArticle.Text = article.Name;
+            txtaDescriptionDetails.Text = article.Description;
+            lblQuantityArticle.Text = "Existencia: " + dgvArticles.Rows[index].Cells[2].Value;
         }
 
     }

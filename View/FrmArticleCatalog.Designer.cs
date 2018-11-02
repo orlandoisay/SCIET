@@ -39,6 +39,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pnlDetails = new System.Windows.Forms.Panel();
+            this.btnShowSubarticles = new System.Windows.Forms.Button();
             this.lblQuantityArticle = new System.Windows.Forms.Label();
             this.txtaDescriptionDetails = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@
             this.pnlAddEdit = new System.Windows.Forms.Panel();
             this.txtaDescriptionAddEdit = new System.Windows.Forms.RichTextBox();
             this.txtNameArticle = new System.Windows.Forms.TextBox();
-            this.txtIdArticle = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAttach = new System.Windows.Forms.Button();
@@ -56,12 +56,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pbxAddEdit = new System.Windows.Forms.PictureBox();
-            this.btnShowSubarticles = new System.Windows.Forms.Button();
+            this.spnIdArticle = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticles)).BeginInit();
             this.pnlDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDetails)).BeginInit();
             this.pnlAddEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnIdArticle)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -185,6 +186,17 @@
             this.pnlDetails.TabIndex = 7;
             this.pnlDetails.Visible = false;
             // 
+            // btnShowSubarticles
+            // 
+            this.btnShowSubarticles.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowSubarticles.Location = new System.Drawing.Point(386, 164);
+            this.btnShowSubarticles.Name = "btnShowSubarticles";
+            this.btnShowSubarticles.Size = new System.Drawing.Size(111, 23);
+            this.btnShowSubarticles.TabIndex = 14;
+            this.btnShowSubarticles.Text = "Ver subproductos";
+            this.btnShowSubarticles.UseVisualStyleBackColor = true;
+            this.btnShowSubarticles.Click += new System.EventHandler(this.btnShowSubarticles_Click);
+            // 
             // lblQuantityArticle
             // 
             this.lblQuantityArticle.AutoSize = true;
@@ -245,9 +257,9 @@
             // 
             // pnlAddEdit
             // 
+            this.pnlAddEdit.Controls.Add(this.spnIdArticle);
             this.pnlAddEdit.Controls.Add(this.txtaDescriptionAddEdit);
             this.pnlAddEdit.Controls.Add(this.txtNameArticle);
-            this.pnlAddEdit.Controls.Add(this.txtIdArticle);
             this.pnlAddEdit.Controls.Add(this.btnCancel);
             this.pnlAddEdit.Controls.Add(this.btnSave);
             this.pnlAddEdit.Controls.Add(this.btnAttach);
@@ -277,14 +289,6 @@
             this.txtNameArticle.Name = "txtNameArticle";
             this.txtNameArticle.Size = new System.Drawing.Size(311, 25);
             this.txtNameArticle.TabIndex = 8;
-            // 
-            // txtIdArticle
-            // 
-            this.txtIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtIdArticle.Location = new System.Drawing.Point(110, 25);
-            this.txtIdArticle.Name = "txtIdArticle";
-            this.txtIdArticle.Size = new System.Drawing.Size(70, 25);
-            this.txtIdArticle.TabIndex = 7;
             // 
             // btnCancel
             // 
@@ -357,22 +361,34 @@
             this.pbxAddEdit.TabIndex = 0;
             this.pbxAddEdit.TabStop = false;
             // 
-            // btnShowSubarticles
+            // spnIdArticle
             // 
-            this.btnShowSubarticles.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowSubarticles.Location = new System.Drawing.Point(386, 164);
-            this.btnShowSubarticles.Name = "btnShowSubarticles";
-            this.btnShowSubarticles.Size = new System.Drawing.Size(111, 23);
-            this.btnShowSubarticles.TabIndex = 14;
-            this.btnShowSubarticles.Text = "Ver subproductos";
-            this.btnShowSubarticles.UseVisualStyleBackColor = true;
-            this.btnShowSubarticles.Click += new System.EventHandler(this.btnShowSubarticles_Click);
+            this.spnIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnIdArticle.Location = new System.Drawing.Point(112, 26);
+            this.spnIdArticle.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.spnIdArticle.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spnIdArticle.Name = "spnIdArticle";
+            this.spnIdArticle.Size = new System.Drawing.Size(70, 25);
+            this.spnIdArticle.TabIndex = 10;
+            this.spnIdArticle.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FrmArticleCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 431);
+            this.ClientSize = new System.Drawing.Size(524, 609);
             this.Controls.Add(this.pnlAddEdit);
             this.Controls.Add(this.pnlDetails);
             this.Controls.Add(this.btnAdd);
@@ -391,6 +407,7 @@
             this.pnlAddEdit.ResumeLayout(false);
             this.pnlAddEdit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spnIdArticle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,7 +432,6 @@
         private System.Windows.Forms.Panel pnlAddEdit;
         private System.Windows.Forms.RichTextBox txtaDescriptionAddEdit;
         private System.Windows.Forms.TextBox txtNameArticle;
-        private System.Windows.Forms.TextBox txtIdArticle;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnAttach;
@@ -427,5 +443,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityArticle;
         private System.Windows.Forms.Button btnShowSubarticles;
+        private System.Windows.Forms.NumericUpDown spnIdArticle;
     }
 }

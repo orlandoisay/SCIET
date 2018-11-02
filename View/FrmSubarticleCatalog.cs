@@ -17,7 +17,7 @@ namespace View
         List<SubarticlePOJO> subarticlesList = new List<SubarticlePOJO>();
         int selectedItem;
 
-        public FrmSubarticleCatalog()
+        public FrmSubarticleCatalog(int idArticle)
         {
             InitializeComponent();
             updateTable();

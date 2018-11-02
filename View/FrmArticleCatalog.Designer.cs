@@ -212,6 +212,7 @@
             this.txtaDescriptionDetails.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.txtaDescriptionDetails.Location = new System.Drawing.Point(109, 23);
             this.txtaDescriptionDetails.Name = "txtaDescriptionDetails";
+            this.txtaDescriptionDetails.ReadOnly = true;
             this.txtaDescriptionDetails.Size = new System.Drawing.Size(388, 100);
             this.txtaDescriptionDetails.TabIndex = 13;
             this.txtaDescriptionDetails.Text = "";

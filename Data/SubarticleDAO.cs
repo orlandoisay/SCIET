@@ -133,13 +133,35 @@ namespace Data
             }
         }
 
-        public static int deleteById(string idSubarticle)
+        public static int deleteByIdSubarticle(string idSubarticle)
         {
             try
             {
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("DELETE FROM subarticles WHERE idSubarticle = @P0");
                 cmd.Parameters.AddWithValue("@P0", idSubarticle);
+                con.ejecutarSentencia(cmd, true);
+                Conexion.conexion.Close();
+                return con.ejecutarSentencia(cmd, true);
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
+        public static int deleteByIdArticle(int idArticle)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM subarticles WHERE idArticle = @P0");
+                cmd.Parameters.AddWithValue("@P0", idArticle);
                 con.ejecutarSentencia(cmd, true);
                 Conexion.conexion.Close();
                 return con.ejecutarSentencia(cmd, true);

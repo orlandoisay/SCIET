@@ -36,9 +36,11 @@ namespace View
             btnSave.Text = "Guardar";
             spnIdArticle.Enabled = true;
 
-            btnAdd.Enabled = false;
-            btnDelete.Enabled = false;
-            btnEdit.Enabled = true;
+            btnsShowHide(false, true, false);
+            if (articlesList.Count == 0)
+            {
+                btnEdit.Enabled = false;
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -54,9 +56,8 @@ namespace View
             btnSave.Text = "Cambiar";
             spnIdArticle.Enabled = false;
 
-            btnAdd.Enabled = true;
-            btnDelete.Enabled = false;
-            btnEdit.Enabled = false;
+
+            btnsShowHide(true, false, false);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -88,6 +89,7 @@ namespace View
                 dgvArticles.Rows[index].Selected = true;
                 pnlDetails.Visible = true;
                 pnlAddEdit.Visible = false;
+                btnsShowHide(true, true, true);
 
                 selectedItem = ArticleDAO.getOneById(int.Parse(dgvArticles.Rows[index].Cells[0].Value + ""));
 
@@ -137,12 +139,6 @@ namespace View
                 cleanPanelAddEdit();
                 pnlAddEdit.Visible = false;
 
-                if (articlesList.Count == 1)
-                {
-                    btnEdit.Enabled = true;
-                    btnDelete.Enabled = true;
-                }
-
             }
             else
             {
@@ -171,9 +167,7 @@ namespace View
             fillDetails(selectedItem, index);
             dgvArticles.Rows[index].Selected = true;
 
-            btnAdd.Enabled = true;
-            btnDelete.Enabled = true;
-            btnEdit.Enabled = true;
+            btnsShowHide(true, true, true);
 
         }
 
@@ -181,12 +175,20 @@ namespace View
         {
             cleanPanelAddEdit();
             pnlAddEdit.Visible = false;
-            fillDetails(selectedItem, index);
-            pnlDetails.Visible = true;
 
-            btnAdd.Enabled = true;
-            btnDelete.Enabled = true;
-            btnEdit.Enabled = true;
+            if (articlesList.Count != 0)
+            {
+
+                fillDetails(selectedItem, index);
+                pnlDetails.Visible = true;
+
+                btnsShowHide(true, true, true);
+
+            }
+            else
+            {
+                btnsShowHide(true, false, false);
+            }
         }
 
         public void updateTable()
@@ -260,8 +262,7 @@ namespace View
             if (articlesList.Count == 0)
             {
                 MessageBox.Show("No existen productos para mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                btnEdit.Enabled = false;
-                btnDelete.Enabled = false;
+                btnsShowHide(true, false, false);
                 cleanPanelAddEdit();
                 pnlAddEdit.Visible = false;
                 pnlDetails.Visible = false;
@@ -276,6 +277,13 @@ namespace View
             dgvArticles.Rows[index].Selected = true;
             return false;
 
+        }
+
+        public void btnsShowHide(bool action1, bool action2, bool action3)
+        {
+            btnAdd.Enabled = action1;
+            btnEdit.Enabled = action2;
+            btnDelete.Enabled = action3;
         }
 
     }

@@ -15,34 +15,53 @@ namespace View
     public partial class FrmSubarticleCatalog : Form
     {
         List<SubarticlePOJO> subarticlesList = new List<SubarticlePOJO>();
-        int selectedItem;
+        SubarticlePOJO selectedItem;
+        int selectedIdArticle;
 
         public FrmSubarticleCatalog(int idArticle)
         {
             InitializeComponent();
+            selectedIdArticle = idArticle;
             updateTable();
+            isEmpty();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            cleanPanelAddEdit();
             pnlAddEdit.Visible = true;
             btnChangeQuantity.Visible = false;
+            lblQuantity.Visible = true;
+            spnQuantity.Visible = true;
+            btnSave.Text = "Guardar";
+
+            btnsShowHide(false, true, false);
+            if (subarticlesList.Count == 0)
+            {
+                btnEdit.Enabled = false;
+            }
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            cleanPanelAddEdit();
             pnlAddEdit.Visible = true;
             btnChangeQuantity.Visible = false;
+            string[] words = selectedItem.IdSubarticle.Split('_');
+            spnIdSubarticle.Value = int.Parse(words[1]);
+            cbxSize.SelectedItem = selectedItem.Size;
+            txtColor.Text = selectedItem.Color;
+            spnQuantity.Value = selectedItem.Quantity;
+            spnPrice1.Value = decimal.Parse((selectedItem.Price1) + "");
+            spnPrice2.Value = decimal.Parse((selectedItem.Price2) + "");
+            spnPrice3.Value = decimal.Parse((selectedItem.Price3) + "");
+            spnPrice4.Value = decimal.Parse((selectedItem.Price4) + "");
+            spnCost.Value = decimal.Parse((selectedItem.Cost) + "");
+            lblQuantity.Visible = false;
+            spnQuantity.Visible = false;
+            btnSave.Text = "Cambiar";
 
-            txtIdSubarticle.Text = subarticlesList[selectedItem].IdSubarticle+"";
-            cbxSize.SelectedText = subarticlesList[selectedItem].Size;
-            txtColor.Text = subarticlesList[selectedItem].Color;
-            spnQuantity.Value = subarticlesList[selectedItem].Quantity;
-            spnPrice1.Value = subarticlesList[selectedItem].Price1;
-            spnPrice2.Value = subarticlesList[selectedItem].Price2;
-            spnPrice3.Value = subarticlesList[selectedItem].Price3;
-            spnPrice4.Value = subarticlesList[selectedItem].Price4;
-            spnCost.Value = subarticlesList[selectedItem].Cost;
+            btnsShowHide(true, false, false);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -53,6 +72,13 @@ namespace View
             if (dr == DialogResult.No)
                 return;
 
+            SubarticleDAO.deleteByIdSubarticle(selectedItem.IdSubarticle);
+            updateTable();
+            cleanPanelAddEdit();
+            pnlAddEdit.Visible = false;
+
+            isEmpty();
+
         }
 
         private void dgvSubarticles_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -60,12 +86,12 @@ namespace View
 
             try
             {
-
-                dgvSubarticles.Rows[e.RowIndex].Selected = true;
+                int index = e.RowIndex;
+                dgvSubarticles.Rows[index].Selected = true;
                 btnChangeQuantity.Visible = true;
-
-                selectedItem = e.RowIndex;
-
+                pnlAddEdit.Visible = false;
+                selectedItem = SubarticleDAO.getOneById(dgvSubarticles.Rows[index].Cells[0].Value + "");
+                btnsShowHide(true, true, true);
             }
             catch (Exception)
             {
@@ -77,19 +103,8 @@ namespace View
         {
 
             dgvSubarticles.Rows.Clear();
-            
-            SubarticlePOJO pro1 = new SubarticlePOJO(10001, "M", "Negro", 50, 75, 70, 65, 60, 10, 1000);
-            SubarticlePOJO pro2 = new SubarticlePOJO(10002, "LS", "Rosa", 50, 75, 70, 65, 60, 10, 1000);
-            SubarticlePOJO pro3 = new SubarticlePOJO(10003, "XL", "Verde", 50, 75, 70, 65, 60, 10, 1000);
-            SubarticlePOJO pro4 = new SubarticlePOJO(10004, "X", "Negro", 50, 75, 70, 65, 60, 10, 1000);
-            SubarticlePOJO pro5 = new SubarticlePOJO(10005, "M", "Rojo", 50, 75, 70, 65, 60, 10, 1000);
-            subarticlesList.Add(pro1);
-            subarticlesList.Add(pro2);
-            subarticlesList.Add(pro3);
-            subarticlesList.Add(pro4);
-            subarticlesList.Add(pro5);
+            subarticlesList = SubarticleDAO.getAllById(selectedIdArticle);
 
-            //subarticlesList = SubarticleDAO.getAllById(1);
             for (int i = 0; i < subarticlesList.Count; i++)
             {
                 dgvSubarticles.Rows.Add(subarticlesList[i].IdSubarticle, subarticlesList[i].Size,
@@ -103,7 +118,17 @@ namespace View
         private void btnCancel_Click(object sender, EventArgs e)
         {
             pnlAddEdit.Visible = false;
-            btnChangeQuantity.Visible = true;
+
+            if (subarticlesList.Count != 0)
+            {
+                btnChangeQuantity.Visible = true;
+                btnsShowHide(true, true, true);
+            }
+            else
+            {
+                btnsShowHide(true, false, false);
+            }
+
         }
 
         private void btnChangeQuantity_Click(object sender, EventArgs e)
@@ -122,16 +147,129 @@ namespace View
             dgvSubarticles.Rows.Clear();
             for (int i = 0; i < subarticlesList.Count; i++)
             {
-                
-                    if ((subarticlesList[i].IdSubarticle + "").Contains(parameter) == true)
-                    {
-                        dgvSubarticles.Rows.Add(subarticlesList[i].IdSubarticle, subarticlesList[i].Size,
-                        subarticlesList[i].Color, subarticlesList[i].Cost, subarticlesList[i].Price1,
-                        subarticlesList[i].Price2, subarticlesList[i].Price3, subarticlesList[i].Price4,
-                        subarticlesList[i].Quantity);
-                    }
+
+                if ((subarticlesList[i].IdSubarticle + "").Contains(parameter) == true)
+                {
+                    dgvSubarticles.Rows.Add(subarticlesList[i].IdSubarticle, subarticlesList[i].Size,
+                    subarticlesList[i].Color, subarticlesList[i].Cost, subarticlesList[i].Price1,
+                    subarticlesList[i].Price2, subarticlesList[i].Price3, subarticlesList[i].Price4,
+                    subarticlesList[i].Quantity);
+                }
 
             }
+        }
+
+        public void cleanPanelAddEdit()
+        {
+            spnIdSubarticle.Value = 1;
+            cbxSize.SelectedValue = 2;
+            txtColor.Text = "";
+            spnQuantity.Value = 0;
+            spnPrice1.Value = 0;
+            spnPrice2.Value = 0;
+            spnPrice3.Value = 0;
+            spnPrice4.Value = 0;
+            spnCost.Value = 0;
+        }
+
+        public bool isEmpty()
+        {
+
+            if (subarticlesList.Count == 0)
+            {
+                MessageBox.Show("No existen productos para mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnEdit.Enabled = false;
+                btnDelete.Enabled = false;
+                btnChangeQuantity.Visible = false;
+                cleanPanelAddEdit();
+                pnlAddEdit.Visible = false;
+
+                return true;
+            }
+
+            selectedItem = subarticlesList[0];
+            dgvSubarticles.Rows[0].Selected = true;
+
+            return false;
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (btnSave.Text == "Guardar")
+            {
+                if (txtColor.Text == "")
+                {
+                    MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (SubarticleDAO.getOneById(selectedIdArticle + "_" + spnIdSubarticle.Value) != null)
+                {
+                    MessageBox.Show("Clave duplicada, pruebe con otra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea guardar el subproducto?", "Info",
+                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No)
+                    return;
+
+                SubarticlePOJO newSubarticle = new SubarticlePOJO();
+                newSubarticle.IdSubarticle = selectedIdArticle + "_" + spnIdSubarticle.Value;
+                newSubarticle.Size = cbxSize.SelectedItem + "";
+                newSubarticle.Color = txtColor.Text;
+                newSubarticle.Cost = double.Parse(spnCost.Value + "");
+                newSubarticle.Price1 = double.Parse(spnPrice1.Value + "");
+                newSubarticle.Price2 = double.Parse(spnPrice2.Value + "");
+                newSubarticle.Price3 = double.Parse(spnPrice3.Value + "");
+                newSubarticle.Price4 = double.Parse(spnPrice4.Value + "");
+                newSubarticle.Quantity = int.Parse(spnQuantity.Value + "");
+                newSubarticle.IdArticle = selectedIdArticle;
+                SubarticleDAO.insertSubarticle(newSubarticle);
+                updateTable();
+
+                cleanPanelAddEdit();
+                pnlAddEdit.Visible = false;
+            }
+            else
+            {
+
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea cambiar el subproducto?", "Info",
+                                              MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.No)
+                    return;
+
+                SubarticlePOJO newSubarticle = new SubarticlePOJO();
+                newSubarticle.IdSubarticle = selectedIdArticle + "_" + spnIdSubarticle.Value;
+                newSubarticle.Size = cbxSize.SelectedItem + "";
+                newSubarticle.Color = txtColor.Text;
+                newSubarticle.Cost = double.Parse(spnCost.Value + "");
+                newSubarticle.Price1 = double.Parse(spnPrice1.Value + "");
+                newSubarticle.Price2 = double.Parse(spnPrice2.Value + "");
+                newSubarticle.Price3 = double.Parse(spnPrice3.Value + "");
+                newSubarticle.Price4 = double.Parse(spnPrice4.Value + "");
+                newSubarticle.Quantity = int.Parse(spnQuantity.Value + "");
+                newSubarticle.IdArticle = selectedIdArticle;
+                SubarticleDAO.updateSubarticle(newSubarticle, selectedItem.IdSubarticle);
+                updateTable();
+
+                cleanPanelAddEdit();
+                pnlAddEdit.Visible = false;
+
+            }
+
+            selectedItem = subarticlesList[0];
+            dgvSubarticles.Rows[0].Selected = true;
+            btnChangeQuantity.Visible = true;
+            btnsShowHide(true, true, true);
+        }
+
+        public void btnsShowHide(bool action1, bool action2, bool action3)
+        {
+            btnAdd.Enabled = action1;
+            btnEdit.Enabled = action2;
+            btnDelete.Enabled = action3;
         }
     }
 }

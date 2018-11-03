@@ -43,7 +43,6 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnChangeQuantity = new System.Windows.Forms.Button();
-            this.txtIdSubarticle = new System.Windows.Forms.TextBox();
             this.txtColor = new System.Windows.Forms.TextBox();
             this.spnQuantity = new System.Windows.Forms.NumericUpDown();
             this.spnPrice1 = new System.Windows.Forms.NumericUpDown();
@@ -54,7 +53,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblQuantity = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,6 +64,7 @@
             this.pnlAddEdit = new System.Windows.Forms.Panel();
             this.cbxSize = new System.Windows.Forms.ComboBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.spnIdSubarticle = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnPrice1)).BeginInit();
@@ -73,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spnCost)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnPrice2)).BeginInit();
             this.pnlAddEdit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnIdSubarticle)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -223,14 +224,6 @@
             this.btnChangeQuantity.Visible = false;
             this.btnChangeQuantity.Click += new System.EventHandler(this.btnChangeQuantity_Click);
             // 
-            // txtIdSubarticle
-            // 
-            this.txtIdSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtIdSubarticle.Location = new System.Drawing.Point(7, 25);
-            this.txtIdSubarticle.Name = "txtIdSubarticle";
-            this.txtIdSubarticle.Size = new System.Drawing.Size(75, 25);
-            this.txtIdSubarticle.TabIndex = 7;
-            // 
             // txtColor
             // 
             this.txtColor.Font = new System.Drawing.Font("Segoe UI Light", 10F);
@@ -260,7 +253,7 @@
             // 
             this.spnPrice3.DecimalPlaces = 2;
             this.spnPrice3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnPrice3.Location = new System.Drawing.Point(169, 76);
+            this.spnPrice3.Location = new System.Drawing.Point(275, 27);
             this.spnPrice3.Name = "spnPrice3";
             this.spnPrice3.Size = new System.Drawing.Size(100, 25);
             this.spnPrice3.TabIndex = 10;
@@ -278,7 +271,7 @@
             // 
             this.spnCost.DecimalPlaces = 2;
             this.spnCost.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnCost.Location = new System.Drawing.Point(381, 76);
+            this.spnCost.Location = new System.Drawing.Point(381, 26);
             this.spnCost.Name = "spnCost";
             this.spnCost.Size = new System.Drawing.Size(100, 25);
             this.spnCost.TabIndex = 12;
@@ -287,7 +280,7 @@
             // 
             this.spnPrice2.DecimalPlaces = 2;
             this.spnPrice2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnPrice2.Location = new System.Drawing.Point(275, 26);
+            this.spnPrice2.Location = new System.Drawing.Point(169, 77);
             this.spnPrice2.Name = "spnPrice2";
             this.spnPrice2.Size = new System.Drawing.Size(100, 25);
             this.spnPrice2.TabIndex = 13;
@@ -322,15 +315,15 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Color:";
             // 
-            // label4
+            // lblQuantity
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label4.Location = new System.Drawing.Point(84, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 19);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "Existencia:";
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblQuantity.Location = new System.Drawing.Point(84, 54);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(67, 19);
+            this.lblQuantity.TabIndex = 17;
+            this.lblQuantity.Text = "Existencia:";
             // 
             // label5
             // 
@@ -346,7 +339,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label6.Location = new System.Drawing.Point(165, 54);
+            this.label6.Location = new System.Drawing.Point(271, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 19);
             this.label6.TabIndex = 19;
@@ -356,7 +349,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label7.Location = new System.Drawing.Point(271, 3);
+            this.label7.Location = new System.Drawing.Point(165, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(107, 19);
             this.label7.TabIndex = 20;
@@ -376,7 +369,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.label9.Location = new System.Drawing.Point(377, 55);
+            this.label9.Location = new System.Drawing.Point(377, 5);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 19);
             this.label9.TabIndex = 22;
@@ -391,6 +384,7 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -405,11 +399,11 @@
             // 
             // pnlAddEdit
             // 
+            this.pnlAddEdit.Controls.Add(this.spnIdSubarticle);
             this.pnlAddEdit.Controls.Add(this.cbxSize);
             this.pnlAddEdit.Controls.Add(this.spnCost);
             this.pnlAddEdit.Controls.Add(this.btnCancel);
             this.pnlAddEdit.Controls.Add(this.btnSave);
-            this.pnlAddEdit.Controls.Add(this.txtIdSubarticle);
             this.pnlAddEdit.Controls.Add(this.label9);
             this.pnlAddEdit.Controls.Add(this.txtColor);
             this.pnlAddEdit.Controls.Add(this.label8);
@@ -420,7 +414,7 @@
             this.pnlAddEdit.Controls.Add(this.spnPrice3);
             this.pnlAddEdit.Controls.Add(this.label5);
             this.pnlAddEdit.Controls.Add(this.spnPrice4);
-            this.pnlAddEdit.Controls.Add(this.label4);
+            this.pnlAddEdit.Controls.Add(this.lblQuantity);
             this.pnlAddEdit.Controls.Add(this.spnPrice2);
             this.pnlAddEdit.Controls.Add(this.label3);
             this.pnlAddEdit.Controls.Add(this.label1);
@@ -458,6 +452,14 @@
             this.lblName.TabIndex = 26;
             this.lblName.Text = "Nombre: --";
             // 
+            // spnIdSubarticle
+            // 
+            this.spnIdSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnIdSubarticle.Location = new System.Drawing.Point(7, 25);
+            this.spnIdSubarticle.Name = "spnIdSubarticle";
+            this.spnIdSubarticle.Size = new System.Drawing.Size(75, 25);
+            this.spnIdSubarticle.TabIndex = 26;
+            // 
             // FrmSubarticleCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -482,6 +484,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spnPrice2)).EndInit();
             this.pnlAddEdit.ResumeLayout(false);
             this.pnlAddEdit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spnIdSubarticle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,7 +498,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnChangeQuantity;
-        private System.Windows.Forms.TextBox txtIdSubarticle;
         private System.Windows.Forms.TextBox txtColor;
         private System.Windows.Forms.NumericUpDown spnQuantity;
         private System.Windows.Forms.NumericUpDown spnPrice1;
@@ -506,7 +508,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -526,5 +528,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.ComboBox cbxSize;
+        private System.Windows.Forms.NumericUpDown spnIdSubarticle;
     }
 }

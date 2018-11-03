@@ -68,7 +68,7 @@ namespace Data
             }
         }
 
-        public static int insertArticle(SubarticlePOJO newSubarticle)
+        public static int insertSubarticle(SubarticlePOJO newSubarticle)
         {
             try
             {
@@ -100,12 +100,12 @@ namespace Data
             }
         }
 
-        public static void updateSubarticle(SubarticlePOJO newSubarticle, int idSubarticle)
+        public static void updateSubarticle(SubarticlePOJO newSubarticle, string idSubarticle)
         {
             try
             {
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("UPDATE articles SET idSubarticle = @P0, size = @P1, " +
+                MySqlCommand cmd = new MySqlCommand("UPDATE subarticles SET idSubarticle = @P0, size = @P1, " +
                     "color = @P2, cost = @P3, price1 = @P4, price2 = @P5, price3 = @P6, price4 = @P7, " +
                     "quantity = @P8, idArticle = @P9 WHERE idSubarticle = @P10;");
                 cmd.Parameters.AddWithValue("@P0", newSubarticle.IdSubarticle);
@@ -180,14 +180,14 @@ namespace Data
         public static SubarticlePOJO DataRowAObjeto(DataRow dr)
         {
             return new SubarticlePOJO(
-                int.Parse(dr["idSubarticle"].ToString()),
+                dr["idSubarticle"].ToString(),
                 dr["size"].ToString(),
                 dr["color"].ToString(),
-                decimal.Parse(dr["cost"].ToString()),
-                decimal.Parse(dr["price1"].ToString()),
-                decimal.Parse(dr["price2"].ToString()),
-                decimal.Parse(dr["price3"].ToString()),
-                decimal.Parse(dr["price4"].ToString()),
+                double.Parse(dr["cost"].ToString()),
+                double.Parse(dr["price1"].ToString()),
+                double.Parse(dr["price2"].ToString()),
+                double.Parse(dr["price3"].ToString()),
+                double.Parse(dr["price4"].ToString()),
                 int.Parse(dr["quantity"].ToString()),
                 int.Parse(dr["idArticle"].ToString())
             );

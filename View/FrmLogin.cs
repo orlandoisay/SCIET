@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Data;
+using Model;
 
 namespace View
 {
@@ -24,7 +25,17 @@ namespace View
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Conexion.Conectar()+"");
+            UserDAO daoUser = new UserDAO();
+            if (daoUser.Exist(new UserPOJO(txtNickname.Text, txtPassword.Text)))
+            {
+                this.Visible = false;
+                FrmDashboard frmData = new FrmDashboard();
+                frmData.Show();
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectas");
+            }
         }
     }
 }

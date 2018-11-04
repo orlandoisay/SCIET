@@ -65,6 +65,7 @@
             this.btnSettings.TabIndex = 3;
             this.btnSettings.Text = "Entrar";
             this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // textBox1
             // 

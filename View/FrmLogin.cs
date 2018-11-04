@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Data;
 
 namespace View
 {
@@ -19,6 +20,11 @@ namespace View
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Conexion.Conectar()+"");
         }
     }
 }

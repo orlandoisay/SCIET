@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Model;
+using Data;
 
 namespace Data
 {
@@ -137,6 +138,13 @@ namespace Data
         {
             try
             {
+
+                List<BatchPOJO> batchesList = BatchDAO.getAllById(idSubarticle);
+                if (batchesList.Count > 0)
+                {
+                    BatchDAO.deleteAllById(idSubarticle, batchesList);
+                }
+
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("DELETE FROM subarticles WHERE idSubarticle = @P0");
                 cmd.Parameters.AddWithValue("@P0", idSubarticle);
@@ -159,6 +167,18 @@ namespace Data
         {
             try
             {
+
+                List<SubarticlePOJO> subarticlesList = getAllById(idArticle);
+                List<BatchPOJO> batchesList;
+                for (int i = 0; i < subarticlesList.Count; i++)
+                {
+                    batchesList = BatchDAO.getAllById(subarticlesList[i].IdSubarticle);
+                    if (batchesList.Count > 0)
+                    {
+                        BatchDAO.deleteAllById(subarticlesList[i].IdSubarticle, batchesList);
+                    }
+                }
+
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("DELETE FROM subarticles WHERE idArticle = @P0");
                 cmd.Parameters.AddWithValue("@P0", idArticle);

@@ -47,6 +47,8 @@
             this.lblIdArticle = new System.Windows.Forms.Label();
             this.pbxDetails = new System.Windows.Forms.PictureBox();
             this.pnlAddEdit = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPath = new System.Windows.Forms.Label();
             this.spnIdArticle = new System.Windows.Forms.NumericUpDown();
             this.txtaDescriptionAddEdit = new System.Windows.Forms.RichTextBox();
             this.txtNameArticle = new System.Windows.Forms.TextBox();
@@ -209,6 +211,7 @@
             // 
             // txtaDescriptionDetails
             // 
+            this.txtaDescriptionDetails.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtaDescriptionDetails.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.txtaDescriptionDetails.Location = new System.Drawing.Point(109, 23);
             this.txtaDescriptionDetails.Name = "txtaDescriptionDetails";
@@ -250,6 +253,8 @@
             // pbxDetails
             // 
             this.pbxDetails.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pbxDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbxDetails.ErrorImage = global::View.Properties.Resources.logo;
             this.pbxDetails.Location = new System.Drawing.Point(3, 25);
             this.pbxDetails.Name = "pbxDetails";
             this.pbxDetails.Size = new System.Drawing.Size(100, 100);
@@ -258,6 +263,8 @@
             // 
             // pnlAddEdit
             // 
+            this.pnlAddEdit.Controls.Add(this.label1);
+            this.pnlAddEdit.Controls.Add(this.lblPath);
             this.pnlAddEdit.Controls.Add(this.spnIdArticle);
             this.pnlAddEdit.Controls.Add(this.txtaDescriptionAddEdit);
             this.pnlAddEdit.Controls.Add(this.txtNameArticle);
@@ -273,6 +280,28 @@
             this.pnlAddEdit.Size = new System.Drawing.Size(500, 190);
             this.pnlAddEdit.TabIndex = 8;
             this.pnlAddEdit.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label1.Location = new System.Drawing.Point(3, 167);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 19);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Ruta:";
+            this.label1.Visible = false;
+            // 
+            // lblPath
+            // 
+            this.lblPath.AutoSize = true;
+            this.lblPath.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblPath.Location = new System.Drawing.Point(38, 168);
+            this.lblPath.Name = "lblPath";
+            this.lblPath.Size = new System.Drawing.Size(21, 19);
+            this.lblPath.TabIndex = 11;
+            this.lblPath.Text = "--";
+            this.lblPath.Visible = false;
             // 
             // spnIdArticle
             // 
@@ -345,6 +374,7 @@
             this.btnAttach.TabIndex = 4;
             this.btnAttach.Text = "Adjuntar";
             this.btnAttach.UseVisualStyleBackColor = true;
+            this.btnAttach.Click += new System.EventHandler(this.btnAttach_Click);
             // 
             // label7
             // 
@@ -445,5 +475,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityArticle;
         private System.Windows.Forms.Button btnShowSubarticles;
         private System.Windows.Forms.NumericUpDown spnIdArticle;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPath;
     }
 }

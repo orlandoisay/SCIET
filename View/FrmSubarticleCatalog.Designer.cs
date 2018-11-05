@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvSubarticles = new System.Windows.Forms.DataGridView();
             this.idSubarticles = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.size = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,9 +61,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlAddEdit = new System.Windows.Forms.Panel();
-            this.cbxSize = new System.Windows.Forms.ComboBox();
-            this.lblName = new System.Windows.Forms.Label();
             this.spnIdSubarticle = new System.Windows.Forms.NumericUpDown();
+            this.cbxSize = new System.Windows.Forms.ComboBox();
+            this.lblIdArticle = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnPrice1)).BeginInit();
@@ -75,15 +74,6 @@
             this.pnlAddEdit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spnIdSubarticle)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtSearch.Location = new System.Drawing.Point(12, 12);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(250, 25);
-            this.txtSearch.TabIndex = 0;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // dgvSubarticles
             // 
@@ -425,6 +415,14 @@
             this.pnlAddEdit.TabIndex = 25;
             this.pnlAddEdit.Visible = false;
             // 
+            // spnIdSubarticle
+            // 
+            this.spnIdSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnIdSubarticle.Location = new System.Drawing.Point(7, 25);
+            this.spnIdSubarticle.Name = "spnIdSubarticle";
+            this.spnIdSubarticle.Size = new System.Drawing.Size(75, 25);
+            this.spnIdSubarticle.TabIndex = 26;
+            // 
             // cbxSize
             // 
             this.cbxSize.Font = new System.Drawing.Font("Segoe UI Light", 10F);
@@ -442,37 +440,28 @@
             this.cbxSize.Size = new System.Drawing.Size(75, 25);
             this.cbxSize.TabIndex = 25;
             // 
-            // lblName
+            // lblIdArticle
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblName.Location = new System.Drawing.Point(12, 205);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(78, 19);
-            this.lblName.TabIndex = 26;
-            this.lblName.Text = "Nombre: --";
-            // 
-            // spnIdSubarticle
-            // 
-            this.spnIdSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnIdSubarticle.Location = new System.Drawing.Point(7, 25);
-            this.spnIdSubarticle.Name = "spnIdSubarticle";
-            this.spnIdSubarticle.Size = new System.Drawing.Size(75, 25);
-            this.spnIdSubarticle.TabIndex = 26;
+            this.lblIdArticle.AutoSize = true;
+            this.lblIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblIdArticle.Location = new System.Drawing.Point(12, 205);
+            this.lblIdArticle.Name = "lblIdArticle";
+            this.lblIdArticle.Size = new System.Drawing.Size(60, 19);
+            this.lblIdArticle.TabIndex = 26;
+            this.lblIdArticle.Text = "Clave: --";
             // 
             // FrmSubarticleCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(694, 345);
-            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblIdArticle);
             this.Controls.Add(this.pnlAddEdit);
             this.Controls.Add(this.btnChangeQuantity);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvSubarticles);
-            this.Controls.Add(this.txtSearch);
             this.Name = "FrmSubarticleCatalog";
             this.Text = "FrmSubarticleCatalog";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).EndInit();
@@ -491,8 +480,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dgvSubarticles;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnEdit;
@@ -526,7 +513,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn precio3;
         private System.Windows.Forms.DataGridViewTextBoxColumn precio4;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantity;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblIdArticle;
         private System.Windows.Forms.ComboBox cbxSize;
         private System.Windows.Forms.NumericUpDown spnIdSubarticle;
     }

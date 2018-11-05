@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblArticle = new System.Windows.Forms.Label();
+            this.lblSubarticle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnClean = new System.Windows.Forms.Button();
             this.btnAddRemove = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblCurrentAmount = new System.Windows.Forms.Label();
             this.spnInputOutput = new System.Windows.Forms.NumericUpDown();
             this.dgvModify = new System.Windows.Forms.DataGridView();
@@ -43,15 +42,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvModify)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblArticle
+            // lblSubarticle
             // 
-            this.lblArticle.AutoSize = true;
-            this.lblArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblArticle.Location = new System.Drawing.Point(12, 15);
-            this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(74, 19);
-            this.lblArticle.TabIndex = 0;
-            this.lblArticle.Text = "Artículo: --";
+            this.lblSubarticle.AutoSize = true;
+            this.lblSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblSubarticle.Location = new System.Drawing.Point(12, 15);
+            this.lblSubarticle.Name = "lblSubarticle";
+            this.lblSubarticle.Size = new System.Drawing.Size(60, 19);
+            this.lblSubarticle.TabIndex = 0;
+            this.lblSubarticle.Text = "Clave: --";
             // 
             // label2
             // 
@@ -85,17 +84,6 @@
             this.btnAddRemove.UseVisualStyleBackColor = true;
             this.btnAddRemove.Visible = false;
             this.btnAddRemove.Click += new System.EventHandler(this.btnAddRemove_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnClose.Location = new System.Drawing.Point(237, 242);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 25);
-            this.btnClose.TabIndex = 5;
-            this.btnClose.Text = "Cerrar";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblCurrentAmount
             // 
@@ -163,7 +151,7 @@
             this.btnReturn.Visible = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // modifyQuantity
+            // FrmModifyQuantity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -171,13 +159,12 @@
             this.Controls.Add(this.dgvModify);
             this.Controls.Add(this.spnInputOutput);
             this.Controls.Add(this.lblCurrentAmount);
-            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnAddRemove);
             this.Controls.Add(this.btnClean);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblArticle);
-            this.Name = "modifyQuantity";
+            this.Controls.Add(this.lblSubarticle);
+            this.Name = "FrmModifyQuantity";
             this.Text = "modifyQuantity";
             ((System.ComponentModel.ISupportInitialize)(this.spnInputOutput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModify)).EndInit();
@@ -188,11 +175,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblArticle;
+        private System.Windows.Forms.Label lblSubarticle;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClean;
         private System.Windows.Forms.Button btnAddRemove;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label lblCurrentAmount;
         private System.Windows.Forms.NumericUpDown spnInputOutput;
         private System.Windows.Forms.DataGridView dgvModify;

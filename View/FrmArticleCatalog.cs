@@ -69,7 +69,7 @@ namespace View
                 return;
 
 
-            SubarticleDAO.deleteByIdArticle(selectedItem.IdArticle);
+            //SubarticleDAO.deleteByIdArticle(selectedItem.IdArticle);
             ArticleDAO.deleteById(selectedItem.IdArticle);
             updateTable();
             cleanPanelAddEdit();
@@ -104,6 +104,7 @@ namespace View
         private void btnShowSubarticles_Click(object sender, EventArgs e)
         {
             new FrmSubarticleCatalog(selectedItem.IdArticle).ShowDialog();
+            updateTable();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -200,9 +201,7 @@ namespace View
 
             for (int i = 0; i < articlesList.Count; i++)
             {
-
                 quantity = ArticleDAO.getTotalQuantity(articlesList[i].IdArticle);
-
                 dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, quantity);
             }
 

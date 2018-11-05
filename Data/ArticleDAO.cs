@@ -149,6 +149,9 @@ namespace Data
         {
             try
             {
+
+                SubarticleDAO.deleteByIdArticle(idArticle);
+
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("DELETE FROM articles WHERE idArticle = @P0");
                 cmd.Parameters.AddWithValue("@P0", idArticle);

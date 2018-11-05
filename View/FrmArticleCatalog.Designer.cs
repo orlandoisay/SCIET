@@ -47,6 +47,7 @@
             this.lblIdArticle = new System.Windows.Forms.Label();
             this.pbxDetails = new System.Windows.Forms.PictureBox();
             this.pnlAddEdit = new System.Windows.Forms.Panel();
+            this.spnIdArticle = new System.Windows.Forms.NumericUpDown();
             this.txtaDescriptionAddEdit = new System.Windows.Forms.RichTextBox();
             this.txtNameArticle = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -56,13 +57,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pbxAddEdit = new System.Windows.Forms.PictureBox();
-            this.spnIdArticle = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticles)).BeginInit();
             this.pnlDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDetails)).BeginInit();
             this.pnlAddEdit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnIdArticle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -274,6 +274,29 @@
             this.pnlAddEdit.TabIndex = 8;
             this.pnlAddEdit.Visible = false;
             // 
+            // spnIdArticle
+            // 
+            this.spnIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnIdArticle.Location = new System.Drawing.Point(112, 26);
+            this.spnIdArticle.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.spnIdArticle.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.spnIdArticle.Name = "spnIdArticle";
+            this.spnIdArticle.Size = new System.Drawing.Size(70, 25);
+            this.spnIdArticle.TabIndex = 10;
+            this.spnIdArticle.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // txtaDescriptionAddEdit
             // 
             this.txtaDescriptionAddEdit.Font = new System.Drawing.Font("Segoe UI Light", 10F);
@@ -362,34 +385,11 @@
             this.pbxAddEdit.TabIndex = 0;
             this.pbxAddEdit.TabStop = false;
             // 
-            // spnIdArticle
-            // 
-            this.spnIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnIdArticle.Location = new System.Drawing.Point(112, 26);
-            this.spnIdArticle.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.spnIdArticle.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.spnIdArticle.Name = "spnIdArticle";
-            this.spnIdArticle.Size = new System.Drawing.Size(70, 25);
-            this.spnIdArticle.TabIndex = 10;
-            this.spnIdArticle.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // FrmArticleCatalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 609);
+            this.ClientSize = new System.Drawing.Size(524, 431);
             this.Controls.Add(this.pnlAddEdit);
             this.Controls.Add(this.pnlDetails);
             this.Controls.Add(this.btnAdd);
@@ -407,8 +407,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxDetails)).EndInit();
             this.pnlAddEdit.ResumeLayout(false);
             this.pnlAddEdit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnIdArticle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxAddEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

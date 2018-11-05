@@ -23,7 +23,10 @@ namespace View
             InitializeComponent();
             selectedIdArticle = idArticle;
             updateTable();
-            isEmpty();
+            if (isEmpty() == false) {
+                btnChangeQuantity.Visible = true;
+            }
+            lblIdArticle.Text = "Clave: "+idArticle;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -33,6 +36,7 @@ namespace View
             btnChangeQuantity.Visible = false;
             lblQuantity.Visible = true;
             spnQuantity.Visible = true;
+            spnIdSubarticle.Enabled = true;
             btnSave.Text = "Guardar";
 
             btnsShowHide(false, true, false);
@@ -59,6 +63,7 @@ namespace View
             spnCost.Value = decimal.Parse((selectedItem.Cost) + "");
             lblQuantity.Visible = false;
             spnQuantity.Visible = false;
+            spnIdSubarticle.Enabled = false;
             btnSave.Text = "Cambiar";
 
             btnsShowHide(true, false, false);
@@ -133,30 +138,10 @@ namespace View
 
         private void btnChangeQuantity_Click(object sender, EventArgs e)
         {
-            new FrmModifyQuantity().ShowDialog();
-        }
-
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-            filterResults(txtSearch.Text);
-        }
-
-        // Método de búsqueda
-        public void filterResults(string parameter)
-        {
-            dgvSubarticles.Rows.Clear();
-            for (int i = 0; i < subarticlesList.Count; i++)
-            {
-
-                if ((subarticlesList[i].IdSubarticle + "").Contains(parameter) == true)
-                {
-                    dgvSubarticles.Rows.Add(subarticlesList[i].IdSubarticle, subarticlesList[i].Size,
-                    subarticlesList[i].Color, subarticlesList[i].Cost, subarticlesList[i].Price1,
-                    subarticlesList[i].Price2, subarticlesList[i].Price3, subarticlesList[i].Price4,
-                    subarticlesList[i].Quantity);
-                }
-
-            }
+            new FrmModifyQuantity(selectedItem.IdSubarticle).ShowDialog();
+            updateTable();
+            selectedItem = subarticlesList[0];
+            dgvSubarticles.Rows[0].Selected = true;
         }
 
         public void cleanPanelAddEdit()
@@ -177,7 +162,6 @@ namespace View
 
             if (subarticlesList.Count == 0)
             {
-                MessageBox.Show("No existen productos para mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnEdit.Enabled = false;
                 btnDelete.Enabled = false;
                 btnChangeQuantity.Visible = false;
@@ -198,7 +182,7 @@ namespace View
         {
             if (btnSave.Text == "Guardar")
             {
-                if (txtColor.Text == "")
+                if (txtColor.Text == "" || cbxSize.SelectedValue == "")
                 {
                     MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

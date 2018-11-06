@@ -154,6 +154,11 @@ namespace View
                 newArticle.Name = txtNameArticle.Text;
                 newArticle.Description = txtaDescriptionAddEdit.Text;
                 if (lblPath.Text!="") {
+                    if (myComputer.FileSystem.FileExists(destinationFileName))
+                    {
+                        MessageBox.Show("Actualmente existe un archivo con el mismo nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     myComputer.FileSystem.CopyFile(sourceFileName, destinationFileName);
                     newArticle.Image = lblPath.Text;
                     lblPath.Text = "";
@@ -184,9 +189,22 @@ namespace View
 
                 if (lblPath.Text != "")
                 {
+                    if (myComputer.FileSystem.FileExists(destinationFileName))
+                    {
+                        MessageBox.Show("Actualmente existe un archivo con el mismo nombre", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    var newFilepath =
+                    Path.Combine(Common.Util.GetSolutionFolder(), "Common", "Resources\\Articles", selectedItem.Image);
+
+                    if (myComputer.FileSystem.FileExists(newFilepath))
+                    {
+                        myComputer.FileSystem.DeleteFile(newFilepath);
+                    }
+
                     myComputer.FileSystem.CopyFile(sourceFileName, destinationFileName);
                     newArticle.Image = lblPath.Text;
-                    ArticleDAO.insertArticle(newArticle);
                     lblPath.Text = "";
                 }
 
@@ -246,6 +264,7 @@ namespace View
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             filterResults(txtSearch.Text.ToLower());
+            //isEmpty();
         }
 
         // Método de búsqueda
@@ -274,6 +293,18 @@ namespace View
                 }
 
             }
+
+            if (dgvArticles.RowCount == 0)
+            {
+                pnlDetails.Visible = false;
+            }
+            else {
+                selectedItem = ArticleDAO.getOneById(int.Parse(dgvArticles.Rows[0].Cells[0].Value+""));
+                index = 0;
+                fillDetails(selectedItem, index);
+                dgvArticles.Rows[index].Selected = true;
+            }
+
         }
 
         public void cleanPanelAddEdit()

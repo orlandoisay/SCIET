@@ -56,6 +56,17 @@ namespace View
             spnIdArticle.Value = selectedItem.IdArticle;
             txtNameArticle.Text = selectedItem.Name;
             txtaDescriptionAddEdit.Text = selectedItem.Description;
+            if (selectedItem.Image != "")
+            {
+                var newFilepath =
+                    Path.Combine(Common.Util.GetSolutionFolder(), "Common", "Resources\\Articles", selectedItem.Image);
+                pbxAddEdit.ImageLocation = newFilepath;
+
+            }
+            else
+            {
+                pbxAddEdit.Image = null;
+            }
             btnSave.Text = "Cambiar";
             spnIdArticle.Enabled = false;
 
@@ -70,8 +81,14 @@ namespace View
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.No)
                 return;
-
-
+            
+            if (selectedItem.Image != "")
+            {
+                var newFilepath =
+                    Path.Combine(Common.Util.GetSolutionFolder(), "Common", "Resources\\Articles", selectedItem.Image);
+                myComputer.FileSystem.DeleteFile(newFilepath);
+            }
+            
             //SubarticleDAO.deleteByIdArticle(selectedItem.IdArticle);
             ArticleDAO.deleteById(selectedItem.IdArticle);
             updateTable();
@@ -136,17 +153,17 @@ namespace View
                 newArticle.IdArticle = int.Parse(spnIdArticle.Text);
                 newArticle.Name = txtNameArticle.Text;
                 newArticle.Description = txtaDescriptionAddEdit.Text;
-                if (lblPath.Text!="--") {
+                if (lblPath.Text!="") {
+                    myComputer.FileSystem.CopyFile(sourceFileName, destinationFileName);
                     newArticle.Image = lblPath.Text;
-                    ArticleDAO.insertArticle(newArticle);
+                    lblPath.Text = "";
                 }
                 else {
                     newArticle.Image = null;
                 }
-                
-                updateTable();
 
-                myComputer.FileSystem.CopyFile(sourceFileName, destinationFileName);
+                ArticleDAO.insertArticle(newArticle);
+                updateTable();
 
                 cleanPanelAddEdit();
                 pnlAddEdit.Visible = false;
@@ -164,7 +181,15 @@ namespace View
                 newArticle.IdArticle = int.Parse((spnIdArticle.Value) + "");
                 newArticle.Name = txtNameArticle.Text;
                 newArticle.Description = txtaDescriptionAddEdit.Text;
-                newArticle.Image = null;
+
+                if (lblPath.Text != "")
+                {
+                    myComputer.FileSystem.CopyFile(sourceFileName, destinationFileName);
+                    newArticle.Image = lblPath.Text;
+                    ArticleDAO.insertArticle(newArticle);
+                    lblPath.Text = "";
+                }
+
                 ArticleDAO.updateArticle(newArticle);
                 updateTable();
 
@@ -253,7 +278,7 @@ namespace View
 
         public void cleanPanelAddEdit()
         {
-            spnIdArticle.Value = 1;
+            spnIdArticle.Value = articlesList[articlesList.Count-1].IdArticle+1;
             txtNameArticle.Text = "";
             txtaDescriptionAddEdit.Text = "";
             pbxAddEdit.Image = null;

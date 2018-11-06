@@ -234,7 +234,7 @@
             // 
             this.lblNameArticle.AutoSize = true;
             this.lblNameArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblNameArticle.Location = new System.Drawing.Point(3, 128);
+            this.lblNameArticle.Location = new System.Drawing.Point(3, 126);
             this.lblNameArticle.Name = "lblNameArticle";
             this.lblNameArticle.Size = new System.Drawing.Size(78, 19);
             this.lblNameArticle.TabIndex = 11;
@@ -255,7 +255,7 @@
             this.pbxDetails.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pbxDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbxDetails.ErrorImage = global::View.Properties.Resources.logo;
-            this.pbxDetails.Location = new System.Drawing.Point(3, 25);
+            this.pbxDetails.Location = new System.Drawing.Point(3, 23);
             this.pbxDetails.Name = "pbxDetails";
             this.pbxDetails.Size = new System.Drawing.Size(100, 100);
             this.pbxDetails.TabIndex = 9;
@@ -298,9 +298,8 @@
             this.lblPath.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.lblPath.Location = new System.Drawing.Point(38, 168);
             this.lblPath.Name = "lblPath";
-            this.lblPath.Size = new System.Drawing.Size(21, 19);
+            this.lblPath.Size = new System.Drawing.Size(0, 19);
             this.lblPath.TabIndex = 11;
-            this.lblPath.Text = "--";
             this.lblPath.Visible = false;
             // 
             // spnIdArticle

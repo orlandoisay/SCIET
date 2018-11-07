@@ -212,6 +212,9 @@ namespace View
                     newArticle.Image = lblPath.Text;
                     lblPath.Text = "";
                 }
+                else {
+                    newArticle.Image = selectedItem.Image;
+                }
 
                 ArticleDAO.updateArticle(newArticle);
                 updateTable();

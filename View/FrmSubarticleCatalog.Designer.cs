@@ -92,7 +92,7 @@
             this.precio4,
             this.quantity});
             this.dgvSubarticles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvSubarticles.GridColor = System.Drawing.Color.White;
+            this.dgvSubarticles.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvSubarticles.Location = new System.Drawing.Point(12, 43);
             this.dgvSubarticles.Name = "dgvSubarticles";
             this.dgvSubarticles.ReadOnly = true;

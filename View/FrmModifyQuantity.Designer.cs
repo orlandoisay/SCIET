@@ -35,9 +35,10 @@
             this.lblCurrentAmount = new System.Windows.Forms.Label();
             this.spnInputOutput = new System.Windows.Forms.NumericUpDown();
             this.dgvModify = new System.Windows.Forms.DataGridView();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modify = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.spnInputOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModify)).BeginInit();
             this.SuspendLayout();
@@ -72,9 +73,9 @@
             this.btnClean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClean.Font = new System.Drawing.Font("Segoe UI Light", 11F);
             this.btnClean.ForeColor = System.Drawing.Color.White;
-            this.btnClean.Location = new System.Drawing.Point(212, 6);
+            this.btnClean.Location = new System.Drawing.Point(229, 6);
             this.btnClean.Name = "btnClean";
-            this.btnClean.Size = new System.Drawing.Size(110, 25);
+            this.btnClean.Size = new System.Drawing.Size(113, 25);
             this.btnClean.TabIndex = 2;
             this.btnClean.Text = "Limpiar historial";
             this.btnClean.UseVisualStyleBackColor = false;
@@ -88,7 +89,7 @@
             this.btnAddRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddRemove.Font = new System.Drawing.Font("Segoe UI Light", 11F);
             this.btnAddRemove.ForeColor = System.Drawing.Color.White;
-            this.btnAddRemove.Location = new System.Drawing.Point(234, 242);
+            this.btnAddRemove.Location = new System.Drawing.Point(254, 215);
             this.btnAddRemove.Name = "btnAddRemove";
             this.btnAddRemove.Size = new System.Drawing.Size(88, 27);
             this.btnAddRemove.TabIndex = 3;
@@ -131,14 +132,32 @@
             this.dgvModify.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvModify.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.date,
-            this.modify});
+            this.modify,
+            this.Cantidad});
             this.dgvModify.Enabled = false;
-            this.dgvModify.GridColor = System.Drawing.Color.White;
+            this.dgvModify.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvModify.Location = new System.Drawing.Point(12, 37);
             this.dgvModify.Name = "dgvModify";
             this.dgvModify.ReadOnly = true;
-            this.dgvModify.Size = new System.Drawing.Size(310, 150);
+            this.dgvModify.Size = new System.Drawing.Size(330, 150);
             this.dgvModify.TabIndex = 8;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Location = new System.Drawing.Point(160, 215);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(88, 27);
+            this.btnReturn.TabIndex = 4;
+            this.btnReturn.Text = "Devolución";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Visible = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // date
             // 
@@ -155,29 +174,20 @@
             this.modify.Name = "modify";
             this.modify.ReadOnly = true;
             // 
-            // btnReturn
+            // Cantidad
             // 
-            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
-            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(140, 242);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(88, 27);
-            this.btnReturn.TabIndex = 4;
-            this.btnReturn.Text = "Devolución";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Visible = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cantidad.HeaderText = "quantity";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            this.Cantidad.Width = 69;
             // 
             // FrmModifyQuantity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.ClientSize = new System.Drawing.Size(333, 279);
+            this.ClientSize = new System.Drawing.Size(354, 251);
             this.Controls.Add(this.dgvModify);
             this.Controls.Add(this.spnInputOutput);
             this.Controls.Add(this.lblCurrentAmount);
@@ -207,5 +217,6 @@
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.DataGridViewTextBoxColumn date;
         private System.Windows.Forms.DataGridViewTextBoxColumn modify;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
     }
 }

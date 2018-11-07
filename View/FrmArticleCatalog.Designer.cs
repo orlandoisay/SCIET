@@ -118,7 +118,7 @@
             this.name,
             this.quantityArticle});
             this.dgvArticles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvArticles.GridColor = System.Drawing.Color.White;
+            this.dgvArticles.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvArticles.Location = new System.Drawing.Point(9, 71);
             this.dgvArticles.Name = "dgvArticles";
             this.dgvArticles.ReadOnly = true;

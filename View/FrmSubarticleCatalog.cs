@@ -26,7 +26,7 @@ namespace View
             if (isEmpty() == false) {
                 btnChangeQuantity.Visible = true;
             }
-            lblIdArticle.Text = "Clave: "+idArticle;
+            lblArticle.Text = "Artículo: " + ArticleDAO.getOneById(idArticle).Name;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -146,8 +146,15 @@ namespace View
 
         public void cleanPanelAddEdit()
         {
-            spnIdSubarticle.Value = 1;
-            cbxSize.SelectedValue = 2;
+            if (dgvSubarticles.RowCount > 0)
+            {
+                string[] words = subarticlesList[subarticlesList.Count - 1].IdSubarticle.Split('_');
+                spnIdSubarticle.Value = int.Parse(words[1]) + 1;
+            }
+            else {
+                spnIdSubarticle.Value = 1;
+            }
+            cbxSize.SelectedIndex = 1;
             txtColor.Text = "";
             spnQuantity.Value = 0;
             spnPrice1.Value = 0;
@@ -182,7 +189,7 @@ namespace View
         {
             if (btnSave.Text == "Guardar")
             {
-                if (txtColor.Text == "" || cbxSize.SelectedValue == "")
+                if (txtColor.Text == "" || (cbxSize.SelectedItem + "") == "")
                 {
                     MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -254,6 +261,30 @@ namespace View
             btnAdd.Enabled = action1;
             btnEdit.Enabled = action2;
             btnDelete.Enabled = action3;
+        }
+
+        private void spnPrice1_ValueChanged(object sender, EventArgs e)
+        {
+            if (spnPrice1.Value >= 15)
+            {
+                spnPrice2.Value = spnPrice1.Value - 5;
+                spnPrice3.Value = spnPrice1.Value - 10;
+                spnPrice3.Value = spnPrice1.Value - 15;
+            }
+            else if (spnPrice1.Value >= 10)
+            {
+                spnPrice2.Value = spnPrice1.Value - 5;
+                spnPrice3.Value = spnPrice1.Value - 10;
+            }
+            else if (spnPrice1.Value >= 5)
+            {
+                spnPrice2.Value = spnPrice1.Value - 5;
+            }
+            else {
+                spnPrice2.Value = 0;
+                spnPrice3.Value = 0;
+                spnPrice3.Value = 0;
+            }
         }
     }
 }

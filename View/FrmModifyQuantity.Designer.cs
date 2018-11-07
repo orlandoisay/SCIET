@@ -64,6 +64,7 @@
             // 
             // btnClean
             // 
+            this.btnClean.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClean.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnClean.Location = new System.Drawing.Point(202, 6);
             this.btnClean.Name = "btnClean";
@@ -75,6 +76,7 @@
             // 
             // btnAddRemove
             // 
+            this.btnAddRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddRemove.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnAddRemove.Location = new System.Drawing.Point(118, 212);
             this.btnAddRemove.Name = "btnAddRemove";
@@ -97,6 +99,7 @@
             // 
             // spnInputOutput
             // 
+            this.spnInputOutput.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnInputOutput.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.spnInputOutput.Location = new System.Drawing.Point(12, 212);
             this.spnInputOutput.Minimum = new decimal(new int[] {
@@ -141,6 +144,7 @@
             // 
             // btnReturn
             // 
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 10F);
             this.btnReturn.Location = new System.Drawing.Point(118, 242);
             this.btnReturn.Name = "btnReturn";

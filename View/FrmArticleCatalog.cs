@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 using System.IO;
 using Model;
 using Data;
@@ -20,7 +21,7 @@ namespace View
         ArticlePOJO selectedItem;
         Computer myComputer = new Computer();
         int index;
-
+        string sourceFileName, destinationFileName;
         public FrmArticleCatalog()
         {
             InitializeComponent();
@@ -82,11 +83,14 @@ namespace View
             if (dr == DialogResult.No)
                 return;
             
-            if (selectedItem.Image != "")
+            if (selectedItem.Image != null)
             {
                 var newFilepath =
                     Path.Combine(Common.Util.GetSolutionFolder(), "Common", "Resources\\Articles", selectedItem.Image);
-                myComputer.FileSystem.DeleteFile(newFilepath);
+                if (myComputer.FileSystem.FileExists(newFilepath))
+                {
+                    myComputer.FileSystem.DeleteFile(newFilepath);
+                }
             }
             
             //SubarticleDAO.deleteByIdArticle(selectedItem.IdArticle);
@@ -125,6 +129,7 @@ namespace View
         {
             new FrmSubarticleCatalog(selectedItem.IdArticle).ShowDialog();
             updateTable();
+            isEmpty();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -251,12 +256,11 @@ namespace View
 
             dgvArticles.Rows.Clear();
             articlesList = ArticleDAO.getAll();
-            int quantity;
 
             for (int i = 0; i < articlesList.Count; i++)
             {
-                quantity = ArticleDAO.getTotalQuantity(articlesList[i].IdArticle);
-                dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, quantity);
+                articlesList[i].Quantity = ArticleDAO.getTotalQuantity(articlesList[i].IdArticle);
+                dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, articlesList[i].Quantity);
             }
 
         }
@@ -264,7 +268,6 @@ namespace View
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             filterResults(txtSearch.Text.ToLower());
-            //isEmpty();
         }
 
         // Método de búsqueda
@@ -278,16 +281,16 @@ namespace View
 
                     if (articlesList[i].Name.ToLower().Contains(parameter) == true)
                     {
-                        dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
+                        dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, articlesList[i].Quantity);
                     }
 
                 }
                 else if (rbtnIdArticle.Checked == true)
                 {
-
+                    
                     if ((articlesList[i].IdArticle + "").Contains(parameter) == true)
                     {
-                        dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, "");
+                        dgvArticles.Rows.Add(articlesList[i].IdArticle, articlesList[i].Name, articlesList[i].Quantity);
                     }
 
                 }
@@ -309,7 +312,13 @@ namespace View
 
         public void cleanPanelAddEdit()
         {
-            spnIdArticle.Value = articlesList[articlesList.Count-1].IdArticle+1;
+            if (dgvArticles.RowCount > 0) {
+                spnIdArticle.Value = articlesList[articlesList.Count - 1].IdArticle + 1;
+            }
+            else
+            {
+                spnIdArticle.Value = 1;
+            }
             txtNameArticle.Text = "";
             txtaDescriptionAddEdit.Text = "";
             pbxAddEdit.Image = null;
@@ -326,8 +335,11 @@ namespace View
             {
                 var newFilepath =
                     Path.Combine(Common.Util.GetSolutionFolder(), "Common", "Resources\\Articles", article.Image);
-                pbxDetails.ImageLocation = newFilepath;
-                
+                if (myComputer.FileSystem.FileExists(newFilepath))
+                {
+                    sourceFileName = newFilepath;
+                    pbxDetails.ImageLocation = newFilepath;
+                }
             }
             else {
                 pbxAddEdit.Image = null;
@@ -363,9 +375,7 @@ namespace View
             btnEdit.Enabled = action2;
             btnDelete.Enabled = action3;
         }
-
-        string sourceFileName;
-        string destinationFileName;
+        
         private void btnAttach_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();
@@ -391,6 +401,18 @@ namespace View
                 sourceFileName = filepath;
                 destinationFileName = newFilepath;
             }
+        }
+
+        private void rbtnNameArticle_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSearch.Text = "";
+            filterResults("");
+            isEmpty();
+        }
+
+        private void pbxDetails_Click(object sender, EventArgs e)
+        {
+            Process.Start(sourceFileName);
         }
     }
 }

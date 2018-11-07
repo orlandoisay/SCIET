@@ -70,10 +70,10 @@
             // txtSearch
             // 
             this.txtSearch.BackColor = System.Drawing.Color.White;
-            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.txtSearch.Location = new System.Drawing.Point(9, 7);
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.txtSearch.Location = new System.Drawing.Point(9, 12);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(250, 25);
+            this.txtSearch.Size = new System.Drawing.Size(250, 29);
             this.txtSearch.TabIndex = 0;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -83,7 +83,7 @@
             this.rbtnIdArticle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.rbtnIdArticle.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnIdArticle.Location = new System.Drawing.Point(9, 38);
+            this.rbtnIdArticle.Location = new System.Drawing.Point(9, 47);
             this.rbtnIdArticle.Name = "rbtnIdArticle";
             this.rbtnIdArticle.Size = new System.Drawing.Size(64, 25);
             this.rbtnIdArticle.TabIndex = 1;
@@ -98,7 +98,7 @@
             this.rbtnNameArticle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnNameArticle.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.rbtnNameArticle.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnNameArticle.Location = new System.Drawing.Point(74, 38);
+            this.rbtnNameArticle.Location = new System.Drawing.Point(79, 47);
             this.rbtnNameArticle.Name = "rbtnNameArticle";
             this.rbtnNameArticle.Size = new System.Drawing.Size(83, 25);
             this.rbtnNameArticle.TabIndex = 2;
@@ -298,6 +298,7 @@
             this.pbxDetails.Location = new System.Drawing.Point(3, 23);
             this.pbxDetails.Name = "pbxDetails";
             this.pbxDetails.Size = new System.Drawing.Size(100, 100);
+            this.pbxDetails.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxDetails.TabIndex = 9;
             this.pbxDetails.TabStop = false;
             this.pbxDetails.Click += new System.EventHandler(this.pbxDetails_Click);
@@ -476,11 +477,13 @@
             // pbxAddEdit
             // 
             this.pbxAddEdit.BackColor = System.Drawing.Color.White;
+            this.pbxAddEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbxAddEdit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbxAddEdit.ErrorImage = global::View.Properties.Resources.logo;
             this.pbxAddEdit.Location = new System.Drawing.Point(6, 25);
             this.pbxAddEdit.Name = "pbxAddEdit";
             this.pbxAddEdit.Size = new System.Drawing.Size(100, 100);
+            this.pbxAddEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbxAddEdit.TabIndex = 0;
             this.pbxAddEdit.TabStop = false;
             // 

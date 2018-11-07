@@ -79,6 +79,7 @@
             // 
             this.dgvSubarticles.AllowUserToAddRows = false;
             this.dgvSubarticles.AllowUserToDeleteRows = false;
+            this.dgvSubarticles.BackgroundColor = System.Drawing.Color.White;
             this.dgvSubarticles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubarticles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idSubarticles,
@@ -91,6 +92,7 @@
             this.precio4,
             this.quantity});
             this.dgvSubarticles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvSubarticles.GridColor = System.Drawing.Color.White;
             this.dgvSubarticles.Location = new System.Drawing.Point(12, 43);
             this.dgvSubarticles.Name = "dgvSubarticles";
             this.dgvSubarticles.ReadOnly = true;
@@ -172,78 +174,94 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(445, 12);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(75, 27);
             this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Agregar";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(526, 12);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
+            this.btnEdit.Size = new System.Drawing.Size(75, 27);
             this.btnEdit.TabIndex = 3;
             this.btnEdit.Text = "Editar";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(607, 12);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(75, 27);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Eliminar";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnChangeQuantity
             // 
+            this.btnChangeQuantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnChangeQuantity.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnChangeQuantity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnChangeQuantity.Location = new System.Drawing.Point(532, 199);
+            this.btnChangeQuantity.FlatAppearance.BorderSize = 0;
+            this.btnChangeQuantity.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChangeQuantity.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeQuantity.ForeColor = System.Drawing.Color.White;
+            this.btnChangeQuantity.Location = new System.Drawing.Point(532, 195);
             this.btnChangeQuantity.Name = "btnChangeQuantity";
-            this.btnChangeQuantity.Size = new System.Drawing.Size(150, 23);
+            this.btnChangeQuantity.Size = new System.Drawing.Size(150, 27);
             this.btnChangeQuantity.TabIndex = 5;
             this.btnChangeQuantity.Text = "Modificar existencia";
-            this.btnChangeQuantity.UseVisualStyleBackColor = true;
+            this.btnChangeQuantity.UseVisualStyleBackColor = false;
             this.btnChangeQuantity.Visible = false;
             this.btnChangeQuantity.Click += new System.EventHandler(this.btnChangeQuantity_Click);
             // 
             // txtColor
             // 
-            this.txtColor.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.txtColor.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.txtColor.Location = new System.Drawing.Point(88, 25);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(75, 25);
+            this.txtColor.Size = new System.Drawing.Size(75, 29);
             this.txtColor.TabIndex = 0;
             // 
             // spnQuantity
             // 
             this.spnQuantity.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spnQuantity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnQuantity.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.spnQuantity.Location = new System.Drawing.Point(88, 76);
             this.spnQuantity.Name = "spnQuantity";
-            this.spnQuantity.Size = new System.Drawing.Size(75, 25);
+            this.spnQuantity.Size = new System.Drawing.Size(75, 29);
             this.spnQuantity.TabIndex = 8;
             // 
             // spnPrice1
             // 
             this.spnPrice1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice1.DecimalPlaces = 2;
-            this.spnPrice1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnPrice1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.spnPrice1.Location = new System.Drawing.Point(169, 25);
             this.spnPrice1.Name = "spnPrice1";
-            this.spnPrice1.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice1.Size = new System.Drawing.Size(100, 29);
             this.spnPrice1.TabIndex = 9;
             this.spnPrice1.ValueChanged += new System.EventHandler(this.spnPrice1_ValueChanged);
             // 
@@ -251,154 +269,171 @@
             // 
             this.spnPrice3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice3.DecimalPlaces = 2;
-            this.spnPrice3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.spnPrice3.Location = new System.Drawing.Point(275, 27);
+            this.spnPrice3.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.spnPrice3.Location = new System.Drawing.Point(275, 25);
             this.spnPrice3.Name = "spnPrice3";
-            this.spnPrice3.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice3.Size = new System.Drawing.Size(100, 29);
             this.spnPrice3.TabIndex = 10;
             // 
             // spnPrice4
             // 
             this.spnPrice4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice4.DecimalPlaces = 2;
-            this.spnPrice4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnPrice4.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.spnPrice4.Location = new System.Drawing.Point(275, 77);
             this.spnPrice4.Name = "spnPrice4";
-            this.spnPrice4.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice4.Size = new System.Drawing.Size(100, 29);
             this.spnPrice4.TabIndex = 11;
             // 
             // spnCost
             // 
             this.spnCost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnCost.DecimalPlaces = 2;
-            this.spnCost.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnCost.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.spnCost.Location = new System.Drawing.Point(381, 26);
             this.spnCost.Name = "spnCost";
-            this.spnCost.Size = new System.Drawing.Size(100, 25);
+            this.spnCost.Size = new System.Drawing.Size(100, 29);
             this.spnCost.TabIndex = 12;
             // 
             // spnPrice2
             // 
             this.spnPrice2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice2.DecimalPlaces = 2;
-            this.spnPrice2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnPrice2.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.spnPrice2.Location = new System.Drawing.Point(169, 77);
             this.spnPrice2.Name = "spnPrice2";
-            this.spnPrice2.Size = new System.Drawing.Size(100, 25);
+            this.spnPrice2.Size = new System.Drawing.Size(100, 29);
             this.spnPrice2.TabIndex = 13;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 19);
+            this.label1.Size = new System.Drawing.Size(50, 21);
             this.label1.TabIndex = 14;
             this.label1.Text = "Clave:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(3, 56);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 19);
+            this.label2.Size = new System.Drawing.Size(41, 21);
             this.label2.TabIndex = 15;
             this.label2.Text = "Talla:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(84, 3);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 19);
+            this.label3.Size = new System.Drawing.Size(51, 21);
             this.label3.TabIndex = 16;
             this.label3.Text = "Color:";
             // 
             // lblQuantity
             // 
             this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblQuantity.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.ForeColor = System.Drawing.Color.White;
             this.lblQuantity.Location = new System.Drawing.Point(84, 54);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(67, 19);
+            this.lblQuantity.Size = new System.Drawing.Size(78, 21);
             this.lblQuantity.TabIndex = 17;
             this.lblQuantity.Text = "Existencia:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(165, 3);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 19);
+            this.label5.Size = new System.Drawing.Size(79, 21);
             this.label5.TabIndex = 18;
             this.label5.Text = "Menudeo:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(271, 5);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 19);
+            this.label6.Size = new System.Drawing.Size(73, 21);
             this.label6.TabIndex = 19;
             this.label6.Text = "Mayoreo:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(165, 54);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 19);
+            this.label7.Size = new System.Drawing.Size(119, 21);
             this.label7.TabIndex = 20;
             this.label7.Text = "Medio mayoreo:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(271, 55);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 19);
+            this.label8.Size = new System.Drawing.Size(66, 21);
             this.label8.TabIndex = 21;
             this.label8.Text = "Especial:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(377, 5);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 19);
+            this.label9.Size = new System.Drawing.Size(53, 21);
             this.label9.TabIndex = 22;
             this.label9.Text = "Costo:";
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnSave.Location = new System.Drawing.Point(592, 56);
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Location = new System.Drawing.Point(592, 43);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.Size = new System.Drawing.Size(75, 27);
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Guardar";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnCancel.Location = new System.Drawing.Point(592, 80);
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Location = new System.Drawing.Point(592, 76);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(75, 27);
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pnlAddEdit
@@ -423,7 +458,7 @@
             this.pnlAddEdit.Controls.Add(this.label3);
             this.pnlAddEdit.Controls.Add(this.label1);
             this.pnlAddEdit.Controls.Add(this.label2);
-            this.pnlAddEdit.Location = new System.Drawing.Point(12, 228);
+            this.pnlAddEdit.Location = new System.Drawing.Point(12, 225);
             this.pnlAddEdit.Name = "pnlAddEdit";
             this.pnlAddEdit.Size = new System.Drawing.Size(670, 106);
             this.pnlAddEdit.TabIndex = 25;
@@ -432,7 +467,7 @@
             // spnIdSubarticle
             // 
             this.spnIdSubarticle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spnIdSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnIdSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.spnIdSubarticle.Location = new System.Drawing.Point(7, 25);
             this.spnIdSubarticle.Maximum = new decimal(new int[] {
             1000,
@@ -445,7 +480,7 @@
             0,
             0});
             this.spnIdSubarticle.Name = "spnIdSubarticle";
-            this.spnIdSubarticle.Size = new System.Drawing.Size(75, 25);
+            this.spnIdSubarticle.Size = new System.Drawing.Size(75, 29);
             this.spnIdSubarticle.TabIndex = 26;
             this.spnIdSubarticle.Value = new decimal(new int[] {
             1,
@@ -456,7 +491,7 @@
             // cbxSize
             // 
             this.cbxSize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbxSize.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.cbxSize.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.cbxSize.FormattingEnabled = true;
             this.cbxSize.Items.AddRange(new object[] {
             "XS",
@@ -468,16 +503,17 @@
             "XXXL"});
             this.cbxSize.Location = new System.Drawing.Point(7, 75);
             this.cbxSize.Name = "cbxSize";
-            this.cbxSize.Size = new System.Drawing.Size(75, 25);
+            this.cbxSize.Size = new System.Drawing.Size(75, 29);
             this.cbxSize.TabIndex = 25;
             // 
             // lblArticle
             // 
             this.lblArticle.AutoSize = true;
-            this.lblArticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblArticle.Location = new System.Drawing.Point(12, 205);
+            this.lblArticle.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArticle.ForeColor = System.Drawing.Color.White;
+            this.lblArticle.Location = new System.Drawing.Point(12, 201);
             this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(60, 19);
+            this.lblArticle.Size = new System.Drawing.Size(66, 21);
             this.lblArticle.TabIndex = 26;
             this.lblArticle.Text = "Clave: --";
             // 
@@ -485,6 +521,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(694, 345);
             this.Controls.Add(this.lblArticle);
             this.Controls.Add(this.pnlAddEdit);

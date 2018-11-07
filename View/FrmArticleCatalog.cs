@@ -340,9 +340,13 @@ namespace View
                     sourceFileName = newFilepath;
                     pbxDetails.ImageLocation = newFilepath;
                 }
+                else
+                {
+                    pbxDetails.Image = null;
+                }
             }
             else {
-                pbxAddEdit.Image = null;
+                pbxDetails.Image = null;
             }
         }
 
@@ -412,7 +416,9 @@ namespace View
 
         private void pbxDetails_Click(object sender, EventArgs e)
         {
-            Process.Start(sourceFileName);
+            if (pbxDetails.Image != null) {
+                Process.Start(sourceFileName);
+            }
         }
     }
 }

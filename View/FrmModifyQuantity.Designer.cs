@@ -45,62 +45,73 @@
             // lblSubarticle
             // 
             this.lblSubarticle.AutoSize = true;
-            this.lblSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.lblSubarticle.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.lblSubarticle.ForeColor = System.Drawing.Color.White;
             this.lblSubarticle.Location = new System.Drawing.Point(12, 15);
             this.lblSubarticle.Name = "lblSubarticle";
-            this.lblSubarticle.Size = new System.Drawing.Size(60, 19);
+            this.lblSubarticle.Size = new System.Drawing.Size(66, 21);
             this.lblSubarticle.TabIndex = 0;
             this.lblSubarticle.Text = "Clave: --";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(8, 190);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 19);
+            this.label2.Size = new System.Drawing.Size(119, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Entradas/Salidas";
             // 
             // btnClean
             // 
+            this.btnClean.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnClean.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClean.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnClean.Location = new System.Drawing.Point(202, 6);
+            this.btnClean.FlatAppearance.BorderSize = 0;
+            this.btnClean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClean.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.btnClean.ForeColor = System.Drawing.Color.White;
+            this.btnClean.Location = new System.Drawing.Point(212, 6);
             this.btnClean.Name = "btnClean";
             this.btnClean.Size = new System.Drawing.Size(110, 25);
             this.btnClean.TabIndex = 2;
             this.btnClean.Text = "Limpiar historial";
-            this.btnClean.UseVisualStyleBackColor = true;
+            this.btnClean.UseVisualStyleBackColor = false;
             this.btnClean.Click += new System.EventHandler(this.btnClean_Click);
             // 
             // btnAddRemove
             // 
+            this.btnAddRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnAddRemove.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddRemove.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnAddRemove.Location = new System.Drawing.Point(118, 212);
+            this.btnAddRemove.FlatAppearance.BorderSize = 0;
+            this.btnAddRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddRemove.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.btnAddRemove.ForeColor = System.Drawing.Color.White;
+            this.btnAddRemove.Location = new System.Drawing.Point(234, 242);
             this.btnAddRemove.Name = "btnAddRemove";
-            this.btnAddRemove.Size = new System.Drawing.Size(83, 25);
+            this.btnAddRemove.Size = new System.Drawing.Size(88, 27);
             this.btnAddRemove.TabIndex = 3;
             this.btnAddRemove.Text = "Agregar";
-            this.btnAddRemove.UseVisualStyleBackColor = true;
+            this.btnAddRemove.UseVisualStyleBackColor = false;
             this.btnAddRemove.Visible = false;
             this.btnAddRemove.Click += new System.EventHandler(this.btnAddRemove_Click);
             // 
             // lblCurrentAmount
             // 
             this.lblCurrentAmount.AutoSize = true;
-            this.lblCurrentAmount.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.lblCurrentAmount.Location = new System.Drawing.Point(191, 190);
+            this.lblCurrentAmount.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.lblCurrentAmount.ForeColor = System.Drawing.Color.White;
+            this.lblCurrentAmount.Location = new System.Drawing.Point(183, 190);
             this.lblCurrentAmount.Name = "lblCurrentAmount";
-            this.lblCurrentAmount.Size = new System.Drawing.Size(121, 19);
+            this.lblCurrentAmount.Size = new System.Drawing.Size(138, 21);
             this.lblCurrentAmount.TabIndex = 6;
             this.lblCurrentAmount.Text = "Existencia actual: --";
             // 
             // spnInputOutput
             // 
             this.spnInputOutput.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.spnInputOutput.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.spnInputOutput.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.spnInputOutput.Location = new System.Drawing.Point(12, 212);
             this.spnInputOutput.Minimum = new decimal(new int[] {
             100,
@@ -108,7 +119,7 @@
             0,
             -2147483648});
             this.spnInputOutput.Name = "spnInputOutput";
-            this.spnInputOutput.Size = new System.Drawing.Size(100, 25);
+            this.spnInputOutput.Size = new System.Drawing.Size(100, 29);
             this.spnInputOutput.TabIndex = 7;
             this.spnInputOutput.ValueChanged += new System.EventHandler(this.spnInputOutput_ValueChanged);
             // 
@@ -116,15 +127,17 @@
             // 
             this.dgvModify.AllowUserToAddRows = false;
             this.dgvModify.AllowUserToDeleteRows = false;
+            this.dgvModify.BackgroundColor = System.Drawing.Color.White;
             this.dgvModify.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvModify.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.date,
             this.modify});
             this.dgvModify.Enabled = false;
+            this.dgvModify.GridColor = System.Drawing.Color.White;
             this.dgvModify.Location = new System.Drawing.Point(12, 37);
             this.dgvModify.Name = "dgvModify";
             this.dgvModify.ReadOnly = true;
-            this.dgvModify.Size = new System.Drawing.Size(300, 150);
+            this.dgvModify.Size = new System.Drawing.Size(310, 150);
             this.dgvModify.TabIndex = 8;
             // 
             // date
@@ -144,14 +157,18 @@
             // 
             // btnReturn
             // 
+            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 10F);
-            this.btnReturn.Location = new System.Drawing.Point(118, 242);
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Location = new System.Drawing.Point(140, 242);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(83, 25);
+            this.btnReturn.Size = new System.Drawing.Size(88, 27);
             this.btnReturn.TabIndex = 4;
             this.btnReturn.Text = "Devolución";
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Visible = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
@@ -159,7 +176,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 279);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.ClientSize = new System.Drawing.Size(333, 279);
             this.Controls.Add(this.dgvModify);
             this.Controls.Add(this.spnInputOutput);
             this.Controls.Add(this.lblCurrentAmount);

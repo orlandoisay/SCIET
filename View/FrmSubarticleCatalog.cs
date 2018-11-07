@@ -269,7 +269,7 @@ namespace View
             {
                 spnPrice2.Value = spnPrice1.Value - 5;
                 spnPrice3.Value = spnPrice1.Value - 10;
-                spnPrice3.Value = spnPrice1.Value - 15;
+                spnPrice4.Value = spnPrice1.Value - 15;
             }
             else if (spnPrice1.Value >= 10)
             {
@@ -283,7 +283,7 @@ namespace View
             else {
                 spnPrice2.Value = 0;
                 spnPrice3.Value = 0;
-                spnPrice3.Value = 0;
+                spnPrice4.Value = 0;
             }
         }
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
 using Model;
+using Data;
 
 namespace Data
 {
@@ -68,7 +69,7 @@ namespace Data
             }
         }
 
-        public static int insertArticle(SubarticlePOJO newSubarticle)
+        public static int insertSubarticle(SubarticlePOJO newSubarticle)
         {
             try
             {
@@ -100,12 +101,12 @@ namespace Data
             }
         }
 
-        public static void updateSubarticle(SubarticlePOJO newSubarticle, int idSubarticle)
+        public static void updateSubarticle(SubarticlePOJO newSubarticle, string idSubarticle)
         {
             try
             {
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("UPDATE articles SET idSubarticle = @P0, size = @P1, " +
+                MySqlCommand cmd = new MySqlCommand("UPDATE subarticles SET idSubarticle = @P0, size = @P1, " +
                     "color = @P2, cost = @P3, price1 = @P4, price2 = @P5, price3 = @P6, price4 = @P7, " +
                     "quantity = @P8, idArticle = @P9 WHERE idSubarticle = @P10;");
                 cmd.Parameters.AddWithValue("@P0", newSubarticle.IdSubarticle);
@@ -133,10 +134,17 @@ namespace Data
             }
         }
 
-        public static int deleteById(string idSubarticle)
+        public static int deleteByIdSubarticle(string idSubarticle)
         {
             try
             {
+
+                List<BatchPOJO> batchesList = BatchDAO.getAllById(idSubarticle);
+                if (batchesList.Count > 0)
+                {
+                    BatchDAO.deleteAllById(idSubarticle, batchesList);
+                }
+
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("DELETE FROM subarticles WHERE idSubarticle = @P0");
                 cmd.Parameters.AddWithValue("@P0", idSubarticle);
@@ -155,17 +163,51 @@ namespace Data
             }
         }
 
+        public static int deleteByIdArticle(int idArticle)
+        {
+            try
+            {
+
+                List<SubarticlePOJO> subarticlesList = getAllById(idArticle);
+                List<BatchPOJO> batchesList;
+                for (int i = 0; i < subarticlesList.Count; i++)
+                {
+                    batchesList = BatchDAO.getAllById(subarticlesList[i].IdSubarticle);
+                    if (batchesList.Count > 0)
+                    {
+                        BatchDAO.deleteAllById(subarticlesList[i].IdSubarticle, batchesList);
+                    }
+                }
+
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM subarticles WHERE idArticle = @P0");
+                cmd.Parameters.AddWithValue("@P0", idArticle);
+                con.ejecutarSentencia(cmd, true);
+                Conexion.conexion.Close();
+                return con.ejecutarSentencia(cmd, true);
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
         public static SubarticlePOJO DataRowAObjeto(DataRow dr)
         {
             return new SubarticlePOJO(
-                int.Parse(dr["idSubarticle"].ToString()),
+                dr["idSubarticle"].ToString(),
                 dr["size"].ToString(),
                 dr["color"].ToString(),
-                decimal.Parse(dr["cost"].ToString()),
-                decimal.Parse(dr["price1"].ToString()),
-                decimal.Parse(dr["price2"].ToString()),
-                decimal.Parse(dr["price3"].ToString()),
-                decimal.Parse(dr["price4"].ToString()),
+                double.Parse(dr["cost"].ToString()),
+                double.Parse(dr["price1"].ToString()),
+                double.Parse(dr["price2"].ToString()),
+                double.Parse(dr["price3"].ToString()),
+                double.Parse(dr["price4"].ToString()),
                 int.Parse(dr["quantity"].ToString()),
                 int.Parse(dr["idArticle"].ToString())
             );

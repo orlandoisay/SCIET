@@ -13,6 +13,7 @@ namespace Model
         public string Name { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
+        public int Quantity { get; set; }
 
         public ArticlePOJO() { }
 
@@ -21,6 +22,15 @@ namespace Model
             Name = name;
             Description = description;
             Image = image;
+        }
+
+        public ArticlePOJO(int idArticle, string name, string description, string image, int quantity)
+        {
+            IdArticle = idArticle;
+            Name = name;
+            Description = description;
+            Image = image;
+            Quantity = quantity;
         }
 
     }

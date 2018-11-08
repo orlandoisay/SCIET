@@ -43,14 +43,15 @@ namespace Data
         /// Retorna todas las columnas y filas obtenidas por la consulta.
         /// </returns>
         /// XS,S,M,L,XL,XXL,XXXL
-        public DataTable ejecutarConsulta(MySqlCommand com)
+        public DataTable ejecutarConsulta(MySqlCommand consulta)
         {
             try
             {
                 if (Conectar())
                 {
-                    com.Connection = conexion;
-                    MySqlDataAdapter objAdapter = new MySqlDataAdapter(com);
+                    consulta.Connection = conexion;
+                    MySqlDataAdapter objAdapter =
+                        new MySqlDataAdapter(consulta);
                     DataTable resultado = new DataTable();
                     objAdapter.Fill(resultado);
                     return resultado;

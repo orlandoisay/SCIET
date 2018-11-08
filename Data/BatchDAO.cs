@@ -12,7 +12,7 @@ namespace Data
     public class BatchDAO
     {
 
-        public static List<BatchPOJO> getAllById(int idSubarticle)
+        public static List<BatchPOJO> getAllById(string idSubarticle)
         {
             try
             {
@@ -20,8 +20,35 @@ namespace Data
 
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("SELECT b.* FROM batches b JOIN detailbatch d " +
-                    "USING(idBatch) WHERE d.idSubarticles = @P0;");
+                    "USING(idBatch) WHERE d.idSubarticle = @P0;");
                 cmd.Parameters.AddWithValue("@P0", idSubarticle);
+
+                DataTable dt = con.ejecutarConsulta(cmd);
+
+                foreach (DataRow dr in dt.Rows)
+                    list.Add(DataRowAObjeto(dr));
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
+        public static List<BatchPOJO> getAll()
+        {
+            try
+            {
+                var list = new List<BatchPOJO>();
+
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM batches;");
 
                 DataTable dt = con.ejecutarConsulta(cmd);
 
@@ -53,7 +80,7 @@ namespace Data
                 cmd.Parameters.AddWithValue("@P2", newBatch.Reason);
                 cmd.Parameters.AddWithValue("@P3", newBatch.Quantity);
 
-                return con.ejecutarSentencia(cmd, true);
+                return insertDetailBatch("1000_1", con.ejecutarSentencia(cmd, true));
             }
             catch (Exception ex)
             {
@@ -67,15 +94,15 @@ namespace Data
             }
         }
 
-        public static int insertDetailBatch(int idBatch, int idSubarticle)
+        public static int insertDetailBatch(string idSubarticle, int idBatch)
         {
             try
             {
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("INSERT INTO detailbatch VALUES(null,@P0,@P1);");
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO detailbatch VALUES(@P0,@P1);");
 
-                cmd.Parameters.AddWithValue("@P0", idBatch);
-                cmd.Parameters.AddWithValue("@P1", idSubarticle);
+                cmd.Parameters.AddWithValue("@P0", idSubarticle);
+                cmd.Parameters.AddWithValue("@P1", idBatch);
 
                 return con.ejecutarSentencia(cmd, true);
             }
@@ -91,7 +118,7 @@ namespace Data
             }
         }
 
-        public static int deleteAllById(int idSubarticle, List<BatchPOJO> batches)
+        public static int deleteAllById(string idSubarticle, List<BatchPOJO> batches)
         {
             try
             {
@@ -99,16 +126,38 @@ namespace Data
                 MySqlCommand cmd = new MySqlCommand("DELETE FROM detailbatch WHERE idSubarticle = @P0");
                 cmd.Parameters.AddWithValue("@P0", idSubarticle);
                 con.ejecutarSentencia(cmd, true);
+
                 Conexion.conexion.Close();
 
                 for (int i = 0; i < batches.Count; i++)
                 {
-                    cmd = new MySqlCommand("DELETE FROM batches WHERE idBatch = @P1");
-                    cmd.Parameters.AddWithValue("@P1", batches[i].IdBatch);
-                    con.ejecutarSentencia(cmd, true);
+                    deleteById(batches[i].IdBatch);
                 }
 
-                return con.ejecutarSentencia(cmd, true);
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
+        public static int deleteById(int idBatch)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("DELETE FROM batches WHERE idBatch = @P1");
+                cmd.Parameters.AddWithValue("@P1", idBatch);
+                con.ejecutarSentencia(cmd, true);
+
+                Conexion.conexion.Close();
+                return 1;
             }
             catch (Exception ex)
             {

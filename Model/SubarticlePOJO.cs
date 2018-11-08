@@ -9,21 +9,21 @@ namespace Model
     public class SubarticlePOJO
     {
 
-        public int IdSubarticle { get; set; }
+        public string IdSubarticle { get; set; }
         public string Size { get; set; }
         public string Color { get; set; }
-        public decimal Cost { get; set; }
-        public decimal Price1 { get; set; }
-        public decimal Price2 { get; set; }
-        public decimal Price3 { get; set; }
-        public decimal Price4 { get; set; }
+        public double Cost { get; set; }
+        public double Price1 { get; set; }
+        public double Price2 { get; set; }
+        public double Price3 { get; set; }
+        public double Price4 { get; set; }
         public int Quantity { get; set; }
         public int IdArticle { get; set; }
 
         public SubarticlePOJO() { }
 
-        public SubarticlePOJO(int idSubarticle, string size, string color, decimal cost, decimal price1,
-            decimal price2, decimal price3, decimal price4, int quantity, int idArticle)
+        public SubarticlePOJO(string idSubarticle, string size, string color, double cost, double price1,
+            double price2, double price3, double price4, int quantity, int idArticle)
         {
             IdSubarticle = idSubarticle;
             Size = size;

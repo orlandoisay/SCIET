@@ -67,12 +67,10 @@ namespace Data
             }
         }
 
-        public static ArticlePOJO getTotalQuantity(int idArticle)
+        public static int getTotalQuantity(int idArticle)
         {
             try
             {
-                var list = new List<ArticlePOJO>();
-
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("SELECT SUM(s.quantity) as totalQuantity FROM " +
                     "articles a JOIN subarticles s USING(idArticle) WHERE idArticle = @P0;");
@@ -81,13 +79,13 @@ namespace Data
                 DataTable dt = con.ejecutarConsulta(cmd);
 
                 if (dt.Rows.Count != 1)
-                    return null;
+                    return 0;
 
-                return DataRowAObjeto(dt.Rows[0]);
+                return int.Parse(dt.Rows[0]["totalQuantity"].ToString());
             }
             catch (Exception ex)
             {
-                return null;
+                return 0;
             }
             finally
             {
@@ -122,18 +120,17 @@ namespace Data
             }
         }
 
-        public static void updateArticle(ArticlePOJO newArticle, int idArticle)
+        public static void updateArticle(ArticlePOJO newArticle)
         {
             try
             {
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("UPDATE articles SET idArticle = @P0, name = @P1, " +
-                    "description = @P2, image = @P3 WHERE idArticle = @P4;");
+                    "description = @P2, image = @P3 WHERE idArticle = @P0;");
                 cmd.Parameters.AddWithValue("@P0", newArticle.IdArticle);
                 cmd.Parameters.AddWithValue("@P1", newArticle.Name);
                 cmd.Parameters.AddWithValue("@P2", newArticle.Description);
                 cmd.Parameters.AddWithValue("@P3", newArticle.Image);
-                cmd.Parameters.AddWithValue("@P4", idArticle);
 
                 con.ejecutarSentencia(cmd, false);
             }
@@ -152,6 +149,9 @@ namespace Data
         {
             try
             {
+
+                SubarticleDAO.deleteByIdArticle(idArticle);
+
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("DELETE FROM articles WHERE idArticle = @P0");
                 cmd.Parameters.AddWithValue("@P0", idArticle);

@@ -122,17 +122,7 @@ namespace View
             }
 
         }
-
-        private void dgvModify_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                dgvModify.Rows[e.RowIndex].Selected = true;
-            }
-            catch (Exception)
-            {
-            }
-        }
+        
 
         public void updateQuantity(int quantity)
         {
@@ -154,6 +144,17 @@ namespace View
             BatchDAO.insertDetailBatch(selectedSubarticle.IdSubarticle, batchesList[(batchesList.Count) - 1].IdBatch);
 
             updateQuantity(newBatch.Quantity);
+        }
+
+        private void dgvModify_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dgvModify.Rows[e.RowIndex].Selected = true;
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

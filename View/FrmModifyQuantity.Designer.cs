@@ -35,10 +35,10 @@
             this.lblCurrentAmount = new System.Windows.Forms.Label();
             this.spnInputOutput = new System.Windows.Forms.NumericUpDown();
             this.dgvModify = new System.Windows.Forms.DataGridView();
-            this.btnReturn = new System.Windows.Forms.Button();
             this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modify = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.spnInputOutput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModify)).BeginInit();
             this.SuspendLayout();
@@ -120,7 +120,8 @@
             0,
             -2147483648});
             this.spnInputOutput.Name = "spnInputOutput";
-            this.spnInputOutput.Size = new System.Drawing.Size(100, 29);
+            this.spnInputOutput.ReadOnly = true;
+            this.spnInputOutput.Size = new System.Drawing.Size(66, 29);
             this.spnInputOutput.TabIndex = 7;
             this.spnInputOutput.ValueChanged += new System.EventHandler(this.spnInputOutput_ValueChanged);
             // 
@@ -134,30 +135,14 @@
             this.date,
             this.modify,
             this.Cantidad});
-            this.dgvModify.Enabled = false;
             this.dgvModify.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvModify.Location = new System.Drawing.Point(12, 37);
+            this.dgvModify.MultiSelect = false;
             this.dgvModify.Name = "dgvModify";
             this.dgvModify.ReadOnly = true;
             this.dgvModify.Size = new System.Drawing.Size(330, 150);
             this.dgvModify.TabIndex = 8;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
-            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.btnReturn.ForeColor = System.Drawing.Color.White;
-            this.btnReturn.Location = new System.Drawing.Point(160, 215);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(88, 27);
-            this.btnReturn.TabIndex = 4;
-            this.btnReturn.Text = "Devolución";
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Visible = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            this.dgvModify.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvModify_CellClick);
             // 
             // date
             // 
@@ -181,6 +166,23 @@
             this.Cantidad.Name = "Cantidad";
             this.Cantidad.ReadOnly = true;
             this.Cantidad.Width = 69;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.btnReturn.ForeColor = System.Drawing.Color.White;
+            this.btnReturn.Location = new System.Drawing.Point(160, 215);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(88, 27);
+            this.btnReturn.TabIndex = 4;
+            this.btnReturn.Text = "Devolución";
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Visible = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
             // FrmModifyQuantity
             // 

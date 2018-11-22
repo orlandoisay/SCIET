@@ -94,6 +94,7 @@
             this.dgvSubarticles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvSubarticles.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvSubarticles.Location = new System.Drawing.Point(12, 43);
+            this.dgvSubarticles.MultiSelect = false;
             this.dgvSubarticles.Name = "dgvSubarticles";
             this.dgvSubarticles.ReadOnly = true;
             this.dgvSubarticles.Size = new System.Drawing.Size(670, 150);
@@ -240,7 +241,7 @@
             // txtColor
             // 
             this.txtColor.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.txtColor.Location = new System.Drawing.Point(88, 25);
+            this.txtColor.Location = new System.Drawing.Point(99, 25);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(75, 29);
             this.txtColor.TabIndex = 0;
@@ -249,8 +250,9 @@
             // 
             this.spnQuantity.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnQuantity.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.spnQuantity.Location = new System.Drawing.Point(88, 76);
+            this.spnQuantity.Location = new System.Drawing.Point(99, 76);
             this.spnQuantity.Name = "spnQuantity";
+            this.spnQuantity.ReadOnly = true;
             this.spnQuantity.Size = new System.Drawing.Size(75, 29);
             this.spnQuantity.TabIndex = 8;
             // 
@@ -259,7 +261,7 @@
             this.spnPrice1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice1.DecimalPlaces = 2;
             this.spnPrice1.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.spnPrice1.Location = new System.Drawing.Point(169, 25);
+            this.spnPrice1.Location = new System.Drawing.Point(194, 26);
             this.spnPrice1.Name = "spnPrice1";
             this.spnPrice1.Size = new System.Drawing.Size(100, 29);
             this.spnPrice1.TabIndex = 9;
@@ -270,7 +272,7 @@
             this.spnPrice3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice3.DecimalPlaces = 2;
             this.spnPrice3.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.spnPrice3.Location = new System.Drawing.Point(275, 25);
+            this.spnPrice3.Location = new System.Drawing.Point(314, 25);
             this.spnPrice3.Name = "spnPrice3";
             this.spnPrice3.Size = new System.Drawing.Size(100, 29);
             this.spnPrice3.TabIndex = 10;
@@ -280,7 +282,7 @@
             this.spnPrice4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice4.DecimalPlaces = 2;
             this.spnPrice4.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.spnPrice4.Location = new System.Drawing.Point(275, 77);
+            this.spnPrice4.Location = new System.Drawing.Point(314, 77);
             this.spnPrice4.Name = "spnPrice4";
             this.spnPrice4.Size = new System.Drawing.Size(100, 29);
             this.spnPrice4.TabIndex = 11;
@@ -290,7 +292,7 @@
             this.spnCost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnCost.DecimalPlaces = 2;
             this.spnCost.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.spnCost.Location = new System.Drawing.Point(381, 26);
+            this.spnCost.Location = new System.Drawing.Point(433, 25);
             this.spnCost.Name = "spnCost";
             this.spnCost.Size = new System.Drawing.Size(100, 29);
             this.spnCost.TabIndex = 12;
@@ -300,7 +302,7 @@
             this.spnPrice2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.spnPrice2.DecimalPlaces = 2;
             this.spnPrice2.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.spnPrice2.Location = new System.Drawing.Point(169, 77);
+            this.spnPrice2.Location = new System.Drawing.Point(194, 78);
             this.spnPrice2.Name = "spnPrice2";
             this.spnPrice2.Size = new System.Drawing.Size(100, 29);
             this.spnPrice2.TabIndex = 13;
@@ -332,7 +334,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(84, 3);
+            this.label3.Location = new System.Drawing.Point(95, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 21);
             this.label3.TabIndex = 16;
@@ -343,7 +345,7 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity.ForeColor = System.Drawing.Color.White;
-            this.lblQuantity.Location = new System.Drawing.Point(84, 54);
+            this.lblQuantity.Location = new System.Drawing.Point(95, 54);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(78, 21);
             this.lblQuantity.TabIndex = 17;
@@ -354,7 +356,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(165, 3);
+            this.label5.Location = new System.Drawing.Point(190, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 21);
             this.label5.TabIndex = 18;
@@ -365,7 +367,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(271, 5);
+            this.label6.Location = new System.Drawing.Point(310, 5);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 21);
             this.label6.TabIndex = 19;
@@ -376,7 +378,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(165, 54);
+            this.label7.Location = new System.Drawing.Point(190, 55);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 21);
             this.label7.TabIndex = 20;
@@ -387,7 +389,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(271, 55);
+            this.label8.Location = new System.Drawing.Point(310, 55);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(66, 21);
             this.label8.TabIndex = 21;
@@ -398,7 +400,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(377, 5);
+            this.label9.Location = new System.Drawing.Point(429, 4);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 21);
             this.label9.TabIndex = 22;
@@ -480,6 +482,7 @@
             0,
             0});
             this.spnIdSubarticle.Name = "spnIdSubarticle";
+            this.spnIdSubarticle.ReadOnly = true;
             this.spnIdSubarticle.Size = new System.Drawing.Size(75, 29);
             this.spnIdSubarticle.TabIndex = 26;
             this.spnIdSubarticle.Value = new decimal(new int[] {

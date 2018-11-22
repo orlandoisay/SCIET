@@ -135,13 +135,14 @@ namespace View
         private void btnSave_Click(object sender, EventArgs e)
         {
 
+            if (((spnIdArticle.Value) + "").Length == 0 || txtNameArticle.Text == "")
+            {
+                MessageBox.Show("Clave y nombre son campos obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (btnSave.Text == "Guardar")
             {
-                if (((spnIdArticle.Value) + "") == "" || txtNameArticle.Text == "")
-                {
-                    MessageBox.Show("Clave y nombre son campos obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
                 if (ArticleDAO.getOneById(int.Parse((spnIdArticle.Value) + "")) != null)
                 {

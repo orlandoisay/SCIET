@@ -120,6 +120,7 @@
             this.dgvArticles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvArticles.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvArticles.Location = new System.Drawing.Point(9, 71);
+            this.dgvArticles.MultiSelect = false;
             this.dgvArticles.Name = "dgvArticles";
             this.dgvArticles.ReadOnly = true;
             this.dgvArticles.Size = new System.Drawing.Size(506, 150);
@@ -363,6 +364,7 @@
             0,
             0});
             this.spnIdArticle.Name = "spnIdArticle";
+            this.spnIdArticle.ReadOnly = true;
             this.spnIdArticle.Size = new System.Drawing.Size(70, 29);
             this.spnIdArticle.TabIndex = 10;
             this.spnIdArticle.Value = new decimal(new int[] {

@@ -187,14 +187,15 @@ namespace View
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+
+            if (txtColor.Text == "" || (cbxSize.SelectedItem + "") == "")
+            {
+                MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (btnSave.Text == "Guardar")
             {
-                if (txtColor.Text == "" || (cbxSize.SelectedItem + "") == "")
-                {
-                    MessageBox.Show("Todos los campos son obligatorios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
                 if (SubarticleDAO.getOneById(selectedIdArticle + "_" + spnIdSubarticle.Value) != null)
                 {
                     MessageBox.Show("Clave duplicada, pruebe con otra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
+using Data;
 
 namespace View
 {
@@ -20,373 +22,6 @@ namespace View
         private void btnExportSales_Click(object sender, EventArgs e)
         {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -397,6 +32,87 @@ namespace View
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void rdbDaySales_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbDaySales.Checked)
+            {
+                cmbFinalSalesDare.Visible = false;
+                cmbInitialSalesDate.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                DateTime finish = DateTime.Now;
+                int today = int.Parse(DateTime.Today.Hour.ToString());
+                DateTime init = DateTime.Today.AddHours(-(today + 1));
+                List<ReportPOJO> reports = ReportDAO.getAllReportSales(init, finish);
+                dtgSalesReport.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgSalesReport.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Customer, reports[i].Total);
+                }
+            }
+        }
+
+        private void rdbWeekSales_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbWeekSales.Checked)
+            {
+                cmbFinalSalesDare.Visible = false;
+                cmbInitialSalesDate.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                DateTime finish = DateTime.Now;
+                DayOfWeek today = DateTime.Today.DayOfWeek;
+                int diffDaysFromMonday = DayOfWeek.Sunday - (today + 1);
+                DateTime init = DateTime.Today.AddDays(diffDaysFromMonday);
+                List<ReportPOJO> reports = ReportDAO.getAllReportSales(init, finish);
+                dtgSalesReport.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgSalesReport.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Customer, reports[i].Total);
+                }
+            }
+        }
+
+        private void rdbMonthSales_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbMonthSales.Checked)
+            {
+                cmbFinalSalesDare.Visible = false;
+                cmbInitialSalesDate.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                DateTime finish = DateTime.Now;
+                int today = int.Parse(DateTime.Today.Day.ToString());
+                DateTime init = DateTime.Today.AddDays(-(today));
+                List<ReportPOJO> reports = ReportDAO.getAllReportSales(init, finish);
+                dtgSalesReport.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgSalesReport.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Customer, reports[i].Total);
+                }
+            }
+        }
+
+        private void rdbYearSales_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbYearSales.Checked)
+            {
+                cmbFinalSalesDare.Visible = false;
+                cmbInitialSalesDate.Visible = false;
+                label1.Visible = false;
+                label2.Visible = false;
+                DateTime finish = DateTime.Now;
+                int today = int.Parse(DateTime.Today.DayOfYear.ToString());
+                DateTime init = DateTime.Today.AddDays(-(today));
+                List<ReportPOJO> reports = ReportDAO.getAllReportSales(init, finish);
+                dtgSalesReport.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgSalesReport.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Customer, reports[i].Total);
+                }
+            }
         }
     }
 }

@@ -103,6 +103,7 @@
             this.btnArticles.TabIndex = 1;
             this.btnArticles.Text = "Artículos";
             this.btnArticles.UseVisualStyleBackColor = true;
+            this.btnArticles.Click += new System.EventHandler(this.btnArticles_Click);
             // 
             // btnSales
             // 

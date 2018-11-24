@@ -25,7 +25,6 @@ namespace View
         public FrmArticleCatalog()
         {
             InitializeComponent();
-            //dgvArticles.Rows.Add();
             updateTable();
             isEmpty();
         }
@@ -93,7 +92,6 @@ namespace View
                 }
             }
             
-            //SubarticleDAO.deleteByIdArticle(selectedItem.IdArticle);
             ArticleDAO.deleteById(selectedItem.IdArticle);
             updateTable();
             cleanPanelAddEdit();
@@ -359,7 +357,7 @@ namespace View
 
             if (articlesList.Count == 0)
             {
-                MessageBox.Show("No existen productos para mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
                 btnsShowHide(true, false, false);
                 cleanPanelAddEdit();
                 pnlAddEdit.Visible = false;

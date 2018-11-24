@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Objeto POJO del artículo.
+    /// </summary>
+    /// <remarks>
+    /// Permite manipular todos los atributos que componen un artículo a través de un solo objeto.
+    /// </remarks>
     public class ArticlePOJO
     {
 

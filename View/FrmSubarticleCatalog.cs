@@ -287,5 +287,10 @@ namespace View
                 spnPrice4.Value = 0;
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

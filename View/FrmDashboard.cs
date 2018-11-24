@@ -28,5 +28,23 @@ namespace View
         {
             pbLogo.ImageLocation = Common.Util.GetLogoPath();
         }
+        
+        private void btnArticles_Click(object sender, EventArgs e)
+        {
+
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "FrmArticleCatalog").SingleOrDefault<Form>();
+
+            if (existe != null)
+            {
+                existe.WindowState = FormWindowState.Normal;
+                existe.BringToFront();
+            }
+            else
+            {
+                FrmArticleCatalog frmArticle = new FrmArticleCatalog();
+                frmArticle.Show();
+            }
+            
+        }
     }
 }

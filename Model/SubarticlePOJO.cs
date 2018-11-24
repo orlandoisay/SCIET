@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Objeto POJO del subartículo.
+    /// </summary>
+    /// <remarks>
+    /// Permite manipular todos los atributos que componen un subartículo a través de un solo objeto.
+    /// </remarks>
     public class SubarticlePOJO
     {
 

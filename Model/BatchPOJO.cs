@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    /// <summary>
+    /// Objeto POJO del lote (es una entrada o salida de un conjunto de artículos).
+    /// </summary>
+    /// <remarks>
+    /// Permite manipular todos los atributos que componen un lote a través de un solo objeto.
+    /// </remarks>
     public class BatchPOJO
     {
 

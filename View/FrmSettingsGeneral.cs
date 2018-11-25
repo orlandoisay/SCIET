@@ -20,12 +20,20 @@ namespace View
             load();
         }
 
+        /// <summary>
+        /// Carga los elementos a desplegar en esta pantalla
+        /// </summary>
         public void load()
         {
             pbLogo.ImageLocation = Common.Util.GetLogoPath();
             lblLogoPath.Text = Common.Properties.Settings.Default.LOGO_PATH;
         }
 
+        /// <summary>
+        /// Abre una ventana de dialogo que permite elegir una imagen para 
+        /// reemplazar el logotipo actual.
+        /// Este es almacenado de forma persistente.
+        /// </summary>
         private void btnLogo_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();

@@ -18,12 +18,16 @@ namespace View
             Load();
         }
 
+        
         private void btnSettings_Click(object sender, EventArgs e)
         {
             (new FrmSettings()).ShowDialog();
             Load();
         }
 
+        /// <summary>
+        /// Carga los elementos dinamicos de la ventana.
+        /// </summary>
         public void Load()
         {
             pbLogo.ImageLocation = Common.Util.GetLogoPath();
@@ -45,6 +49,11 @@ namespace View
                 frmArticle.Show();
             }
             
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            (new FrmReports()).Show();
         }
     }
 }

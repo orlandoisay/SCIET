@@ -74,9 +74,9 @@
             this.btnClean.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClean.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.btnClean.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
-            this.btnClean.Location = new System.Drawing.Point(247, 7);
+            this.btnClean.Location = new System.Drawing.Point(216, 7);
             this.btnClean.Name = "btnClean";
-            this.btnClean.Size = new System.Drawing.Size(95, 29);
+            this.btnClean.Size = new System.Drawing.Size(126, 29);
             this.btnClean.TabIndex = 2;
             this.btnClean.Text = "Limpiar historial";
             this.btnClean.UseVisualStyleBackColor = false;

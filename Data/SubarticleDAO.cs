@@ -10,9 +10,23 @@ using Data;
 
 namespace Data
 {
+    /// <summary>
+    /// Objeto de acceso a datos del subartículo.
+    /// </summary>
+    /// <remarks>
+    /// Permite acceder a los datos almacenados del subartículo.
+    /// </remarks>
     public class SubarticleDAO
     {
-
+        /// <summary>
+        /// Busca y obtiene a todos los subartículos del artículo que coincida con la clave ingresada 
+        /// como parámetro.
+        /// </summary>
+        /// <param name="idArticle"></param>
+        /// Clave utilizada para identificar al artículo.
+        /// <returns>
+        /// Retorna una lista de subartículos si son encontrados, de otro modo retorna null.
+        /// </returns>
         public static List<SubarticlePOJO> getAllById(int idArticle)
         {
             try
@@ -41,6 +55,15 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Busca y obtiene al subartículo que coincida con la clave ingresada
+        /// como parámetro.
+        /// </summary>
+        /// <param name="idSubarticle"></param>
+        /// Clave utilizada para identificar al subartículo.
+        /// <returns>
+        /// Retorna el subartículo si es encontrado, de otro modo retorna null.
+        /// </returns>
         public static SubarticlePOJO getOneById(string idSubarticle)
         {
             try
@@ -69,6 +92,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Inserta un nuevo subartículo en la base de datos.
+        /// </summary>
+        /// <param name="newSubarticle"></param>
+        /// Contiene los datos que conforman un subartículo.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int insertSubarticle(SubarticlePOJO newSubarticle)
         {
             try
@@ -101,6 +132,11 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Actualiza los datos del subartículo ingresado como parámetro.
+        /// </summary>
+        /// <param name="newSubarticle"></param>
+        /// Contiene los datos que sobrescribirán a los anteriores.
         public static void updateSubarticle(SubarticlePOJO newSubarticle, string idSubarticle)
         {
             try
@@ -134,6 +170,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Elimina de la base de datos el subartículo que coincida con la clave ingresada como parámetro.
+        /// </summary>
+        /// <param name="idSubarticle"></param>
+        /// Clave utilizada para identificar al subartículo.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int deleteByIdSubarticle(string idSubarticle)
         {
             try
@@ -163,6 +207,15 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Elimina de la base de datos todos los subartículos del artículo que coincida con la clave ingresada 
+        /// como parámetro.
+        /// </summary>
+        /// <param name="idArticle"></param>
+        /// Clave utilizada para identificar al artículo.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int deleteByIdArticle(int idArticle)
         {
             try
@@ -197,6 +250,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Construye un subartículo con los datos ingresados como parámetro.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// Registro de datos pertenecientes al subartículo.
+        /// <returns>
+        /// Retorna el subartículo creado.
+        /// </returns>
         public static SubarticlePOJO DataRowAObjeto(DataRow dr)
         {
             return new SubarticlePOJO(

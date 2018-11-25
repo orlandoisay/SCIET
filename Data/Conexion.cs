@@ -20,7 +20,14 @@ namespace Data
         /// </returns>
         static public bool Conectar()
         {
-            String parametrosConexion = "Server=127.0.0.1;Database=SCIET;Uid=root;Pwd=root;Port=3306;";
+            //String parametrosConexion = "Server=127.0.0.1;Database=SCIET;Uid=root;Pwd=root;Port=3306;";
+            String parametrosConexion = 
+                String.Format("Server={0};Database=SCIET;Uid={1};Pwd={2};Port={3}",
+                                Common.Properties.Settings.Default.DB_HOST,
+                                Common.Properties.Settings.Default.DB_USER,
+                                Common.Properties.Settings.Default.DB_PASS,
+                                Common.Properties.Settings.Default.DB_PORT);
+
             conexion = new MySqlConnection(parametrosConexion);
             try
             {

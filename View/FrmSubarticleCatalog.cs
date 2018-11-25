@@ -12,6 +12,9 @@ using Data;
 
 namespace View
 {
+    /// <summary>
+    /// Clase encargada del manejo de subartículos.
+    /// </summary>
     public partial class FrmSubarticleCatalog : Form
     {
         List<SubarticlePOJO> subarticlesList = new List<SubarticlePOJO>();
@@ -29,6 +32,9 @@ namespace View
             lblArticle.Text = "Artículo: " + ArticleDAO.getOneById(idArticle).Name;
         }
 
+        /// <summary>
+        /// Abre el panel encargado de proporcionar los campos para el llenado de un nuevo subartículo.
+        /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             cleanPanelAddEdit();
@@ -46,6 +52,9 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Abre el panel encargado de proporcionar los campos para la edición del subartículo seleccionado.
+        /// </summary>
         private void btnEdit_Click(object sender, EventArgs e)
         {
             cleanPanelAddEdit();
@@ -69,6 +78,9 @@ namespace View
             btnsShowHide(true, false, false);
         }
 
+        /// <summary>
+        /// Elimina el subartículo seleccionado.
+        /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
@@ -86,6 +98,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Permite ubicar al subartículo seleccionado para posteriores operaciones.
+        /// </summary>
         private void dgvSubarticles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -104,6 +119,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Actualiza los datos mostrados en la lista del formulario para que coincida con la base de datos actual.
+        /// </summary>
         public void updateTable()
         {
 
@@ -120,6 +138,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Encargado de cancelar el proceso para agregar o editar un subartículo.
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             pnlAddEdit.Visible = false;
@@ -136,6 +157,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Abre el formulario encargado de modificar las existencias del subartículo seleccionado.
+        /// </summary>
         private void btnChangeQuantity_Click(object sender, EventArgs e)
         {
             new FrmModifyQuantity(selectedItem.IdSubarticle).ShowDialog();
@@ -144,6 +168,9 @@ namespace View
             dgvSubarticles.Rows[0].Selected = true;
         }
 
+        /// <summary>
+        /// Limpia los campos de los paneles usados para agregar o editar artículos.
+        /// </summary>
         public void cleanPanelAddEdit()
         {
             if (dgvSubarticles.RowCount > 0)
@@ -164,6 +191,12 @@ namespace View
             spnCost.Value = 0;
         }
 
+        /// <summary>
+        /// Permite o restringe funciones dependiendo de si existen o no artículos en la base de datos.
+        /// </summary>
+        /// <returns>
+        /// Retorna true si no existen artículos en la base de datos, de otro modo retorna false.
+        /// </returns>
         public bool isEmpty()
         {
 
@@ -185,6 +218,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Guarda ya sea un nuevo subartículo o los cambios realizado a un subartículo existente.
+        /// </summary>
         private void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -257,6 +293,9 @@ namespace View
             btnsShowHide(true, true, true);
         }
 
+        /// <summary>
+        /// Facilita el control para habilitar o deshabilitar botones.
+        /// </summary>
         public void btnsShowHide(bool action1, bool action2, bool action3)
         {
             btnAdd.Enabled = action1;
@@ -264,6 +303,9 @@ namespace View
             btnDelete.Enabled = action3;
         }
 
+        /// <summary>
+        /// Calcula automáticamente los precios medio mayoreo, mayoreo y especial dependiendo del precio por menudeo.
+        /// </summary>
         private void spnPrice1_ValueChanged(object sender, EventArgs e)
         {
             if (spnPrice1.Value >= 15)
@@ -288,6 +330,9 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Cierra el formulario actual.
+        /// </summary>
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();

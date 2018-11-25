@@ -99,7 +99,8 @@
             this.dgvSubarticles.Name = "dgvSubarticles";
             this.dgvSubarticles.ReadOnly = true;
             this.dgvSubarticles.Size = new System.Drawing.Size(670, 150);
-            this.dgvSubarticles.TabIndex = 1;
+            this.dgvSubarticles.TabIndex = 16;
+            this.dgvSubarticles.TabStop = false;
             this.dgvSubarticles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubarticles_CellClick);
             // 
             // idSubarticles
@@ -185,7 +186,7 @@
             this.btnAdd.Location = new System.Drawing.Point(376, 8);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 29);
-            this.btnAdd.TabIndex = 2;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -201,7 +202,7 @@
             this.btnEdit.Location = new System.Drawing.Point(482, 8);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(97, 29);
-            this.btnEdit.TabIndex = 3;
+            this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -217,7 +218,7 @@
             this.btnDelete.Location = new System.Drawing.Point(585, 8);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(97, 29);
-            this.btnDelete.TabIndex = 4;
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -233,7 +234,7 @@
             this.btnChangeQuantity.Location = new System.Drawing.Point(12, 196);
             this.btnChangeQuantity.Name = "btnChangeQuantity";
             this.btnChangeQuantity.Size = new System.Drawing.Size(180, 29);
-            this.btnChangeQuantity.TabIndex = 5;
+            this.btnChangeQuantity.TabIndex = 3;
             this.btnChangeQuantity.Text = "Modificar existencia";
             this.btnChangeQuantity.UseVisualStyleBackColor = false;
             this.btnChangeQuantity.Visible = false;
@@ -245,7 +246,7 @@
             this.txtColor.Location = new System.Drawing.Point(99, 25);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(75, 29);
-            this.txtColor.TabIndex = 0;
+            this.txtColor.TabIndex = 7;
             // 
             // spnQuantity
             // 
@@ -276,7 +277,7 @@
             this.spnPrice3.Location = new System.Drawing.Point(314, 25);
             this.spnPrice3.Name = "spnPrice3";
             this.spnPrice3.Size = new System.Drawing.Size(100, 29);
-            this.spnPrice3.TabIndex = 10;
+            this.spnPrice3.TabIndex = 11;
             // 
             // spnPrice4
             // 
@@ -286,7 +287,7 @@
             this.spnPrice4.Location = new System.Drawing.Point(314, 77);
             this.spnPrice4.Name = "spnPrice4";
             this.spnPrice4.Size = new System.Drawing.Size(100, 29);
-            this.spnPrice4.TabIndex = 11;
+            this.spnPrice4.TabIndex = 12;
             // 
             // spnCost
             // 
@@ -296,7 +297,7 @@
             this.spnCost.Location = new System.Drawing.Point(433, 25);
             this.spnCost.Name = "spnCost";
             this.spnCost.Size = new System.Drawing.Size(100, 29);
-            this.spnCost.TabIndex = 12;
+            this.spnCost.TabIndex = 13;
             // 
             // spnPrice2
             // 
@@ -306,7 +307,7 @@
             this.spnPrice2.Location = new System.Drawing.Point(194, 78);
             this.spnPrice2.Name = "spnPrice2";
             this.spnPrice2.Size = new System.Drawing.Size(100, 29);
-            this.spnPrice2.TabIndex = 13;
+            this.spnPrice2.TabIndex = 10;
             // 
             // label1
             // 
@@ -418,7 +419,7 @@
             this.btnSave.Location = new System.Drawing.Point(570, 43);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 29);
-            this.btnSave.TabIndex = 23;
+            this.btnSave.TabIndex = 14;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -434,7 +435,7 @@
             this.btnCancel.Location = new System.Drawing.Point(570, 76);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 29);
-            this.btnCancel.TabIndex = 24;
+            this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -485,7 +486,7 @@
             this.spnIdSubarticle.Name = "spnIdSubarticle";
             this.spnIdSubarticle.ReadOnly = true;
             this.spnIdSubarticle.Size = new System.Drawing.Size(75, 29);
-            this.spnIdSubarticle.TabIndex = 26;
+            this.spnIdSubarticle.TabIndex = 5;
             this.spnIdSubarticle.Value = new decimal(new int[] {
             1,
             0,
@@ -508,7 +509,7 @@
             this.cbxSize.Location = new System.Drawing.Point(7, 75);
             this.cbxSize.Name = "cbxSize";
             this.cbxSize.Size = new System.Drawing.Size(75, 29);
-            this.cbxSize.TabIndex = 25;
+            this.cbxSize.TabIndex = 6;
             // 
             // lblArticle
             // 
@@ -517,10 +518,9 @@
             this.lblArticle.ForeColor = System.Drawing.Color.White;
             this.lblArticle.Location = new System.Drawing.Point(15, 14);
             this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(66, 21);
+            this.lblArticle.Size = new System.Drawing.Size(82, 21);
             this.lblArticle.TabIndex = 26;
-            this.lblArticle.Text = "Clave: --";
-            this.lblArticle.Visible = false;
+            this.lblArticle.Text = "Artículo: --";
             // 
             // btnBack
             // 
@@ -533,7 +533,7 @@
             this.btnBack.Location = new System.Drawing.Point(582, 196);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(100, 29);
-            this.btnBack.TabIndex = 27;
+            this.btnBack.TabIndex = 4;
             this.btnBack.Text = "Cerrar";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
@@ -553,7 +553,7 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dgvSubarticles);
             this.Name = "FrmSubarticleCatalog";
-            this.Text = "FrmSubarticleCatalog";
+            this.Text = "Catálogo de subartículos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubarticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spnPrice1)).EndInit();

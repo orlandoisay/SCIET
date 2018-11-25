@@ -84,7 +84,7 @@ namespace View
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar el registro?", "Info",
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar el subartículo?", "Info",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.No)
                 return;
@@ -238,7 +238,7 @@ namespace View
                     return;
                 }
 
-                DialogResult dr = MessageBox.Show("¿Está seguro que desea guardar el subproducto?", "Info",
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea guardar el subartículo?", "Info",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No)
                     return;
@@ -263,7 +263,7 @@ namespace View
             else
             {
 
-                DialogResult dr = MessageBox.Show("¿Está seguro que desea cambiar el subproducto?", "Info",
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea cambiar el subartículo?", "Info",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No)
                     return;

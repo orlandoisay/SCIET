@@ -19,6 +19,10 @@ namespace View
             load();
         }
 
+        /// <summary>
+        /// Carga los datos de conexion a la base de datos para mostrarlos
+        /// en las cajas de texto de esta pantalla
+        /// </summary>
         public void load()
         {
             txtServer.Text = Common.Properties.Settings.Default.DB_HOST;
@@ -27,6 +31,10 @@ namespace View
             txtPassword.Text = Common.Properties.Settings.Default.DB_PASS;
         }
 
+        /// <summary>
+        /// Almacena los valores de la conexion a la base de datos de 
+        /// forma persistente.
+        /// </summary>
         public void save()
         {
             Common.Properties.Settings.Default.DB_HOST = txtServer.Text;

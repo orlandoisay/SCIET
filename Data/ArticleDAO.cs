@@ -239,5 +239,34 @@ namespace Data
 
         }
 
+        public static ArticlePOJO getOneById(String nameArticle)
+        {
+            try
+            {
+                var list = new List<ArticlePOJO>();
+
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM articles WHERE name = @P0;");
+                cmd.Parameters.AddWithValue("@P0", nameArticle);
+
+                DataTable dt = con.ejecutarConsulta(cmd);
+
+                if (dt.Rows.Count != 1)
+                    return null;
+
+                return DataRowAObjeto(dt.Rows[0]);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
+
     }
 }

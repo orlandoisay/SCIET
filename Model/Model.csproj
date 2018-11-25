@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="ArticlePOJO.cs" />
     <Compile Include="BatchPOJO.cs" />
+    <Compile Include="payments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportPOJO.cs" />
+    <Compile Include="SaleArticleDetail.cs" />
+    <Compile Include="SalePOJO.cs" />
     <Compile Include="SubarticlePOJO.cs" />
     <Compile Include="UserPOJO.cs" />
   </ItemGroup>

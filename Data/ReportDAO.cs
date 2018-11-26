@@ -50,5 +50,118 @@ namespace Data
             }
         }
 
+        public static List<ReportPOJO> getAllReportInOut(DateTime init, DateTime finish)
+        {
+            try
+            {
+                var list = new List<ReportPOJO>();
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("select * from batches;" +
+                                                       "where date >=  '@f1'" +
+                                                       "And date <= '@f2';");
+                cmd.Parameters.AddWithValue("@f1", init);
+                cmd.Parameters.AddWithValue("@f2", finish);
+
+                DataTable dt = con.ejecutarConsulta(cmd);
+                ReportPOJO report = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    report = new ReportPOJO(
+                        int.Parse(dr["idBatch"].ToString()),
+                        DateTime.Parse(dr["date"].ToString()),
+                        dr["reason"].ToString(),
+                        int.Parse(dr["quantity"].ToString())
+                        );
+                }
+                list.Add(report);
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
+        public static List<ReportPOJO> getAllReportCost(DateTime init, DateTime finish)
+        {
+            try
+            {
+                var list = new List<ReportPOJO>();
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("select * from batches;" +
+                                                       "where date >=  '@f1'" +
+                                                       "And date <= '@f2';");
+                cmd.Parameters.AddWithValue("@f1", init);
+                cmd.Parameters.AddWithValue("@f2", finish);
+
+                DataTable dt = con.ejecutarConsulta(cmd);
+                ReportPOJO report = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    report = new ReportPOJO(
+                        int.Parse(dr["idSale"].ToString()),
+                        DateTime.Parse(dr["date"].ToString()),
+                        dr["name"].ToString(),
+                        int.Parse(dr["total"].ToString())
+                        );
+                }
+                list.Add(report);
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
+        public static List<ReportPOJO> getAllReportInventory(DateTime init, DateTime finish)
+        {
+            try
+            {
+                var list = new List<ReportPOJO>();
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("select  from batches;" +
+                                                       "where date >=  '@f1'" +
+                                                       "And date <= '@f2';");
+                cmd.Parameters.AddWithValue("@f1", init);
+                cmd.Parameters.AddWithValue("@f2", finish);
+
+                DataTable dt = con.ejecutarConsulta(cmd);
+                ReportPOJO report = null;
+                foreach (DataRow dr in dt.Rows)
+                {
+                    report = new ReportPOJO(
+                        int.Parse(dr["idBatch"].ToString()),
+                        DateTime.Parse(dr["date"].ToString()),
+                        dr["reason"].ToString(),
+                        int.Parse(dr["quantity"].ToString())
+                        );
+                }
+                list.Add(report);
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
     }
 }

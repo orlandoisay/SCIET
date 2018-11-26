@@ -253,7 +253,7 @@
             this.btnExportSales.Name = "btnExportSales";
             this.btnExportSales.Size = new System.Drawing.Size(154, 48);
             this.btnExportSales.TabIndex = 30;
-            this.btnExportSales.Text = "Importar a Excel";
+            this.btnExportSales.Text = "Exportar a Excel";
             this.btnExportSales.UseVisualStyleBackColor = false;
             this.btnExportSales.Click += new System.EventHandler(this.btnExportSales_Click);
             // 
@@ -345,6 +345,7 @@
             this.rdbCustomSales.TabStop = true;
             this.rdbCustomSales.Text = "Personalizado";
             this.rdbCustomSales.UseVisualStyleBackColor = true;
+            this.rdbCustomSales.CheckedChanged += new System.EventHandler(this.rdbCustomSales_CheckedChanged);
             // 
             // tabPage2
             // 
@@ -416,6 +417,7 @@
             this.rdbYeadInputOutput.TabIndex = 32;
             this.rdbYeadInputOutput.Text = "Año";
             this.rdbYeadInputOutput.UseVisualStyleBackColor = true;
+            this.rdbYeadInputOutput.CheckedChanged += new System.EventHandler(this.rdbYeadInputOutput_CheckedChanged);
             // 
             // dtgInputOutput
             // 
@@ -427,7 +429,7 @@
             this.dataGridViewTextBoxColumn4});
             this.dtgInputOutput.Location = new System.Drawing.Point(225, 133);
             this.dtgInputOutput.Name = "dtgInputOutput";
-            this.dtgInputOutput.Size = new System.Drawing.Size(538, 301);
+            this.dtgInputOutput.Size = new System.Drawing.Size(467, 301);
             this.dtgInputOutput.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn1
@@ -447,7 +449,7 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Importe";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Cantidad";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // btnInputOutput
@@ -459,7 +461,7 @@
             this.btnInputOutput.Name = "btnInputOutput";
             this.btnInputOutput.Size = new System.Drawing.Size(122, 51);
             this.btnInputOutput.TabIndex = 30;
-            this.btnInputOutput.Text = "Importar a Excel";
+            this.btnInputOutput.Text = "Exportar a Excel";
             this.btnInputOutput.UseVisualStyleBackColor = false;
             // 
             // cmbFinalDateInputOutput
@@ -509,6 +511,7 @@
             this.rdbMonthInputOutput.TabIndex = 25;
             this.rdbMonthInputOutput.Text = "Mes";
             this.rdbMonthInputOutput.UseVisualStyleBackColor = true;
+            this.rdbMonthInputOutput.CheckedChanged += new System.EventHandler(this.rdbMonthInputOutput_CheckedChanged);
             // 
             // rdbWeekInputOutput
             // 
@@ -521,6 +524,7 @@
             this.rdbWeekInputOutput.TabIndex = 24;
             this.rdbWeekInputOutput.Text = "Semana";
             this.rdbWeekInputOutput.UseVisualStyleBackColor = true;
+            this.rdbWeekInputOutput.CheckedChanged += new System.EventHandler(this.rdbWeekInputOutput_CheckedChanged);
             // 
             // rdbDayInputOutput
             // 
@@ -533,6 +537,7 @@
             this.rdbDayInputOutput.TabIndex = 23;
             this.rdbDayInputOutput.Text = "Día";
             this.rdbDayInputOutput.UseVisualStyleBackColor = true;
+            this.rdbDayInputOutput.CheckedChanged += new System.EventHandler(this.rdbDayInputOutput_CheckedChanged);
             // 
             // rdbCustomInputsAndOutputs
             // 
@@ -547,6 +552,7 @@
             this.rdbCustomInputsAndOutputs.TabStop = true;
             this.rdbCustomInputsAndOutputs.Text = "Personalizado";
             this.rdbCustomInputsAndOutputs.UseVisualStyleBackColor = true;
+            this.rdbCustomInputsAndOutputs.CheckedChanged += new System.EventHandler(this.rdbCustomInputsAndOutputs_CheckedChanged);
             // 
             // tabPage3
             // 
@@ -660,7 +666,7 @@
             this.btnCost.Name = "btnCost";
             this.btnCost.Size = new System.Drawing.Size(146, 41);
             this.btnCost.TabIndex = 30;
-            this.btnCost.Text = "Importar a Excel";
+            this.btnCost.Text = "Exportar a Excel";
             this.btnCost.UseVisualStyleBackColor = false;
             // 
             // cmbFinalDateCost
@@ -734,6 +740,7 @@
             this.rdbDayCost.TabIndex = 23;
             this.rdbDayCost.Text = "Día";
             this.rdbDayCost.UseVisualStyleBackColor = true;
+            this.rdbDayCost.CheckedChanged += new System.EventHandler(this.rdbDayCost_CheckedChanged);
             // 
             // rdbCustomCost
             // 
@@ -880,7 +887,7 @@
             this.btnExportProducts.Name = "btnExportProducts";
             this.btnExportProducts.Size = new System.Drawing.Size(130, 45);
             this.btnExportProducts.TabIndex = 41;
-            this.btnExportProducts.Text = "Importar a Excel";
+            this.btnExportProducts.Text = "Exportar a Excel";
             this.btnExportProducts.UseVisualStyleBackColor = false;
             // 
             // cmbFinalDateProduct
@@ -1024,10 +1031,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RadioButton rdbYeadInputOutput;
         private System.Windows.Forms.DataGridView dtgInputOutput;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.Button btnInputOutput;
         private System.Windows.Forms.DateTimePicker cmbFinalDateInputOutput;
         private System.Windows.Forms.DateTimePicker cmbInitialDateInputOutput;
@@ -1088,5 +1091,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }

@@ -17,7 +17,7 @@ namespace Model
         public double Total { get; set; }
         //variables para reporte de Entradas y Salidas
         public int IdBatch { get; set; }
-        public DateTime DateBacth { get; set; }
+        public DateTime DateBatch { get; set; }
         public string Reason { get; set; }
         public int QuantityBatch { get; set; }
         //variables para reportes de Inventarios
@@ -42,7 +42,7 @@ namespace Model
         public ReportPOJO(int IdBatch, DateTime DateBatch, string Reason, int QuantityBatch)
         {
             this.IdBatch = IdBatch;
-            this.DateBacth = DateBacth;
+            this.DateBatch = DateBatch;
             this.Reason = Reason;
             this.QuantityBatch = QuantityBatch;
         }

@@ -20,7 +20,7 @@ namespace Data
         /// </returns>
         static public bool Conectar()
         {
-            String parametrosConexion = "Server=127.0.0.1;Database=SCIET;Uid=root;Pwd=root;Port=3306;";
+            String parametrosConexion = "Server=127.0.0.1;Database=SCIET;Uid=root;Pwd=root;Port=3306;SslMode=None;";
             conexion = new MySqlConnection(parametrosConexion);
             try
             {

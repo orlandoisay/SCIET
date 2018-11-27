@@ -51,13 +51,20 @@ namespace View
         
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime fecha = DateTime.Now;
-            int resultado = Data.SaleDAO.insertPayment(id, Double.Parse(nudPago.Value + ""), fecha.Year + "-" + fecha.Month + "-" + fecha.Day);
-            MessageBox.Show(resultado + "");
-            actualizarPagos();
-            if (sp.Total <= Data.SaleDAO.totalAbono(id)) {
-                panel1.Visible = false;
-                Data.SaleDAO.pagado(id);
+            try
+            {
+                DateTime fecha = DateTime.Now;
+                int resultado = Data.SaleDAO.insertPayment(id, Double.Parse(nudPago.Value + ""), fecha.Year + "-" + fecha.Month + "-" + fecha.Day);
+                MessageBox.Show(resultado + "");
+                actualizarPagos();
+                if (sp.Total <= Data.SaleDAO.totalAbono(id))
+                {
+                    panel1.Visible = false;
+                    Data.SaleDAO.pagado(id);
+                }
+            }
+            catch (Exception) {
+                MessageBox.Show("Error");
             }
         }
     }

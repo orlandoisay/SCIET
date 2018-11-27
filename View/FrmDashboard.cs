@@ -53,7 +53,34 @@ namespace View
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            (new FrmReports()).Show();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "FrmArticleCatalog").SingleOrDefault<Form>();
+
+            if (existe != null)
+            {
+                existe.WindowState = FormWindowState.Normal;
+                existe.BringToFront();
+            }
+            else
+            {
+                FrmReports frmReports = new FrmReports();
+                frmReports.Show();
+            }
+        }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "FrmArticleCatalog").SingleOrDefault<Form>();
+
+            if (existe != null)
+            {
+                existe.WindowState = FormWindowState.Normal;
+                existe.BringToFront();
+            }
+            else
+            {
+                FrmCatalagoVentas frmSaleCatalog = new FrmCatalagoVentas();
+                frmSaleCatalog.Show();
+            }
         }
     }
 }

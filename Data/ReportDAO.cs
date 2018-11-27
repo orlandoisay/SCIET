@@ -11,7 +11,7 @@ namespace Data
 {
     public class ReportDAO
     {
-        public static List<ReportPOJO> getAllReportSales(DateTime init, DateTime finish)
+        public static List<ReportPOJO> getAllReportSales(string init, string finish)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Data
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("select s.idSale, s.date, c.name, s.total from sales s join customers c " +
                                                        "where s.idSale = c.idSale " +
-                                                       "And s.date >=  '@f1'" +
+                                                       "And s.date >=  '@f1' " +
                                                        "And s.date <= '@f2';");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
@@ -30,12 +30,13 @@ namespace Data
                 {
                     report = new ReportPOJO(
                         int.Parse(dr["idSale"].ToString()),
-                        DateTime.Parse(dr["date"].ToString()),
+                        dr["date"].ToString(),
                         dr["name"].ToString(),
                         Double.Parse(dr["total"].ToString())
                         );
+                    list.Add(report);
                 }
-                list.Add(report);
+                
 
                 return list;
             }
@@ -50,14 +51,14 @@ namespace Data
             }
         }
 
-        public static List<ReportPOJO> getAllReportInOut(DateTime init, DateTime finish)
+        public static List<ReportPOJO> getAllReportInOut(string init, string finish)
         {
             try
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("select * from batches;" +
-                                                       "where date >=  '@f1'" +
+                MySqlCommand cmd = new MySqlCommand("select * from batches " +
+                                                       "where date >=  '@f1' " +
                                                        "And date <= '@f2';");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
@@ -68,13 +69,12 @@ namespace Data
                 {
                     report = new ReportPOJO(
                         int.Parse(dr["idBatch"].ToString()),
-                        DateTime.Parse(dr["date"].ToString()),
+                        dr["date"].ToString(),
                         dr["reason"].ToString(),
                         int.Parse(dr["quantity"].ToString())
                         );
+                    list.Add(report);
                 }
-                list.Add(report);
-
                 return list;
             }
             catch (Exception ex)
@@ -88,14 +88,14 @@ namespace Data
             }
         }
 
-        public static List<ReportPOJO> getAllReportCost(DateTime init, DateTime finish)
+        public static List<ReportPOJO> getAllReportCost(string init, string finish)
         {
             try
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("select * from batches;" +
-                                                       "where date >=  '@f1'" +
+                MySqlCommand cmd = new MySqlCommand("select * from batches " +
+                                                       "where date >=  '@f1' " +
                                                        "And date <= '@f2';");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
@@ -106,12 +106,13 @@ namespace Data
                 {
                     report = new ReportPOJO(
                         int.Parse(dr["idSale"].ToString()),
-                        DateTime.Parse(dr["date"].ToString()),
+                        dr["date"].ToString(),
                         dr["name"].ToString(),
                         int.Parse(dr["total"].ToString())
                         );
+                    list.Add(report);
                 }
-                list.Add(report);
+                
 
                 return list;
             }
@@ -126,30 +127,36 @@ namespace Data
             }
         }
 
-        public static List<ReportPOJO> getAllReportInventory(DateTime init, DateTime finish)
+        public static List<ReportPOJO> getAllReportInventory()
         {
             try
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("select  from batches;" +
-                                                       "where date >=  '@f1'" +
-                                                       "And date <= '@f2';");
-                cmd.Parameters.AddWithValue("@f1", init);
-                cmd.Parameters.AddWithValue("@f2", finish);
+                MySqlCommand cmd = new MySqlCommand("select s.idSubarticle, " +
+                    "a.name, s.size, s.color, s.cost, s.price1, s.price2, " +
+                    "s.price3, s.price4, s.quantity from subarticles s " +
+                    "join articles a where s.idArticle =  a.idArticle; ");
 
                 DataTable dt = con.ejecutarConsulta(cmd);
                 ReportPOJO report = null;
                 foreach (DataRow dr in dt.Rows)
                 {
                     report = new ReportPOJO(
-                        int.Parse(dr["idBatch"].ToString()),
-                        DateTime.Parse(dr["date"].ToString()),
-                        dr["reason"].ToString(),
-                        int.Parse(dr["quantity"].ToString())
+                        int.Parse(dr["idSubarticle"].ToString()),
+                       dr["name"].ToString(),
+                       dr["color"].ToString(),
+                       dr["size"].ToString(),
+                       double.Parse(dr["price1"].ToString()),
+                       double.Parse(dr["price2"].ToString()),
+                       double.Parse(dr["price3"].ToString()),
+                       double.Parse(dr["price4"].ToString()),
+                       double.Parse(dr["cost"].ToString()),
+                       int.Parse(dr["quantity"].ToString())
                         );
+                    list.Add(report);
                 }
-                list.Add(report);
+                
 
                 return list;
             }

@@ -90,24 +90,19 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.rdbYearProduct = new System.Windows.Forms.RadioButton();
             this.dtgReportProducts = new System.Windows.Forms.DataGridView();
+            this.btnExportProducts = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Menudeo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mayoreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExportProducts = new System.Windows.Forms.Button();
-            this.cmbFinalDateProduct = new System.Windows.Forms.DateTimePicker();
-            this.cmbInitialDateProduct = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.rdbMonth = new System.Windows.Forms.RadioButton();
-            this.rdbWeekProduct = new System.Windows.Forms.RadioButton();
-            this.rdbDayProduct = new System.Windows.Forms.RadioButton();
-            this.rdbCustomProduct = new System.Windows.Forms.RadioButton();
+            this.btnInventory = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -463,6 +458,7 @@
             this.btnInputOutput.TabIndex = 30;
             this.btnInputOutput.Text = "Exportar a Excel";
             this.btnInputOutput.UseVisualStyleBackColor = false;
+            this.btnInputOutput.Click += new System.EventHandler(this.btnInputOutput_Click);
             // 
             // cmbFinalDateInputOutput
             // 
@@ -623,6 +619,7 @@
             this.rdbYearCost.TabIndex = 32;
             this.rdbYearCost.Text = "Año";
             this.rdbYearCost.UseVisualStyleBackColor = true;
+            this.rdbYearCost.CheckedChanged += new System.EventHandler(this.rdbYearCost_CheckedChanged);
             // 
             // dtgCost
             // 
@@ -668,6 +665,7 @@
             this.btnCost.TabIndex = 30;
             this.btnCost.Text = "Exportar a Excel";
             this.btnCost.UseVisualStyleBackColor = false;
+            this.btnCost.Click += new System.EventHandler(this.btnCost_Click);
             // 
             // cmbFinalDateCost
             // 
@@ -716,6 +714,7 @@
             this.rdbMonthCost.TabIndex = 25;
             this.rdbMonthCost.Text = "Mes";
             this.rdbMonthCost.UseVisualStyleBackColor = true;
+            this.rdbMonthCost.CheckedChanged += new System.EventHandler(this.rdbMonthCost_CheckedChanged);
             // 
             // rdbWeekCost
             // 
@@ -728,6 +727,7 @@
             this.rdbWeekCost.TabIndex = 24;
             this.rdbWeekCost.Text = "Semana";
             this.rdbWeekCost.UseVisualStyleBackColor = true;
+            this.rdbWeekCost.CheckedChanged += new System.EventHandler(this.rdbWeekCost_CheckedChanged);
             // 
             // rdbDayCost
             // 
@@ -759,18 +759,10 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage4.Controls.Add(this.btnInventory);
             this.tabPage4.Controls.Add(this.panel3);
-            this.tabPage4.Controls.Add(this.rdbYearProduct);
             this.tabPage4.Controls.Add(this.dtgReportProducts);
             this.tabPage4.Controls.Add(this.btnExportProducts);
-            this.tabPage4.Controls.Add(this.cmbFinalDateProduct);
-            this.tabPage4.Controls.Add(this.cmbInitialDateProduct);
-            this.tabPage4.Controls.Add(this.label7);
-            this.tabPage4.Controls.Add(this.label8);
-            this.tabPage4.Controls.Add(this.rdbMonth);
-            this.tabPage4.Controls.Add(this.rdbWeekProduct);
-            this.tabPage4.Controls.Add(this.rdbDayProduct);
-            this.tabPage4.Controls.Add(this.rdbCustomProduct);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -815,33 +807,37 @@
             this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             // 
-            // rdbYearProduct
-            // 
-            this.rdbYearProduct.AutoSize = true;
-            this.rdbYearProduct.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbYearProduct.ForeColor = System.Drawing.Color.White;
-            this.rdbYearProduct.Location = new System.Drawing.Point(290, 96);
-            this.rdbYearProduct.Name = "rdbYearProduct";
-            this.rdbYearProduct.Size = new System.Drawing.Size(48, 21);
-            this.rdbYearProduct.TabIndex = 43;
-            this.rdbYearProduct.Text = "Año";
-            this.rdbYearProduct.UseVisualStyleBackColor = true;
-            // 
             // dtgReportProducts
             // 
             this.dtgReportProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgReportProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
+            this.dataGridViewTextBoxColumn13,
             this.Column5,
+            this.Normal,
+            this.Menudeo,
+            this.dataGridViewTextBoxColumn15,
+            this.Mayoreo,
             this.Column6});
-            this.dtgReportProducts.Location = new System.Drawing.Point(215, 153);
+            this.dtgReportProducts.Location = new System.Drawing.Point(3, 115);
             this.dtgReportProducts.Name = "dtgReportProducts";
-            this.dtgReportProducts.Size = new System.Drawing.Size(728, 301);
+            this.dtgReportProducts.Size = new System.Drawing.Size(948, 302);
             this.dtgReportProducts.TabIndex = 42;
+            // 
+            // btnExportProducts
+            // 
+            this.btnExportProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnExportProducts.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportProducts.ForeColor = System.Drawing.Color.White;
+            this.btnExportProducts.Location = new System.Drawing.Point(17, 435);
+            this.btnExportProducts.Name = "btnExportProducts";
+            this.btnExportProducts.Size = new System.Drawing.Size(130, 45);
+            this.btnExportProducts.TabIndex = 41;
+            this.btnExportProducts.Text = "Exportar a Excel";
+            this.btnExportProducts.UseVisualStyleBackColor = false;
+            this.btnExportProducts.Click += new System.EventHandler(this.btnExportProducts_Click);
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -853,134 +849,64 @@
             this.dataGridViewTextBoxColumn12.HeaderText = "Nombre";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Color";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
             // dataGridViewTextBoxColumn14
             // 
             this.dataGridViewTextBoxColumn14.HeaderText = "Talla";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // dataGridViewTextBoxColumn15
+            // dataGridViewTextBoxColumn13
             // 
-            this.dataGridViewTextBoxColumn15.HeaderText = "Precio";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Costo";
             this.Column5.Name = "Column5";
             // 
+            // Normal
+            // 
+            this.Normal.HeaderText = "Normal";
+            this.Normal.Name = "Normal";
+            // 
+            // Menudeo
+            // 
+            this.Menudeo.HeaderText = "Menudeo";
+            this.Menudeo.Name = "Menudeo";
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.HeaderText = "Medio Mayoreo";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            // 
+            // Mayoreo
+            // 
+            this.Mayoreo.HeaderText = "Mayoreo";
+            this.Mayoreo.Name = "Mayoreo";
+            // 
             // Column6
             // 
             this.Column6.HeaderText = "Existencia";
             this.Column6.Name = "Column6";
             // 
-            // btnExportProducts
+            // btnInventory
             // 
-            this.btnExportProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnExportProducts.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportProducts.ForeColor = System.Drawing.Color.White;
-            this.btnExportProducts.Location = new System.Drawing.Point(23, 373);
-            this.btnExportProducts.Name = "btnExportProducts";
-            this.btnExportProducts.Size = new System.Drawing.Size(130, 45);
-            this.btnExportProducts.TabIndex = 41;
-            this.btnExportProducts.Text = "Exportar a Excel";
-            this.btnExportProducts.UseVisualStyleBackColor = false;
-            // 
-            // cmbFinalDateProduct
-            // 
-            this.cmbFinalDateProduct.Location = new System.Drawing.Point(6, 265);
-            this.cmbFinalDateProduct.Name = "cmbFinalDateProduct";
-            this.cmbFinalDateProduct.Size = new System.Drawing.Size(200, 20);
-            this.cmbFinalDateProduct.TabIndex = 40;
-            // 
-            // cmbInitialDateProduct
-            // 
-            this.cmbInitialDateProduct.Location = new System.Drawing.Point(6, 201);
-            this.cmbInitialDateProduct.Name = "cmbInitialDateProduct";
-            this.cmbInitialDateProduct.Size = new System.Drawing.Size(200, 20);
-            this.cmbInitialDateProduct.TabIndex = 39;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(20, 238);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 17);
-            this.label7.TabIndex = 38;
-            this.label7.Text = "Fecha Final";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(30, 172);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 17);
-            this.label8.TabIndex = 37;
-            this.label8.Text = "Fecha Inicial";
-            // 
-            // rdbMonth
-            // 
-            this.rdbMonth.AutoSize = true;
-            this.rdbMonth.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbMonth.ForeColor = System.Drawing.Color.White;
-            this.rdbMonth.Location = new System.Drawing.Point(296, 96);
-            this.rdbMonth.Name = "rdbMonth";
-            this.rdbMonth.Size = new System.Drawing.Size(49, 21);
-            this.rdbMonth.TabIndex = 36;
-            this.rdbMonth.Text = "Mes";
-            this.rdbMonth.UseVisualStyleBackColor = true;
-            // 
-            // rdbWeekProduct
-            // 
-            this.rdbWeekProduct.AutoSize = true;
-            this.rdbWeekProduct.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbWeekProduct.ForeColor = System.Drawing.Color.White;
-            this.rdbWeekProduct.Location = new System.Drawing.Point(198, 96);
-            this.rdbWeekProduct.Name = "rdbWeekProduct";
-            this.rdbWeekProduct.Size = new System.Drawing.Size(69, 21);
-            this.rdbWeekProduct.TabIndex = 35;
-            this.rdbWeekProduct.Text = "Semana";
-            this.rdbWeekProduct.UseVisualStyleBackColor = true;
-            // 
-            // rdbDayProduct
-            // 
-            this.rdbDayProduct.AutoSize = true;
-            this.rdbDayProduct.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbDayProduct.ForeColor = System.Drawing.Color.White;
-            this.rdbDayProduct.Location = new System.Drawing.Point(130, 96);
-            this.rdbDayProduct.Name = "rdbDayProduct";
-            this.rdbDayProduct.Size = new System.Drawing.Size(44, 21);
-            this.rdbDayProduct.TabIndex = 34;
-            this.rdbDayProduct.Text = "Día";
-            this.rdbDayProduct.UseVisualStyleBackColor = true;
-            // 
-            // rdbCustomProduct
-            // 
-            this.rdbCustomProduct.AutoSize = true;
-            this.rdbCustomProduct.Checked = true;
-            this.rdbCustomProduct.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbCustomProduct.ForeColor = System.Drawing.Color.White;
-            this.rdbCustomProduct.Location = new System.Drawing.Point(6, 96);
-            this.rdbCustomProduct.Name = "rdbCustomProduct";
-            this.rdbCustomProduct.Size = new System.Drawing.Size(100, 21);
-            this.rdbCustomProduct.TabIndex = 33;
-            this.rdbCustomProduct.TabStop = true;
-            this.rdbCustomProduct.Text = "Personalizado";
-            this.rdbCustomProduct.UseVisualStyleBackColor = true;
+            this.btnInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnInventory.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.ForeColor = System.Drawing.Color.White;
+            this.btnInventory.Location = new System.Drawing.Point(17, 69);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(113, 40);
+            this.btnInventory.TabIndex = 45;
+            this.btnInventory.Text = "Generar Reporte";
+            this.btnInventory.UseVisualStyleBackColor = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // FrmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(965, 513);
+            this.ClientSize = new System.Drawing.Size(967, 513);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmReports";
             this.Text = "FrmReports";
@@ -1004,7 +930,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgCost)).EndInit();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -1053,17 +978,8 @@
         private System.Windows.Forms.RadioButton rdbDayCost;
         private System.Windows.Forms.RadioButton rdbCustomCost;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.RadioButton rdbYearProduct;
         private System.Windows.Forms.DataGridView dtgReportProducts;
         private System.Windows.Forms.Button btnExportProducts;
-        private System.Windows.Forms.DateTimePicker cmbFinalDateProduct;
-        private System.Windows.Forms.DateTimePicker cmbInitialDateProduct;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.RadioButton rdbMonth;
-        private System.Windows.Forms.RadioButton rdbWeekProduct;
-        private System.Windows.Forms.RadioButton rdbDayProduct;
-        private System.Windows.Forms.RadioButton rdbCustomProduct;
         private System.Windows.Forms.Panel pnlTop;
         private System.Windows.Forms.Label lblHeader;
         private System.Windows.Forms.PictureBox pbLogo;
@@ -1084,16 +1000,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Normal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Menudeo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mayoreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button btnInventory;
     }
 }

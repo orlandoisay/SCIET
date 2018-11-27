@@ -40,5 +40,10 @@ namespace View
                 MessageBox.Show("Credenciales incorrectas");
             }
         }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

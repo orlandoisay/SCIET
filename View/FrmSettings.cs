@@ -23,7 +23,7 @@ namespace View
         {
             displayForm(new FrmSettingsGeneral());
         }
-
+        
         private void btnDatabase_Click(object sender, EventArgs e)
         {
             displayForm(new FrmSettingsDatabase());

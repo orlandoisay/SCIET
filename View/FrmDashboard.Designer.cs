@@ -174,6 +174,7 @@
             this.pnlBottom.Name = "pnlBottom";
             this.pnlBottom.Size = new System.Drawing.Size(853, 397);
             this.pnlBottom.TabIndex = 2;
+            this.pnlBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBottom_Paint);
             // 
             // FrmDashboard
             // 

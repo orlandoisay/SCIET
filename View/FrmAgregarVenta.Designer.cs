@@ -58,6 +58,7 @@
             // 
             // cbTiposVenta
             // 
+            this.cbTiposVenta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTiposVenta.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.cbTiposVenta.FormattingEnabled = true;
             this.cbTiposVenta.Items.AddRange(new object[] {

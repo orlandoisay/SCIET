@@ -21,7 +21,7 @@ namespace Model
         public string Reason { get; set; }
         public int QuantityBatch { get; set; }
         //variables para reportes de Inventarios
-        public int IdArticle { get; set; }
+        public string IdArticle { get; set; }
         public string Name { get; set; }
         public string Color { get; set; }
         public string Size { get; set; }
@@ -51,7 +51,7 @@ namespace Model
         }
 
         // Constructor para reporte de Inventario
-        public ReportPOJO(int IdArticle, string Name, string Color, string Size,
+        public ReportPOJO(string IdArticle, string Name, string Color, string Size,
                             double Price1, double Price2, double Price3,  
                             double Price4, double Cost, int QuantityArticle)
         {

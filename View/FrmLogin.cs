@@ -30,7 +30,10 @@ namespace View
             {
                 this.Visible = false;
                 FrmDashboard frmData = new FrmDashboard();
-                frmData.Show();
+                frmData.ShowDialog();
+                this.Visible = true;
+                txtNickname.Text = "";
+                txtPassword.Text = "";
             }
             else
             {

@@ -87,22 +87,25 @@
             this.rdbDayCost = new System.Windows.Forms.RadioButton();
             this.rdbCustomCost = new System.Windows.Forms.RadioButton();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnInventory = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dtgReportProducts = new System.Windows.Forms.DataGridView();
             this.btnExportProducts = new System.Windows.Forms.Button();
+            this.btnReportSales = new System.Windows.Forms.Button();
+            this.btnReportInOut = new System.Windows.Forms.Button();
+            this.btnReportCost = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Menudeo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mayoreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Especial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnInventory = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -137,6 +140,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage1.Controls.Add(this.btnReportSales);
             this.tabPage1.Controls.Add(this.pnlTop);
             this.tabPage1.Controls.Add(this.rdbYearSales);
             this.tabPage1.Controls.Add(this.dtgSalesReport);
@@ -345,6 +349,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage2.Controls.Add(this.btnReportInOut);
             this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.rdbYeadInputOutput);
             this.tabPage2.Controls.Add(this.dtgInputOutput);
@@ -479,7 +484,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(11, 213);
+            this.label3.Location = new System.Drawing.Point(11, 220);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 27;
@@ -490,7 +495,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(11, 146);
+            this.label4.Location = new System.Drawing.Point(11, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 17);
             this.label4.TabIndex = 26;
@@ -553,6 +558,7 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.tabPage3.Controls.Add(this.btnReportCost);
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.rdbYearCost);
             this.tabPage3.Controls.Add(this.dtgCost);
@@ -686,7 +692,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(25, 235);
+            this.label5.Location = new System.Drawing.Point(25, 245);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 17);
             this.label5.TabIndex = 27;
@@ -697,7 +703,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(25, 168);
+            this.label6.Location = new System.Drawing.Point(25, 179);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 17);
             this.label6.TabIndex = 26;
@@ -755,6 +761,7 @@
             this.rdbCustomCost.TabStop = true;
             this.rdbCustomCost.Text = "Personalizado";
             this.rdbCustomCost.UseVisualStyleBackColor = true;
+            this.rdbCustomCost.CheckedChanged += new System.EventHandler(this.rdbCustomCost_CheckedChanged);
             // 
             // tabPage4
             // 
@@ -770,6 +777,19 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Reporte de Inventario";
             this.tabPage4.Click += new System.EventHandler(this.tabPage4_Click);
+            // 
+            // btnInventory
+            // 
+            this.btnInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnInventory.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventory.ForeColor = System.Drawing.Color.White;
+            this.btnInventory.Location = new System.Drawing.Point(17, 69);
+            this.btnInventory.Name = "btnInventory";
+            this.btnInventory.Size = new System.Drawing.Size(113, 40);
+            this.btnInventory.TabIndex = 45;
+            this.btnInventory.Text = "Generar Reporte";
+            this.btnInventory.UseVisualStyleBackColor = false;
+            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // panel3
             // 
@@ -816,12 +836,12 @@
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn13,
             this.Column5,
-            this.Normal,
             this.Menudeo,
             this.dataGridViewTextBoxColumn15,
             this.Mayoreo,
+            this.Especial,
             this.Column6});
-            this.dtgReportProducts.Location = new System.Drawing.Point(3, 115);
+            this.dtgReportProducts.Location = new System.Drawing.Point(2, 115);
             this.dtgReportProducts.Name = "dtgReportProducts";
             this.dtgReportProducts.Size = new System.Drawing.Size(948, 302);
             this.dtgReportProducts.TabIndex = 42;
@@ -838,6 +858,45 @@
             this.btnExportProducts.Text = "Exportar a Excel";
             this.btnExportProducts.UseVisualStyleBackColor = false;
             this.btnExportProducts.Click += new System.EventHandler(this.btnExportProducts_Click);
+            // 
+            // btnReportSales
+            // 
+            this.btnReportSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnReportSales.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportSales.ForeColor = System.Drawing.Color.White;
+            this.btnReportSales.Location = new System.Drawing.Point(4, 115);
+            this.btnReportSales.Name = "btnReportSales";
+            this.btnReportSales.Size = new System.Drawing.Size(110, 27);
+            this.btnReportSales.TabIndex = 34;
+            this.btnReportSales.Text = "Generar Reporte";
+            this.btnReportSales.UseVisualStyleBackColor = false;
+            this.btnReportSales.Click += new System.EventHandler(this.btnReportSales_Click);
+            // 
+            // btnReportInOut
+            // 
+            this.btnReportInOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnReportInOut.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportInOut.ForeColor = System.Drawing.Color.White;
+            this.btnReportInOut.Location = new System.Drawing.Point(10, 117);
+            this.btnReportInOut.Name = "btnReportInOut";
+            this.btnReportInOut.Size = new System.Drawing.Size(110, 26);
+            this.btnReportInOut.TabIndex = 35;
+            this.btnReportInOut.Text = "Generar Reporte";
+            this.btnReportInOut.UseVisualStyleBackColor = false;
+            this.btnReportInOut.Click += new System.EventHandler(this.btnReportInOut_Click);
+            // 
+            // btnReportCost
+            // 
+            this.btnReportCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnReportCost.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportCost.ForeColor = System.Drawing.Color.White;
+            this.btnReportCost.Location = new System.Drawing.Point(28, 141);
+            this.btnReportCost.Name = "btnReportCost";
+            this.btnReportCost.Size = new System.Drawing.Size(113, 26);
+            this.btnReportCost.TabIndex = 36;
+            this.btnReportCost.Text = "Generar Reporte";
+            this.btnReportCost.UseVisualStyleBackColor = false;
+            this.btnReportCost.Click += new System.EventHandler(this.btnReportCost_Click);
             // 
             // dataGridViewTextBoxColumn11
             // 
@@ -864,11 +923,6 @@
             this.Column5.HeaderText = "Costo";
             this.Column5.Name = "Column5";
             // 
-            // Normal
-            // 
-            this.Normal.HeaderText = "Normal";
-            this.Normal.Name = "Normal";
-            // 
             // Menudeo
             // 
             this.Menudeo.HeaderText = "Menudeo";
@@ -884,23 +938,15 @@
             this.Mayoreo.HeaderText = "Mayoreo";
             this.Mayoreo.Name = "Mayoreo";
             // 
+            // Especial
+            // 
+            this.Especial.HeaderText = "Especial";
+            this.Especial.Name = "Especial";
+            // 
             // Column6
             // 
             this.Column6.HeaderText = "Existencia";
             this.Column6.Name = "Column6";
-            // 
-            // btnInventory
-            // 
-            this.btnInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnInventory.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInventory.ForeColor = System.Drawing.Color.White;
-            this.btnInventory.Location = new System.Drawing.Point(17, 69);
-            this.btnInventory.Name = "btnInventory";
-            this.btnInventory.Size = new System.Drawing.Size(113, 40);
-            this.btnInventory.TabIndex = 45;
-            this.btnInventory.Text = "Generar Reporte";
-            this.btnInventory.UseVisualStyleBackColor = false;
-            this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
             // FrmReports
             // 
@@ -1004,16 +1050,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Button btnInventory;
+        private System.Windows.Forms.Button btnReportSales;
+        private System.Windows.Forms.Button btnReportInOut;
+        private System.Windows.Forms.Button btnReportCost;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Normal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Menudeo;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn Mayoreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Especial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button btnInventory;
     }
 }

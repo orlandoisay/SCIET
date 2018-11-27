@@ -48,7 +48,7 @@ namespace View
                 panel1.Visible = false;
             }
         }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             DateTime fecha = DateTime.Now;

@@ -47,7 +47,7 @@ namespace View
             MessageBox.Show("Información actualizada correctamente.", "Info", 
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
             save();

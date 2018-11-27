@@ -465,7 +465,7 @@ namespace View
                 destinationFileName = newFilepath;
             }
         }
-
+        
         /// <summary>
         /// Limpia el campo encargado de realizar las búsquedas cada vez que cambie el parámetro del mismo 
         /// (nombre o clave).

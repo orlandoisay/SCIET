@@ -15,7 +15,7 @@ namespace View
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmCatalagoVentas());
+            Application.Run(new FrmLogin());
         }
     }
 }

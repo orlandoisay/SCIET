@@ -19,13 +19,10 @@ namespace Data
             try
             {
                 var list = new List<SalePOJO>();
-                Console.WriteLine("······································································3");
                 Conexion con = new Conexion();
-                Console.WriteLine("#######################################################################");
                 MySqlCommand cmd = new MySqlCommand("select s.idsale, s.date,s.tipoVenta, s.total, s.Estatus from sales s;");
 
                 DataTable dt = con.ejecutarConsulta(cmd);
-                Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
                 foreach (DataRow dr in dt.Rows)
                     list.Add(DataRowAObjeto(dr));
 
@@ -99,7 +96,6 @@ namespace Data
 
         public static List<Model.SaleArticleDetail> getArticleList(int id)
         {
-            Console.WriteLine("·····**********************************·········································");
             try
             {
                 var list = new List<SaleArticleDetail>();

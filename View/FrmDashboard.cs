@@ -55,5 +55,10 @@ namespace View
         {
             (new FrmReports()).Show();
         }
+
+        private void pnlBottom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

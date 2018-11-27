@@ -28,17 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnReportSales = new System.Windows.Forms.Button();
             this.pnlTop = new System.Windows.Forms.Panel();
             this.lblHeader = new System.Windows.Forms.Label();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.rdbYearSales = new System.Windows.Forms.RadioButton();
             this.dtgSalesReport = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExportSales = new System.Windows.Forms.Button();
             this.cmbFinalSalesDare = new System.Windows.Forms.DateTimePicker();
             this.cmbInitialSalesDate = new System.Windows.Forms.DateTimePicker();
@@ -49,6 +47,7 @@
             this.rdbDaySales = new System.Windows.Forms.RadioButton();
             this.rdbCustomSales = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnReportInOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -68,15 +67,12 @@
             this.rdbDayInputOutput = new System.Windows.Forms.RadioButton();
             this.rdbCustomInputsAndOutputs = new System.Windows.Forms.RadioButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnReportCost = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.rdbYearCost = new System.Windows.Forms.RadioButton();
             this.dtgCost = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCost = new System.Windows.Forms.Button();
             this.cmbFinalDateCost = new System.Windows.Forms.DateTimePicker();
             this.cmbInitialDateCost = new System.Windows.Forms.DateTimePicker();
@@ -92,10 +88,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.dtgReportProducts = new System.Windows.Forms.DataGridView();
-            this.btnExportProducts = new System.Windows.Forms.Button();
-            this.btnReportSales = new System.Windows.Forms.Button();
-            this.btnReportInOut = new System.Windows.Forms.Button();
-            this.btnReportCost = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,6 +98,15 @@
             this.Mayoreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Especial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExportProducts = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnlTop.SuspendLayout();
@@ -160,6 +161,19 @@
             this.tabPage1.Size = new System.Drawing.Size(954, 490);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Reporte de Ventas";
+            // 
+            // btnReportSales
+            // 
+            this.btnReportSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnReportSales.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportSales.ForeColor = System.Drawing.Color.White;
+            this.btnReportSales.Location = new System.Drawing.Point(4, 115);
+            this.btnReportSales.Name = "btnReportSales";
+            this.btnReportSales.Size = new System.Drawing.Size(110, 27);
+            this.btnReportSales.TabIndex = 34;
+            this.btnReportSales.Text = "Generar Reporte";
+            this.btnReportSales.UseVisualStyleBackColor = false;
+            this.btnReportSales.Click += new System.EventHandler(this.btnReportSales_Click);
             // 
             // pnlTop
             // 
@@ -218,30 +232,18 @@
             this.Date,
             this.Column3,
             this.Column4});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgSalesReport.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgSalesReport.Location = new System.Drawing.Point(219, 133);
             this.dtgSalesReport.Name = "dtgSalesReport";
             this.dtgSalesReport.Size = new System.Drawing.Size(449, 301);
             this.dtgSalesReport.TabIndex = 31;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Ventas";
-            this.Column1.Name = "Column1";
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Fecha";
-            this.Date.Name = "Date";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Comprador";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Importe";
-            this.Column4.Name = "Column4";
             // 
             // btnExportSales
             // 
@@ -369,6 +371,19 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Reporte de Entradas y Salidas";
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
+            // 
+            // btnReportInOut
+            // 
+            this.btnReportInOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnReportInOut.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportInOut.ForeColor = System.Drawing.Color.White;
+            this.btnReportInOut.Location = new System.Drawing.Point(10, 117);
+            this.btnReportInOut.Name = "btnReportInOut";
+            this.btnReportInOut.Size = new System.Drawing.Size(110, 26);
+            this.btnReportInOut.TabIndex = 35;
+            this.btnReportInOut.Text = "Generar Reporte";
+            this.btnReportInOut.UseVisualStyleBackColor = false;
+            this.btnReportInOut.Click += new System.EventHandler(this.btnReportInOut_Click);
             // 
             // panel1
             // 
@@ -578,6 +593,19 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Reporte de Costos";
             // 
+            // btnReportCost
+            // 
+            this.btnReportCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnReportCost.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportCost.ForeColor = System.Drawing.Color.White;
+            this.btnReportCost.Location = new System.Drawing.Point(28, 141);
+            this.btnReportCost.Name = "btnReportCost";
+            this.btnReportCost.Size = new System.Drawing.Size(113, 26);
+            this.btnReportCost.TabIndex = 36;
+            this.btnReportCost.Text = "Generar Reporte";
+            this.btnReportCost.UseVisualStyleBackColor = false;
+            this.btnReportCost.Click += new System.EventHandler(this.btnReportCost_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
@@ -639,26 +667,6 @@
             this.dtgCost.Name = "dtgCost";
             this.dtgCost.Size = new System.Drawing.Size(452, 301);
             this.dtgCost.TabIndex = 31;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Ventas";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Comprador";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "Costo";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             // 
             // btnCost
             // 
@@ -846,58 +854,6 @@
             this.dtgReportProducts.Size = new System.Drawing.Size(948, 302);
             this.dtgReportProducts.TabIndex = 42;
             // 
-            // btnExportProducts
-            // 
-            this.btnExportProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnExportProducts.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportProducts.ForeColor = System.Drawing.Color.White;
-            this.btnExportProducts.Location = new System.Drawing.Point(17, 435);
-            this.btnExportProducts.Name = "btnExportProducts";
-            this.btnExportProducts.Size = new System.Drawing.Size(130, 45);
-            this.btnExportProducts.TabIndex = 41;
-            this.btnExportProducts.Text = "Exportar a Excel";
-            this.btnExportProducts.UseVisualStyleBackColor = false;
-            this.btnExportProducts.Click += new System.EventHandler(this.btnExportProducts_Click);
-            // 
-            // btnReportSales
-            // 
-            this.btnReportSales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnReportSales.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportSales.ForeColor = System.Drawing.Color.White;
-            this.btnReportSales.Location = new System.Drawing.Point(4, 115);
-            this.btnReportSales.Name = "btnReportSales";
-            this.btnReportSales.Size = new System.Drawing.Size(110, 27);
-            this.btnReportSales.TabIndex = 34;
-            this.btnReportSales.Text = "Generar Reporte";
-            this.btnReportSales.UseVisualStyleBackColor = false;
-            this.btnReportSales.Click += new System.EventHandler(this.btnReportSales_Click);
-            // 
-            // btnReportInOut
-            // 
-            this.btnReportInOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnReportInOut.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportInOut.ForeColor = System.Drawing.Color.White;
-            this.btnReportInOut.Location = new System.Drawing.Point(10, 117);
-            this.btnReportInOut.Name = "btnReportInOut";
-            this.btnReportInOut.Size = new System.Drawing.Size(110, 26);
-            this.btnReportInOut.TabIndex = 35;
-            this.btnReportInOut.Text = "Generar Reporte";
-            this.btnReportInOut.UseVisualStyleBackColor = false;
-            this.btnReportInOut.Click += new System.EventHandler(this.btnReportInOut_Click);
-            // 
-            // btnReportCost
-            // 
-            this.btnReportCost.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnReportCost.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportCost.ForeColor = System.Drawing.Color.White;
-            this.btnReportCost.Location = new System.Drawing.Point(28, 141);
-            this.btnReportCost.Name = "btnReportCost";
-            this.btnReportCost.Size = new System.Drawing.Size(113, 26);
-            this.btnReportCost.TabIndex = 36;
-            this.btnReportCost.Text = "Generar Reporte";
-            this.btnReportCost.UseVisualStyleBackColor = false;
-            this.btnReportCost.Click += new System.EventHandler(this.btnReportCost_Click);
-            // 
             // dataGridViewTextBoxColumn11
             // 
             this.dataGridViewTextBoxColumn11.HeaderText = "Clave";
@@ -948,6 +904,59 @@
             this.Column6.HeaderText = "Existencia";
             this.Column6.Name = "Column6";
             // 
+            // btnExportProducts
+            // 
+            this.btnExportProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+            this.btnExportProducts.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportProducts.ForeColor = System.Drawing.Color.White;
+            this.btnExportProducts.Location = new System.Drawing.Point(17, 435);
+            this.btnExportProducts.Name = "btnExportProducts";
+            this.btnExportProducts.Size = new System.Drawing.Size(130, 45);
+            this.btnExportProducts.TabIndex = 41;
+            this.btnExportProducts.Text = "Exportar a Excel";
+            this.btnExportProducts.UseVisualStyleBackColor = false;
+            this.btnExportProducts.Click += new System.EventHandler(this.btnExportProducts_Click);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Clave";
+            this.Column1.Name = "Column1";
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Fecha";
+            this.Date.Name = "Date";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Comprador";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Importe";
+            this.Column4.Name = "Column4";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Clave";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "Comprador";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "Costo";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            // 
             // FrmReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -955,7 +964,7 @@
             this.ClientSize = new System.Drawing.Size(967, 513);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmReports";
-            this.Text = "FrmReports";
+            this.Text = "Reportes";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1038,14 +1047,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -1064,5 +1065,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Mayoreo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Especial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     }
 }

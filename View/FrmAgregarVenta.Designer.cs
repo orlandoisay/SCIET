@@ -198,7 +198,7 @@
             this.Controls.Add(this.cbTiposVenta);
             this.Controls.Add(this.label1);
             this.Name = "FrmAgregarVenta";
-            this.Text = "FrmAgregarVenta";
+            this.Text = "Ventas";
             this.Load += new System.EventHandler(this.FrmAgregarVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).EndInit();
             this.ResumeLayout(false);

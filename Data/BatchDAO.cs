@@ -9,9 +9,23 @@ using Model;
 
 namespace Data
 {
+    /// <summary>
+    /// Objeto de acceso a datos del lote (es una entrada o salida de un conjunto de artículos).
+    /// </summary>
+    /// <remarks>
+    /// Permite acceder a los datos almacenados del lote.
+    /// </remarks>
     public class BatchDAO
     {
-
+        /// <summary>
+        /// Busca y obtiene a todos los lotes del subartículo que coincida con la clave ingresada 
+        /// como parámetro.
+        /// </summary>
+        /// <param name="idSubarticle"></param>
+        /// Clave utilizada para identificar al subartículo.
+        /// <returns>
+        /// Retorna una lista de lotes si son encontrados, de otro modo retorna null.
+        /// </returns>
         public static List<BatchPOJO> getAllById(string idSubarticle)
         {
             try
@@ -41,6 +55,12 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Obtiene a todos los lotes con sus atributos almacenados en la base de datos.
+        /// </summary>
+        /// <returns>
+        /// Retorna una lista de lotes si son encontrados, de otro modo retorna null.
+        /// </returns>
         public static List<BatchPOJO> getAll()
         {
             try
@@ -68,6 +88,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Inserta un nuevo lote en la base de datos.
+        /// </summary>
+        /// <param name="newBatch"></param>
+        /// Contiene los datos que conforman un lote.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int insertBatch(BatchPOJO newBatch)
         {
             try
@@ -94,6 +122,17 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Asigna un lote a un subartículo, ambos ingresados como 
+        /// parámetros.
+        /// </summary>
+        /// <param name="idSubarticle"></param>
+        /// Clave utilizada para identificar el subartículo.
+        /// <param name="idBatch"></param>
+        /// Clave utilizada para identificar el lote.
+        /// <returns>
+        /// Retorna -1 si la sentencia no fue ejecutada correctamente.
+        /// </returns>
         public static int insertDetailBatch(string idSubarticle, int idBatch)
         {
             try
@@ -118,6 +157,17 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Elimina de la base de datos todos los lotes del subartículo que coincida con la clave ingresada 
+        /// como parámetro.
+        /// </summary>
+        /// <param name="idSubarticle"></param>
+        /// Clave utilizada para identificar al subartículo.
+        /// <param name="batches"></param>
+        /// Lista de lotes a eliminar.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int deleteAllById(string idSubarticle, List<BatchPOJO> batches)
         {
             try
@@ -147,6 +197,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Elimina de la base de datos el lote que coincida con la clave ingresada como parámetro.
+        /// </summary>
+        /// <param name="idBatch"></param>
+        /// Clave utilizada para identificar el lote.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int deleteById(int idBatch)
         {
             try
@@ -170,6 +228,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Construye un lote con los datos ingresados como parámetro.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// Registro de datos pertenecientes al lote.
+        /// <returns>
+        /// Retorna el lote creado.
+        /// </returns>
         public static BatchPOJO DataRowAObjeto(DataRow dr)
         {
             return new BatchPOJO(

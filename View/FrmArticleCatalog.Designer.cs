@@ -74,7 +74,7 @@
             this.txtSearch.Location = new System.Drawing.Point(9, 12);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(250, 29);
-            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TabIndex = 3;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // rbtnIdArticle
@@ -83,10 +83,10 @@
             this.rbtnIdArticle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnIdArticle.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.rbtnIdArticle.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnIdArticle.Location = new System.Drawing.Point(9, 47);
+            this.rbtnIdArticle.Location = new System.Drawing.Point(98, 42);
             this.rbtnIdArticle.Name = "rbtnIdArticle";
             this.rbtnIdArticle.Size = new System.Drawing.Size(64, 25);
-            this.rbtnIdArticle.TabIndex = 1;
+            this.rbtnIdArticle.TabIndex = 4;
             this.rbtnIdArticle.TabStop = true;
             this.rbtnIdArticle.Text = "Clave";
             this.rbtnIdArticle.UseVisualStyleBackColor = true;
@@ -98,10 +98,10 @@
             this.rbtnNameArticle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnNameArticle.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.rbtnNameArticle.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbtnNameArticle.Location = new System.Drawing.Point(79, 47);
+            this.rbtnNameArticle.Location = new System.Drawing.Point(9, 42);
             this.rbtnNameArticle.Name = "rbtnNameArticle";
             this.rbtnNameArticle.Size = new System.Drawing.Size(83, 25);
-            this.rbtnNameArticle.TabIndex = 2;
+            this.rbtnNameArticle.TabIndex = 5;
             this.rbtnNameArticle.TabStop = true;
             this.rbtnNameArticle.Text = "Nombre";
             this.rbtnNameArticle.UseVisualStyleBackColor = true;
@@ -124,7 +124,8 @@
             this.dgvArticles.Name = "dgvArticles";
             this.dgvArticles.ReadOnly = true;
             this.dgvArticles.Size = new System.Drawing.Size(506, 150);
-            this.dgvArticles.TabIndex = 3;
+            this.dgvArticles.TabIndex = 13;
+            this.dgvArticles.TabStop = false;
             this.dgvArticles.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticles_CellClick);
             // 
             // idArticle
@@ -152,48 +153,48 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.ForeColor = System.Drawing.Color.White;
+            this.btnEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnEdit.Location = new System.Drawing.Point(359, 38);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 27);
-            this.btnEdit.TabIndex = 4;
+            this.btnEdit.Size = new System.Drawing.Size(75, 29);
+            this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Editar";
             this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnDelete.Location = new System.Drawing.Point(440, 38);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 27);
-            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Size = new System.Drawing.Size(75, 29);
+            this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Eliminar";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnAdd.Location = new System.Drawing.Point(278, 38);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 27);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.Size = new System.Drawing.Size(75, 29);
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Agregar";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -216,19 +217,18 @@
             // 
             // btnShowSubarticles
             // 
-            this.btnShowSubarticles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnShowSubarticles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnShowSubarticles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShowSubarticles.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
-            this.btnShowSubarticles.FlatAppearance.BorderSize = 0;
+            this.btnShowSubarticles.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnShowSubarticles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnShowSubarticles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowSubarticles.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowSubarticles.ForeColor = System.Drawing.Color.White;
-            this.btnShowSubarticles.Location = new System.Drawing.Point(331, 152);
+            this.btnShowSubarticles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btnShowSubarticles.Location = new System.Drawing.Point(341, 150);
             this.btnShowSubarticles.Name = "btnShowSubarticles";
-            this.btnShowSubarticles.Size = new System.Drawing.Size(166, 27);
-            this.btnShowSubarticles.TabIndex = 14;
-            this.btnShowSubarticles.Text = "Ver subproductos";
+            this.btnShowSubarticles.Size = new System.Drawing.Size(156, 29);
+            this.btnShowSubarticles.TabIndex = 6;
+            this.btnShowSubarticles.Text = "Ver subartículos";
             this.btnShowSubarticles.UseVisualStyleBackColor = false;
             this.btnShowSubarticles.Click += new System.EventHandler(this.btnShowSubarticles_Click);
             // 
@@ -237,7 +237,7 @@
             this.lblQuantityArticle.AutoSize = true;
             this.lblQuantityArticle.Font = new System.Drawing.Font("Segoe UI Light", 12F);
             this.lblQuantityArticle.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblQuantityArticle.Location = new System.Drawing.Point(327, 126);
+            this.lblQuantityArticle.Location = new System.Drawing.Point(337, 126);
             this.lblQuantityArticle.Name = "lblQuantityArticle";
             this.lblQuantityArticle.Size = new System.Drawing.Size(94, 21);
             this.lblQuantityArticle.TabIndex = 9;
@@ -366,7 +366,7 @@
             this.spnIdArticle.Name = "spnIdArticle";
             this.spnIdArticle.ReadOnly = true;
             this.spnIdArticle.Size = new System.Drawing.Size(70, 29);
-            this.spnIdArticle.TabIndex = 10;
+            this.spnIdArticle.TabIndex = 7;
             this.spnIdArticle.Value = new decimal(new int[] {
             1,
             0,
@@ -394,51 +394,51 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnCancel.Location = new System.Drawing.Point(417, 160);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(80, 27);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Size = new System.Drawing.Size(80, 29);
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnSave.Location = new System.Drawing.Point(331, 160);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 27);
-            this.btnSave.TabIndex = 5;
+            this.btnSave.Size = new System.Drawing.Size(80, 29);
+            this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnAttach
             // 
-            this.btnAttach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
+            this.btnAttach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnAttach.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAttach.FlatAppearance.BorderSize = 0;
+            this.btnAttach.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
             this.btnAttach.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.btnAttach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAttach.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAttach.ForeColor = System.Drawing.Color.White;
-            this.btnAttach.Location = new System.Drawing.Point(6, 127);
+            this.btnAttach.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(240)))), ((int)(((byte)(241)))));
+            this.btnAttach.Location = new System.Drawing.Point(6, 125);
             this.btnAttach.Name = "btnAttach";
-            this.btnAttach.Size = new System.Drawing.Size(100, 27);
-            this.btnAttach.TabIndex = 4;
+            this.btnAttach.Size = new System.Drawing.Size(100, 29);
+            this.btnAttach.TabIndex = 10;
             this.btnAttach.Text = "Adjuntar";
             this.btnAttach.UseVisualStyleBackColor = false;
             this.btnAttach.Click += new System.EventHandler(this.btnAttach_Click);
@@ -505,7 +505,7 @@
             this.Controls.Add(this.rbtnIdArticle);
             this.Controls.Add(this.txtSearch);
             this.Name = "FrmArticleCatalog";
-            this.Text = "FrmArticleCatalog";
+            this.Text = "Catálogo de artículos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticles)).EndInit();
             this.pnlDetails.ResumeLayout(false);
             this.pnlDetails.PerformLayout();

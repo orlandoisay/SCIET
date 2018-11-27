@@ -12,6 +12,9 @@ using Data;
 
 namespace View
 {
+    /// <summary>
+    /// Clase encargada del manejo de existencias.
+    /// </summary>
     public partial class FrmModifyQuantity : Form
     {
 
@@ -28,6 +31,9 @@ namespace View
             spnInputOutput.Minimum = selectedSubarticle.Quantity * (-1);
         }
 
+        /// <summary>
+        /// Permite agregar o eliminar existencias del subartículo seleccionado previamente.
+        /// </summary>
         private void btnAddRemove_Click(object sender, EventArgs e)
         {
             if (btnAddRemove.Text == "Agregar")
@@ -54,6 +60,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Permite eliminar existencias del subartículo seleccionado previamente por motivo de devolución.
+        /// </summary>
         private void btnReturn_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("¿Está seguro que desea devolver esta cantidad?", "Info",
@@ -66,6 +75,10 @@ namespace View
             updateTable();
         }
 
+        /// <summary>
+        /// Elimina todas las modificaciones registradas en la base de datos que involucren al subartículo 
+        /// seleccionado.
+        /// </summary>
         private void btnClean_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar los registros?", "Info",
@@ -78,6 +91,10 @@ namespace View
             btnClean.Enabled = false;
         }
 
+        /// <summary>
+        /// Especifica la cantidad de existencia a retirar o ingresar, dependiendo de la acción a realizar 
+        /// se habilitan los botones.
+        /// </summary>
         private void spnInputOutput_ValueChanged(object sender, EventArgs e)
         {
             int valor = (int)spnInputOutput.Value;
@@ -101,6 +118,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Actualiza los datos mostrados en la lista del formulario para que coincida con la base de datos actual.
+        /// </summary>
         public void updateTable()
         {
 
@@ -122,8 +142,10 @@ namespace View
             }
 
         }
-        
 
+        /// <summary>
+        /// Realiza el calculo para conocer las existencias del subartículo después de la modificación.
+        /// </summary>
         public void updateQuantity(int quantity)
         {
             spnInputOutput.Value = 0;
@@ -133,6 +155,9 @@ namespace View
             spnInputOutput.Minimum = selectedSubarticle.Quantity * (-1);
         }
 
+        /// <summary>
+        /// Guarda en la base de datos la modificación realizada en las existencias del subartículo.
+        /// </summary>
         public void insert(string reason)
         {
             BatchPOJO newBatch = new BatchPOJO();
@@ -146,6 +171,9 @@ namespace View
             updateQuantity(newBatch.Quantity);
         }
 
+        /// <summary>
+        /// Permite seleccionar un registro de la tabla del formulario.
+        /// </summary>
         private void dgvModify_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -155,6 +183,14 @@ namespace View
             catch (Exception)
             {
             }
+        }
+
+        /// <summary>
+        /// Cierra el formulario actual.
+        /// </summary>
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

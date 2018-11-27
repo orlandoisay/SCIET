@@ -15,6 +15,9 @@ using Data;
 
 namespace View
 {
+    /// <summary>
+    /// Clase encargada del manejo de artículos.
+    /// </summary>
     public partial class FrmArticleCatalog : Form
     {
         List<ArticlePOJO> articlesList = new List<ArticlePOJO>();
@@ -25,11 +28,13 @@ namespace View
         public FrmArticleCatalog()
         {
             InitializeComponent();
-            //dgvArticles.Rows.Add();
             updateTable();
             isEmpty();
         }
 
+        /// <summary>
+        /// Abre el panel encargado de proporcionar los campos para el llenado de un nuevo artículo.
+        /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             pnlDetails.Visible = false;
@@ -47,6 +52,9 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Abre el panel encargado de proporcionar los campos para la edición del artículo seleccionado.
+        /// </summary>
         private void btnEdit_Click(object sender, EventArgs e)
         {
             pnlDetails.Visible = false;
@@ -75,10 +83,13 @@ namespace View
             btnsShowHide(true, false, false);
         }
 
+        /// <summary>
+        /// Elimina el artículo seleccionado.
+        /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
-            DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar el registro?", "Info",
+            DialogResult dr = MessageBox.Show("¿Está seguro que desea eliminar el artículo?", "Info",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.No)
                 return;
@@ -93,7 +104,6 @@ namespace View
                 }
             }
             
-            //SubarticleDAO.deleteByIdArticle(selectedItem.IdArticle);
             ArticleDAO.deleteById(selectedItem.IdArticle);
             updateTable();
             cleanPanelAddEdit();
@@ -104,6 +114,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Permite ubicar al artículo seleccionado para posteriores operaciones.
+        /// </summary>
         private void dgvArticles_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -125,6 +138,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Abre el formulario encargado de mostrar los subartículos del artículo seleccionado.
+        /// </summary>
         private void btnShowSubarticles_Click(object sender, EventArgs e)
         {
             new FrmSubarticleCatalog(selectedItem.IdArticle).ShowDialog();
@@ -132,6 +148,9 @@ namespace View
             isEmpty();
         }
 
+        /// <summary>
+        /// Guarda ya sea un nuevo artículo o los cambios realizado a un artículo existente.
+        /// </summary>
         private void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -150,7 +169,7 @@ namespace View
                     return;
                 }
 
-                DialogResult dr = MessageBox.Show("¿Está seguro que desea guardar el producto?", "Info",
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea guardar el artículo?", "Info",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No)
                     return;
@@ -183,7 +202,7 @@ namespace View
             else
             {
 
-                DialogResult dr = MessageBox.Show("¿Está seguro que desea cambiar el producto?", "Info",
+                DialogResult dr = MessageBox.Show("¿Está seguro que desea cambiar el artículo?", "Info",
                                               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.No)
                     return;
@@ -235,6 +254,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Encargado de cancelar el proceso para agregar o editar un artículo.
+        /// </summary>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             cleanPanelAddEdit();
@@ -255,6 +277,9 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Actualiza los datos mostrados en la lista del formulario para que coincida con la base de datos actual.
+        /// </summary>
         public void updateTable()
         {
 
@@ -269,12 +294,20 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Evento capaz de disparar la búsqueda de artículos.
+        /// </summary>
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             filterResults(txtSearch.Text.ToLower());
         }
 
-        // Método de búsqueda
+        /// <summary>
+        /// Filtra los resultados mostrados en la tabla según el parámetro ingresado, dicha búsqueda se realiza
+        /// ya sea por clave o por nombre.
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// Contiene el valor a buscar.
         public void filterResults(string parameter)
         {
             dgvArticles.Rows.Clear();
@@ -314,6 +347,9 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Limpia los campos de los paneles usados para agregar o editar artículos.
+        /// </summary>
         public void cleanPanelAddEdit()
         {
             if (dgvArticles.RowCount > 0) {
@@ -328,6 +364,13 @@ namespace View
             pbxAddEdit.Image = null;
         }
 
+        /// <summary>
+        /// Llena los campos del panel usado para editar con los datos del artículo previamente seleccionado.
+        /// </summary>
+        /// <param name="article"></param>
+        /// Contiene los datos del artículo seleccionado.
+        /// <param name="index"></param>
+        /// Índice del artículo seleccionado.
         public void fillDetails(ArticlePOJO article, int index)
         {
             lblIdArticle.Text = "Clave: " + article.IdArticle;
@@ -354,12 +397,18 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Permite o restringe funciones dependiendo de si existen o no artículos en la base de datos.
+        /// </summary>
+        /// <returns>
+        /// Retorna true si no existen artículos en la base de datos, de otro modo retorna false.
+        /// </returns>
         public bool isEmpty()
         {
 
             if (articlesList.Count == 0)
             {
-                MessageBox.Show("No existen productos para mostrar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
                 btnsShowHide(true, false, false);
                 cleanPanelAddEdit();
                 pnlAddEdit.Visible = false;
@@ -377,13 +426,19 @@ namespace View
 
         }
 
+        /// <summary>
+        /// Facilita el control para habilitar o deshabilitar botones.
+        /// </summary>
         public void btnsShowHide(bool action1, bool action2, bool action3)
         {
             btnAdd.Enabled = action1;
             btnEdit.Enabled = action2;
             btnDelete.Enabled = action3;
         }
-        
+
+        /// <summary>
+        /// Permite seleccionar una imagen para asignarla a un artículo.
+        /// </summary>
         private void btnAttach_Click(object sender, EventArgs e)
         {
             var dialog = new OpenFileDialog();
@@ -411,6 +466,10 @@ namespace View
             }
         }
 
+        /// <summary>
+        /// Limpia el campo encargado de realizar las búsquedas cada vez que cambie el parámetro del mismo 
+        /// (nombre o clave).
+        /// </summary>
         private void rbtnNameArticle_CheckedChanged(object sender, EventArgs e)
         {
             txtSearch.Text = "";
@@ -418,6 +477,9 @@ namespace View
             isEmpty();
         }
 
+        /// <summary>
+        /// Si existe una imagen adjunta al artículo, al seleccionarla esta se mostrará en el visor de imágenes.
+        /// </summary>
         private void pbxDetails_Click(object sender, EventArgs e)
         {
             if (pbxDetails.Image != null) {

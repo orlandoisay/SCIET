@@ -88,6 +88,7 @@
             this.btnReports.TabIndex = 1;
             this.btnReports.Text = "Reportes";
             this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnArticles
             // 
@@ -103,6 +104,7 @@
             this.btnArticles.TabIndex = 1;
             this.btnArticles.Text = "Artículos";
             this.btnArticles.UseVisualStyleBackColor = true;
+            this.btnArticles.Click += new System.EventHandler(this.btnArticles_Click);
             // 
             // btnSales
             // 

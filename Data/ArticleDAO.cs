@@ -9,9 +9,20 @@ using Model;
 
 namespace Data
 {
+    /// <summary>
+    /// Objeto de acceso a datos del artículo.
+    /// </summary>
+    /// <remarks>
+    /// Permite acceder a los datos almacenados del artículo.
+    /// </remarks>
     public class ArticleDAO
     {
-
+        /// <summary>
+        /// Obtiene a todos los artículos con sus atributos almacenados en la base de datos.
+        /// </summary>
+        /// <returns>
+        /// Retorna una lista con los artículos obtenidos a través de la consulta.
+        /// </returns>
         public static List<ArticlePOJO> getAll()
         {
             try
@@ -39,6 +50,15 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Busca y obtiene al artículo que coincida con la clave ingresada
+        /// como parámetro.
+        /// </summary>
+        /// <param name="idArticle"></param>
+        /// Clave utilizada para identificar al artículo.
+        /// <returns>
+        /// Retorna el artículo si es encontrado, de otro modo retorna null.
+        /// </returns>
         public static ArticlePOJO getOneById(int idArticle)
         {
             try
@@ -67,6 +87,15 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Obtiene la cantidad de subartículos con los que cuenta el artículo que coincida con la clave ingresada
+        /// como parámetro.
+        /// </summary>
+        /// <param name="idArticle"></param>
+        /// Clave utilizada para identificar al artículo.
+        /// <returns>
+        /// Retorna la cantidad de subartículos si es que existen, de otro modo retorna null.
+        /// </returns>
         public static int getTotalQuantity(int idArticle)
         {
             try
@@ -94,6 +123,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Inserta un nuevo artículo en la base de datos.
+        /// </summary>
+        /// <param name="newArticle"></param>
+        /// Contiene los datos que conforman un artículo.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int insertArticle(ArticlePOJO newArticle)
         {
             try
@@ -120,6 +157,11 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Actualiza los datos del artículo ingresado como parámetro.
+        /// </summary>
+        /// <param name="newArticle"></param>
+        /// Contiene los datos que sobrescribirán a los anteriores.
         public static void updateArticle(ArticlePOJO newArticle)
         {
             try
@@ -145,6 +187,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Elimina de la base de datos el artículo que coincida con la clave ingresada como parámetro.
+        /// </summary>
+        /// <param name="idArticle"></param>
+        /// Clave utilizada para identificar al artículo.
+        /// <returns>
+        /// Retorna -1 si la sentencia no se ejecuto correctamente.
+        /// </returns>
         public static int deleteById(int idArticle)
         {
             try
@@ -170,6 +220,14 @@ namespace Data
             }
         }
 
+        /// <summary>
+        /// Construye un artículo con los datos ingresados como parámetro.
+        /// </summary>
+        /// <param name="dr"></param>
+        /// Registro de datos pertenecientes al artículo.
+        /// <returns>
+        /// Retorna el artículo creado.
+        /// </returns>
         public static ArticlePOJO DataRowAObjeto(DataRow dr)
         {
             return new ArticlePOJO(
@@ -180,6 +238,35 @@ namespace Data
             );
 
         }
+
+        public static ArticlePOJO getOneById(String nameArticle)
+        {
+            try
+            {
+                var list = new List<ArticlePOJO>();
+
+                Conexion con = new Conexion();
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM articles WHERE name = @P0;");
+                cmd.Parameters.AddWithValue("@P0", nameArticle);
+
+                DataTable dt = con.ejecutarConsulta(cmd);
+
+                if (dt.Rows.Count != 1)
+                    return null;
+
+                return DataRowAObjeto(dt.Rows[0]);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                if (Conexion.conexion != null)
+                    Conexion.conexion.Close();
+            }
+        }
+
 
     }
 }

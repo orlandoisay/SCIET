@@ -260,7 +260,7 @@
             this.Controls.Add(this.txtTipoVenta);
             this.Controls.Add(this.label1);
             this.Name = "FrmVerVenta";
-            this.Text = "FrmVerVenta";
+            this.Text = "Detalles de venta";
             this.Load += new System.EventHandler(this.FrmVerVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -186,7 +186,7 @@
             this.Controls.Add(this.pnlTop);
             this.Font = new System.Drawing.Font("Segoe UI Light", 8.25F);
             this.Name = "FrmDashboard";
-            this.Text = "SCIET | Dashboard";
+            this.Text = "SCIET | Menú principal";
             this.pnlLeft.ResumeLayout(false);
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();

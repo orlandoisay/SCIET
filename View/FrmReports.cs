@@ -36,9 +36,10 @@ namespace View
                 cmbInitialSalesDate.Visible = false;
                 label1.Visible = false;
                 label2.Visible = false;
+                btnReportSales.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.Hour.ToString());
-                DateTime init = DateTime.Today.AddHours(-(today + 1));
+                DateTime init = DateTime.Today.AddHours(-(today));
                 String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
                 String inicio = init.Year + "-" + init.Month + "-" + init.Day;
                 List<ReportPOJO> reports = ReportDAO.getAllReportSales(inicio, fin);
@@ -58,9 +59,10 @@ namespace View
                 cmbInitialSalesDate.Visible = false;
                 label1.Visible = false;
                 label2.Visible = false;
+                btnReportSales.Visible = false;
                 DateTime finish = DateTime.Now;
                 DayOfWeek today = DateTime.Today.DayOfWeek;
-                int diffDaysFromMonday = DayOfWeek.Sunday - (today + 1);
+                int diffDaysFromMonday = DayOfWeek.Sunday - (today);
                 DateTime init = DateTime.Today.AddDays(diffDaysFromMonday);
                 String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
                 String inicio = init.Year + "-" + init.Month + "-" + init.Day;
@@ -81,6 +83,7 @@ namespace View
                 cmbInitialSalesDate.Visible = false;
                 label1.Visible = false;
                 label2.Visible = false;
+                btnReportSales.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.Day.ToString());
                 DateTime init = DateTime.Today.AddDays(-(today));
@@ -103,6 +106,7 @@ namespace View
                 cmbInitialSalesDate.Visible = false;
                 label1.Visible = false;
                 label2.Visible = false;
+                btnReportSales.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.DayOfYear.ToString());
                 DateTime init = DateTime.Today.AddDays(-(today));
@@ -125,9 +129,10 @@ namespace View
                 cmbInitialDateInputOutput.Visible = false;
                 label4.Visible = false;
                 label3.Visible = false;
+                btnReportInOut.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.Hour.ToString());
-                DateTime init = DateTime.Today.AddHours(-(today + 1));
+                DateTime init = DateTime.Today.AddHours(-(today));
                 String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
                 String inicio = init.Year + "-" + init.Month + "-" + init.Day;
                 List<ReportPOJO> reports = ReportDAO.getAllReportInOut(inicio, fin);
@@ -147,9 +152,10 @@ namespace View
                 cmbInitialDateInputOutput.Visible = false;
                 label4.Visible = false;
                 label3.Visible = false;
+                btnReportInOut.Visible = false;
                 DateTime finish = DateTime.Now;
                 DayOfWeek today = DateTime.Today.DayOfWeek;
-                int diffDaysFromMonday = DayOfWeek.Sunday - (today + 1);
+                int diffDaysFromMonday = DayOfWeek.Sunday - (today);
                 DateTime init = DateTime.Today.AddDays(diffDaysFromMonday);
                 String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
                 String inicio = init.Year + "-" + init.Month + "-" + init.Day;
@@ -170,6 +176,7 @@ namespace View
                 cmbInitialDateInputOutput.Visible = false;
                 label4.Visible = false;
                 label3.Visible = false;
+                btnReportInOut.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.Day.ToString());
                 DateTime init = DateTime.Today.AddDays(-(today));
@@ -192,6 +199,7 @@ namespace View
                 cmbInitialDateInputOutput.Visible = false;
                 label4.Visible = false;
                 label3.Visible = false;
+                btnReportInOut.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.DayOfYear.ToString());
                 DateTime init = DateTime.Today.AddDays(-(today));
@@ -210,20 +218,12 @@ namespace View
         {
             if (rdbCustomInputsAndOutputs.Checked)
             {
-                cmbFinalDateInputOutput.Visible = false;
-                cmbInitialDateInputOutput.Visible = false;
-                label4.Visible = false;
-                label3.Visible = false;
-                DateTime finish = cmbFinalSalesDare.Value;
-                DateTime init = cmbInitialSalesDate.Value;
-                String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
-                String inicio = init.Year + "-" + init.Month + "-" + (init.Day-1);
-                List<ReportPOJO> reports = ReportDAO.getAllReportInOut(inicio, fin);
-                dtgInputOutput.Rows.Clear();
-                for (int i = 0; i < reports.Count; i++)
-                {
-                    dtgInputOutput.Rows.Add(reports[i].IdBatch, reports[i].DateBatch, reports[i].Reason, reports[i].QuantityBatch);
-                }
+                cmbFinalDateInputOutput.Visible = true;
+                cmbInitialDateInputOutput.Visible = true;
+                label4.Visible = true;
+                label3.Visible = true;
+                btnReportInOut.Visible = true;
+
             }
         }
 
@@ -235,16 +235,8 @@ namespace View
                 cmbInitialSalesDate.Visible = true;
                 label1.Visible = true;
                 label2.Visible = true;
-                DateTime finish = cmbFinalSalesDare.Value;
-                DateTime init = cmbInitialSalesDate.Value;
-                String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
-                String inicio = init.Year + "-" + init.Month + "-" + (init.Day-1);
-                List<ReportPOJO> reports = ReportDAO.getAllReportSales(inicio, fin);
-                dtgSalesReport.Rows.Clear();
-                for (int i = 0; i < reports.Count; i++)
-                {
-                    dtgSalesReport.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Customer, reports[i].Total);
-                }
+                btnReportSales.Visible = true;
+
             }
         }
 
@@ -256,6 +248,7 @@ namespace View
                 cmbInitialDateCost.Visible = false;
                 label6.Visible = false;
                 label5.Visible = false;
+                btnReportCost.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.Hour.ToString());
                 DateTime init = DateTime.Today.AddHours(-(today + 1));
@@ -291,6 +284,7 @@ namespace View
                 cmbInitialDateCost.Visible = false;
                 label6.Visible = false;
                 label5.Visible = false;
+                btnReportCost.Visible = false;
                 DateTime finish = DateTime.Now;
                 DayOfWeek today = DateTime.Today.DayOfWeek;
                 int diffDaysFromMonday = DayOfWeek.Sunday - (today + 1);
@@ -314,6 +308,7 @@ namespace View
                 cmbInitialDateCost.Visible = false;
                 label6.Visible = false;
                 label5.Visible = false;
+                btnReportCost.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.Day.ToString());
                 DateTime init = DateTime.Today.AddDays(-(today));
@@ -337,6 +332,7 @@ namespace View
                 cmbInitialDateCost.Visible = false;
                 label6.Visible = false;
                 label5.Visible = false;
+                btnReportCost.Visible = false;
                 DateTime finish = DateTime.Now;
                 int today = int.Parse(DateTime.Today.DayOfYear.ToString());
                 DateTime init = DateTime.Today.AddDays(-(today));
@@ -392,6 +388,61 @@ namespace View
         private void btnExportProducts_Click(object sender, EventArgs e)
         {
             ExportarDataGridViewExcel(dtgReportProducts);
+        }
+
+        private void btnReportSales_Click(object sender, EventArgs e)
+        {
+            DateTime finish = cmbFinalSalesDare.Value;
+            DateTime init = cmbInitialSalesDate.Value;
+            String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+            String inicio = init.Year + "-" + init.Month + "-" + (init.Day - 1);
+            List<ReportPOJO> reports = ReportDAO.getAllReportSales(inicio, fin);
+            dtgSalesReport.Rows.Clear();
+            for (int i = 0; i < reports.Count; i++)
+            {
+                dtgSalesReport.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Customer, reports[i].Total);
+            }
+        }
+
+        private void btnReportInOut_Click(object sender, EventArgs e)
+        {
+            DateTime finish = cmbFinalSalesDare.Value;
+            DateTime init = cmbInitialSalesDate.Value;
+            String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+            String inicio = init.Year + "-" + init.Month + "-" + (init.Day - 1);
+            List<ReportPOJO> reports = ReportDAO.getAllReportInOut(inicio, fin);
+            dtgInputOutput.Rows.Clear();
+            for (int i = 0; i < reports.Count; i++)
+            {
+                dtgInputOutput.Rows.Add(reports[i].IdBatch, reports[i].DateBatch, reports[i].Reason, reports[i].QuantityBatch);
+            }
+        }
+
+        private void btnReportCost_Click(object sender, EventArgs e)
+        {
+            DateTime finish = cmbFinalDateCost.Value;
+            DateTime init = cmbInitialDateCost.Value;
+            String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+            String inicio = init.Year + "-" + init.Month + "-" + (init.Day - 1);
+            List<ReportPOJO> reports = ReportDAO.getAllReportCost(inicio, fin);
+            dtgCost.Rows.Clear();
+            for (int i = 0; i < reports.Count; i++)
+            {
+                dtgCost.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Customer, reports[i].Total);
+            }
+        }
+
+        private void rdbCustomCost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbCustomSales.Checked)
+            {
+                cmbFinalDateCost.Visible = true;
+                cmbInitialDateCost.Visible = true;
+                label6.Visible = true;
+                label5.Visible = true;
+                btnReportCost.Visible = true;
+
+            }
         }
     }
 }

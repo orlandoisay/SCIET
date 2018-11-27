@@ -53,7 +53,7 @@ namespace View
 
         private void btnReports_Click(object sender, EventArgs e)
         {
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "FrmArticleCatalog").SingleOrDefault<Form>();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "FrmReports").SingleOrDefault<Form>();
 
             if (existe != null)
             {
@@ -69,7 +69,7 @@ namespace View
 
         private void btnSales_Click(object sender, EventArgs e)
         {
-            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "FrmArticleCatalog").SingleOrDefault<Form>();
+            Form existe = Application.OpenForms.OfType<Form>().Where(pre => pre.Name == "FrmCatalagoVentas").SingleOrDefault<Form>();
 
             if (existe != null)
             {

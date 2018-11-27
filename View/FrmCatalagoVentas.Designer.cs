@@ -39,7 +39,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReporte = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.chbBuscar = new System.Windows.Forms.CheckBox();
             this.pnlContenedorBuscar = new System.Windows.Forms.Panel();
@@ -146,19 +145,6 @@
             this.Column5.HeaderText = "Estatus";
             this.Column5.Name = "Column5";
             // 
-            // btnReporte
-            // 
-            this.btnReporte.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
-            this.btnReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReporte.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnReporte.ForeColor = System.Drawing.Color.White;
-            this.btnReporte.Location = new System.Drawing.Point(624, 52);
-            this.btnReporte.Name = "btnReporte";
-            this.btnReporte.Size = new System.Drawing.Size(75, 32);
-            this.btnReporte.TabIndex = 5;
-            this.btnReporte.Text = "Reporte";
-            this.btnReporte.UseVisualStyleBackColor = false;
-            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
@@ -208,10 +194,9 @@
             this.Controls.Add(this.pnlContenedorBuscar);
             this.Controls.Add(this.chbBuscar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.dgvListaVentas);
             this.Name = "FrmCatalagoVentas";
-            this.Text = "FrmCatalagoVentas";
+            this.Text = "Catálago de ventas";
             this.Load += new System.EventHandler(this.FrmCatalagoVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaVentas)).EndInit();
             this.pnlContenedorBuscar.ResumeLayout(false);
@@ -228,7 +213,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView dgvListaVentas;
-        private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.CheckBox chbBuscar;
         private System.Windows.Forms.Panel pnlContenedorBuscar;

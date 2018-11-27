@@ -19,8 +19,8 @@ namespace Data
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("select s.idSale, s.date, c.name, s.total from sales s join customers c " +
                                                        "where s.idSale = c.idSale " +
-                                                       "And s.date >=  '@f1' " +
-                                                       "And s.date <= '@f2';");
+                                                       "And s.date >=  @f1 " +
+                                                       "And s.date <= @f2;");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
 
@@ -58,8 +58,8 @@ namespace Data
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("select * from batches " +
-                                                       "where date >=  '@f1' " +
-                                                       "And date <= '@f2';");
+                                                       "where date >=  @f1 " +
+                                                       "And date <= @f2;");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
 
@@ -94,9 +94,19 @@ namespace Data
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("select * from batches " +
-                                                       "where date >=  '@f1' " +
-                                                       "And date <= '@f2';");
+                MySqlCommand cmd = new MySqlCommand(/*"select d.idSale, d.date, " +
+                    "e.Name, sum(( select sum((select sum(s.cost) " +
+                    "from subarticles s where s.idArticle = a.idArticle)) " +
+                    "from articles a where a.idArticle = c.idSaleArticle)) as cost " +
+                    "from detailsale c join sales d join customers e " +
+                    "where c.idSale = d.idSale and d.idSale = e.idSale " +
+                    "and d.date >=  @f1 and d.date <=  @f2;"*/
+                    "select s.idSale, s.date, c.name, " +
+                    "s.total from sales s join customers c " +
+                    "where s.idSale = c.idSale " +
+                    "And s.date >=  @f1 " +
+                    "And s.date <= @f2;"
+                    );
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
 
@@ -108,7 +118,7 @@ namespace Data
                         int.Parse(dr["idSale"].ToString()),
                         dr["date"].ToString(),
                         dr["name"].ToString(),
-                        int.Parse(dr["total"].ToString())
+                        Double.Parse(dr["total"].ToString())
                         );
                     list.Add(report);
                 }
@@ -133,17 +143,14 @@ namespace Data
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("select s.idSubarticle, " +
-                    "a.name, s.size, s.color, s.cost, s.price1, s.price2, " +
-                    "s.price3, s.price4, s.quantity from subarticles s " +
-                    "join articles a where s.idArticle =  a.idArticle; ");
+                MySqlCommand cmd = new MySqlCommand("select s.idSubarticle, a.name, s.size, s.color, s.cost, s.price1, s.price2, s.price3, s.price4, s.quantity from subarticles s join articles a where s.idArticle =  a.idArticle;");
 
                 DataTable dt = con.ejecutarConsulta(cmd);
                 ReportPOJO report = null;
                 foreach (DataRow dr in dt.Rows)
                 {
                     report = new ReportPOJO(
-                        int.Parse(dr["idSubarticle"].ToString()),
+                       dr["idSubarticle"].ToString(),
                        dr["name"].ToString(),
                        dr["color"].ToString(),
                        dr["size"].ToString(),

@@ -120,6 +120,7 @@
             this.btnSales.TabIndex = 0;
             this.btnSales.Text = "Ventas";
             this.btnSales.UseVisualStyleBackColor = true;
+            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
             // 
             // pnlTop
             // 

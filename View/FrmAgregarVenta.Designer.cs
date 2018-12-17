@@ -31,17 +31,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTiposVenta = new System.Windows.Forms.ComboBox();
             this.dgvListaProductos = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.chbPendiente = new System.Windows.Forms.CheckBox();
+            this.txtCDR = new System.Windows.Forms.Label();
+            this.tbCant = new System.Windows.Forms.NumericUpDown();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.chbPendiente = new System.Windows.Forms.CheckBox();
-            this.tbCant = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCant)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -90,26 +91,7 @@
             this.dgvListaProductos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dgvListaProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvListaProductos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView1_EditingControlShowing);
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Cant.";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Producto";
-            this.Column2.Name = "Column2";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Precio Unitario";
-            this.Column4.Name = "Column4";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Subtotal";
-            this.Column3.Name = "Column3";
+            this.dgvListaProductos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListaProductos_KeyDown);
             // 
             // label2
             // 
@@ -147,20 +129,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(77)))), ((int)(((byte)(60)))));
-            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnActualizar.ForeColor = System.Drawing.Color.White;
-            this.btnActualizar.Location = new System.Drawing.Point(385, 48);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(90, 35);
-            this.btnActualizar.TabIndex = 6;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.button2_Click);
-            // 
             // chbPendiente
             // 
             this.chbPendiente.AutoSize = true;
@@ -174,13 +142,44 @@
             this.chbPendiente.UseVisualStyleBackColor = true;
             this.chbPendiente.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // txtCDR
+            // 
+            this.txtCDR.AutoSize = true;
+            this.txtCDR.ForeColor = System.Drawing.Color.White;
+            this.txtCDR.Location = new System.Drawing.Point(30, 48);
+            this.txtCDR.Name = "txtCDR";
+            this.txtCDR.Size = new System.Drawing.Size(136, 13);
+            this.txtCDR.TabIndex = 9;
+            this.txtCDR.Text = "Cantidad de dinero recibido";
+            // 
             // tbCant
             // 
-            this.tbCant.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.tbCant.Location = new System.Drawing.Point(33, 57);
+            this.tbCant.Location = new System.Drawing.Point(63, 65);
             this.tbCant.Name = "tbCant";
-            this.tbCant.Size = new System.Drawing.Size(125, 29);
-            this.tbCant.TabIndex = 8;
+            this.tbCant.Size = new System.Drawing.Size(72, 20);
+            this.tbCant.TabIndex = 10;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Cant.";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Producto";
+            this.Column2.Name = "Column2";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Precio Unitario";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Subtotal";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // FrmAgregarVenta
             // 
@@ -189,8 +188,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
             this.ClientSize = new System.Drawing.Size(508, 330);
             this.Controls.Add(this.tbCant);
+            this.Controls.Add(this.txtCDR);
             this.Controls.Add(this.chbPendiente);
-            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -201,6 +200,7 @@
             this.Text = "Ventas";
             this.Load += new System.EventHandler(this.FrmAgregarVenta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbCant)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,12 +214,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.CheckBox chbPendiente;
+        private System.Windows.Forms.Label txtCDR;
+        private System.Windows.Forms.NumericUpDown tbCant;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.CheckBox chbPendiente;
-        private System.Windows.Forms.TextBox tbCant;
     }
 }

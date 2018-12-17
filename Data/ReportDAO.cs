@@ -17,10 +17,7 @@ namespace Data
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("select s.idSale, s.date, c.name, s.total from sales s join customers c " +
-                                                       "where s.idSale = c.idSale " +
-                                                       "And s.date >=  @f1 " +
-                                                       "And s.date <= @f2;");
+                MySqlCommand cmd = new MySqlCommand("select s.idSale, s.date, s.total from sales s Where s.date >= @f1 And s.date <= @f2;");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
 
@@ -31,7 +28,6 @@ namespace Data
                     report = new ReportPOJO(
                         int.Parse(dr["idSale"].ToString()),
                         dr["date"].ToString(),
-                        dr["name"].ToString(),
                         Double.Parse(dr["total"].ToString())
                         );
                     list.Add(report);
@@ -94,19 +90,9 @@ namespace Data
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand(/*"select d.idSale, d.date, " +
-                    "e.Name, sum(( select sum((select sum(s.cost) " +
-                    "from subarticles s where s.idArticle = a.idArticle)) " +
-                    "from articles a where a.idArticle = c.idSaleArticle)) as cost " +
-                    "from detailsale c join sales d join customers e " +
-                    "where c.idSale = d.idSale and d.idSale = e.idSale " +
-                    "and d.date >=  @f1 and d.date <=  @f2;"*/
-                    "select s.idSale, s.date, c.name, " +
-                    "s.total from sales s join customers c " +
-                    "where s.idSale = c.idSale " +
-                    "And s.date >=  @f1 " +
-                    "And s.date <= @f2;"
-                    );
+                MySqlCommand cmd = new MySqlCommand("select s.idSale, s.date, s.total from sales s Where " +
+                                                       "And s.date >=  @f1 " +
+                                                       "And s.date <= @f2;");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
 
@@ -117,7 +103,6 @@ namespace Data
                     report = new ReportPOJO(
                         int.Parse(dr["idSale"].ToString()),
                         dr["date"].ToString(),
-                        dr["name"].ToString(),
                         Double.Parse(dr["total"].ToString())
                         );
                     list.Add(report);

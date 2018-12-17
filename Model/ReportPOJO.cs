@@ -13,7 +13,6 @@ namespace Model
         // variables para reportes de Ventas y Costos
         public int IdSale { get; set; }
         public string Date { get; set; }
-        public string Customer { get; set; }
         public double Total { get; set; }
         //variables para reporte de Entradas y Salidas
         public int IdBatch { get; set; }
@@ -33,11 +32,10 @@ namespace Model
         public int QuantityArticle { get; set; }
 
         // Constructor para el reporte de Ventas y Costos
-        public ReportPOJO(int IdSale, string Date, string Customer, double Total)
+        public ReportPOJO(int IdSale, string Date, double Total)
         {
             this.IdSale = IdSale;
             this.Date = Date;
-            this.Customer = Customer;
             this.Total = Total;
         }
 

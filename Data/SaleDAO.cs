@@ -144,18 +144,20 @@ namespace Data
 
         }
 
-        public static int insertSale(String fecha, double total, string tipoVenta, string estatus, double pagoDado)
+        public static int insertSale(String fecha, double total, double costo, string tipoVenta, string estatus, double pagoDado)
         {
+            Console.WriteLine("333333333333333333333333333333333333333333333333333333333");
             try
             {
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("insert into sales values(null, @P0, @P1, @P2, @P3, @P4); Select last_insert_id();");
-
+                MySqlCommand cmd = new MySqlCommand("insert into sales values(null, @P0, @P1, @P5, @P2, @P3, @P4); Select last_insert_id();");
+                Console.WriteLine("333333333333333333333333333333333333333333333333333333333");
                 cmd.Parameters.AddWithValue("@P0", fecha);
                 cmd.Parameters.AddWithValue("@P1", total);
                 cmd.Parameters.AddWithValue("@P2", tipoVenta);
                 cmd.Parameters.AddWithValue("@P3", estatus);
                 cmd.Parameters.AddWithValue("@P4", pagoDado);
+                cmd.Parameters.AddWithValue("@P5", costo);
 
                 return con.ejecutarSentencia(cmd, true);
             }

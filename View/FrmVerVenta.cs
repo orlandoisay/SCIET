@@ -37,7 +37,7 @@ namespace View
             dgvListaProductos.DataSource = listAr;
             sp = Data.SaleDAO.getSale(id);
             txtTotal.Text = "$"+sp.Total;
-            txtTipoVenta.Text = sp.Estatus;
+            txtTipoVenta.Text = sp.TypeSale;
             if (sp.Estatus == "Pendiente")
             {
                 panel1.Visible = true;
@@ -53,7 +53,7 @@ namespace View
         {
             DateTime fecha = DateTime.Now;
             int resultado = Data.SaleDAO.insertPayment(id, Double.Parse(nudPago.Value + ""), fecha.Year + "-" + fecha.Month + "-" + fecha.Day);
-            MessageBox.Show(resultado + "");
+            //MessageBox.Show(resultado + "");
             actualizarPagos();
             if (sp.Total <= Data.SaleDAO.totalAbono(id)) {
                 panel1.Visible = false;

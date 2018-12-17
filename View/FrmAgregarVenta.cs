@@ -222,8 +222,8 @@ namespace View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            /*try
-            {*/
+            try
+            {
                 string estado;
                 double pagoDado = 0;
                 if (chbPendiente.Checked)
@@ -249,11 +249,11 @@ namespace View
                     }
                 }
                 this.Close();
-            /*}
+            }
             catch (Exception)
             {
                 MessageBox.Show("Error");
-            }*/
+            }
         }
 
         private void dgvListaProductos_KeyDown(object sender, KeyEventArgs e)

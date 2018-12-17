@@ -62,7 +62,14 @@ namespace View
         {
             DateTime date = DateTime.Parse(dtpFechaFin.Value + "");
             DateTime date2 = DateTime.Parse(dtpFechaIncio.Value + "");
-            dgvListaVentas.DataSource = Data.SaleDAO.getAllDate(date2.Year + "-" + date2.Month + "-" + date2.Day, date.Year + "-" + date.Month + "-" + date.Day);
+            if (date2.CompareTo(date) <= 0)
+            {
+                dgvListaVentas.DataSource = Data.SaleDAO.getAllDate(date2.Year + "-" + date2.Month + "-" + date2.Day, date.Year + "-" + date.Month + "-" + date.Day);
+            }
+            else
+            {
+                MessageBox.Show("Fechas incorrectas");
+            }
         }
     }
 }

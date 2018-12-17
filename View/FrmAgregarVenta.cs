@@ -54,9 +54,13 @@ namespace View
                         txt.AutoCompleteSource = AutoCompleteSource.CustomSource;
                         AutoCompleteStringCollection acsc = new AutoCompleteStringCollection();
                         List<Model.ArticlePOJO> list = Data.ArticleDAO.getAll();
+                        List<Model.SubarticlePOJO> listS;
                         foreach (Model.ArticlePOJO name in list)
                         {
-                            acsc.Add(name.Name);
+                            listS = Data.SubarticleDAO.getAllById(name.IdArticle);
+                            foreach (Model.SubarticlePOJO sub in listS) {
+                                acsc.Add(name.Name + "-" + sub.Size + "-" + sub.Color);
+                            }
                         }
                         txt.AutoCompleteCustomSource = acsc;
                     }
@@ -296,45 +300,52 @@ namespace View
 
             if (cells == 1)
             {
-                Model.ArticlePOJO article = Data.ArticleDAO.getOneById(dgvListaProductos[cells, rows].Value + "");
+                Model.ArticlePOJO article = Data.ArticleDAO.getOneById((dgvListaProductos[cells, rows].Value + "").Split('-')[0]);
                 if (article != null)
                 {
-                    Model.SubarticlePOJO subArticle = Data.SubarticleDAO.getAllById(article.IdArticle)[0];
-                    if (subArticle != null)
+                    Model.SubarticlePOJO subArticle; 
+                    List<Model.SubarticlePOJO> listAux = Data.SubarticleDAO.getAllById(article.IdArticle);
+                    foreach (Model.SubarticlePOJO sub in listAux)
                     {
-                        listArt[rows] = article;
-                        listSubArt[rows] = subArticle;
-                        listaProductos[rows, cells] = ((TextBox)sender).Text;
-                        //cantidad += 1;
-                        double precio = 0;
-                        Console.WriteLine(cantidad + " %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-                        if (cantidad >= 1 && cantidad <= 5)
+                        if ((dgvListaProductos[cells, rows].Value + "").Split('-')[1].Equals(sub.Size) &&
+                            (dgvListaProductos[cells, rows].Value + "").Split('-')[2].Equals(sub.Color))
                         {
-                            precio = subArticle.Price1;
-                            tipoVenta = 0;
+                            subArticle = sub;
+                            listArt[rows] = article;
+                            listSubArt[rows] = subArticle;
+                            listaProductos[rows, cells] = ((TextBox)sender).Text;
+                            //cantidad += 1;
+                            double precio = 0;
+                            Console.WriteLine(cantidad + " %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+                            if (cantidad >= 1 && cantidad <= 5)
+                            {
+                                precio = subArticle.Price1;
+                                tipoVenta = 0;
+                            }
+                            else if (cantidad >= 6 && cantidad <= 11)
+                            {
+                                precio = subArticle.Price2;
+                                tipoVenta = 1;
+                            }
+                            else if (cantidad >= 12 && cantidad <= 59)
+                            {
+                                precio = subArticle.Price3;
+                                tipoVenta = 2;
+                            }
+                            else if (cantidad >= 60)
+                            {
+                                precio = subArticle.Price4;
+                                tipoVenta = 3;
+                            }
+                            dgvListaProductos.Rows[rows].Cells[0].Value = "1";
+                            dgvListaProductos.Rows[rows].Cells[2].Value = precio + "";
+                            dgvListaProductos.Rows[rows].Cells[3].Value = precio + "";
+                            costoTotal += subArticle.Cost;
+                            listaProductos[rows, 0] = "1";
+                            listaProductos[rows, 2] = precio + "";
+                            listaProductos[rows, 3] = precio + "";
+                            break;
                         }
-                        else if (cantidad >= 6 && cantidad <= 11)
-                        {
-                            precio = subArticle.Price2;
-                            tipoVenta = 1;
-                        }
-                        else if (cantidad >= 12 && cantidad <= 59)
-                        {
-                            precio = subArticle.Price3;
-                            tipoVenta = 2;
-                        }
-                        else if (cantidad >= 60)
-                        {
-                            precio = subArticle.Price4;
-                            tipoVenta = 3;
-                        }
-                        dgvListaProductos.Rows[rows].Cells[0].Value = "1";
-                        dgvListaProductos.Rows[rows].Cells[2].Value = precio + "";
-                        dgvListaProductos.Rows[rows].Cells[3].Value = precio + "";
-                        costoTotal += subArticle.Cost;
-                        listaProductos[rows, 0] = "1";
-                        listaProductos[rows, 2] = precio + "";
-                        listaProductos[rows, 3] = precio + "";
                     }
                 }
                 else

@@ -22,7 +22,14 @@ namespace View
 
         public void actualizarPagos() {
             txtDebe.Text = Data.SaleDAO.seDebe(id) + "";
-            nudPago.Minimum = 100;
+            if (int.Parse(txtDebe.Text) >= 100)
+            {
+                nudPago.Minimum = 100;
+            }
+            else
+            {
+                nudPago.Minimum = int.Parse(txtDebe.Text);
+            }
             nudPago.Maximum = int.Parse(txtDebe.Text);
             nudPago.Value = int.Parse(txtDebe.Text);
             lstbListaPagos.DataSource = Data.SaleDAO.getPayments(id);

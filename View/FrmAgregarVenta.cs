@@ -252,6 +252,16 @@ namespace View
                         Data.SaleDAO.insertDetail(n, nArticle);
                     }
                 }
+                for (int i = 0; i < dgvListaProductos.RowCount; i++) {
+                    try
+                    {
+                        listSubArt[i].Quantity -= int.Parse(dgvListaProductos.Rows[i].Cells[0].Value + "");
+                        Data.SubarticleDAO.updateSubarticle(listSubArt[i], listSubArt[i].IdSubarticle + "");
+                    }
+                    catch (Exception) {
+
+                    }
+                }
                 this.Close();
             }
             catch (Exception)
@@ -282,10 +292,16 @@ namespace View
                         try
                         {
                             n = int.Parse(dgvListaProductos[cells, rows].Value + "");
+                            if (listSubArt[rows].Quantity < n) {
+                                MessageBox.Show("Cantidad en existencia: " + listSubArt[rows].Quantity);
+                                dgvListaProductos[cells, rows].Value = "1";
+                                n = 1;
+                            }
                         }
                         catch (Exception ex)
                         {
                             n = 1;
+                            MessageBox.Show("Dato no valido...");
                         }
                         listaProductos[rows, cells] = n + "";
                         //-----------------------------------------------------------------------------------

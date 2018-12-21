@@ -268,7 +268,7 @@ namespace View
                 hoja_trabajo =
                     (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
                 //Recorremos el DataGridView rellenando la hoja de trabajo
-                for (int i = 0; i < grd.Rows.Count - 1; i++)
+                for (int i = 0; i < grd.Rows.Count; i++)
                 {
                     for (int j = 0; j < grd.Columns.Count; j++)
                     {
@@ -319,7 +319,130 @@ namespace View
                 dtgInputOutput.Rows.Add(reports[i].IdBatch, reports[i].DateBatch, reports[i].Reason, reports[i].QuantityBatch);
             }
         }
-        
-        
+
+        private void rbdCustomCost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbdCustomCost.Checked)
+            {
+                cmbFinalCostDate.Visible = true;
+                cmbInitialCostDate.Visible = true;
+                label6.Visible = true;
+                label7.Visible = true;
+                btnReportCost.Visible = true;
+
+            }
+        }
+
+        private void rbdDayCost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbdDayCost.Checked)
+            {
+                cmbFinalCostDate.Visible = false;
+                cmbInitialCostDate.Visible = false;
+                label6.Visible = false;
+                label7.Visible = false;
+                btnReportCost.Visible = false;
+                DateTime finish = DateTime.Now;
+                int today = int.Parse(DateTime.Today.Hour.ToString());
+                DateTime init = DateTime.Today.AddHours(-(today));
+                String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+                String inicio = init.Year + "-" + init.Month + "-" + init.Day;
+                List<ReportPOJO> reports = ReportDAO.getAllReportCost(inicio, fin);
+                dtgCostReports.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgCostReports.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Total);
+                }
+            }
+        }
+
+        private void rbdWeekCost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbdWeekCost.Checked)
+            {
+                cmbFinalCostDate.Visible = false;
+                cmbInitialCostDate.Visible = false;
+                label6.Visible = false;
+                label7.Visible = false;
+                btnReportCost.Visible = false;
+                DateTime finish = DateTime.Now;
+                DayOfWeek today = DateTime.Today.DayOfWeek;
+                int diffDaysFromMonday = DayOfWeek.Sunday - (today);
+                DateTime init = DateTime.Today.AddDays(diffDaysFromMonday);
+                String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+                String inicio = init.Year + "-" + init.Month + "-" + init.Day;
+                List<ReportPOJO> reports = ReportDAO.getAllReportCost(inicio, fin);
+                dtgCostReports.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgCostReports.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Total);
+                }
+            }
+        }
+
+        private void rbdMonthCost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbdMonthCost.Checked)
+            {
+                cmbFinalCostDate.Visible = false;
+                cmbInitialCostDate.Visible = false;
+                label6.Visible = false;
+                label7.Visible = false;
+                btnReportCost.Visible = false;
+                DateTime finish = DateTime.Now;
+                int today = int.Parse(DateTime.Today.Day.ToString());
+                DateTime init = DateTime.Today.AddDays(-(today));
+                String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+                String inicio = init.Year + "-" + init.Month + "-" + init.Day;
+                List<ReportPOJO> reports = ReportDAO.getAllReportCost(inicio, fin);
+                dtgCostReports.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgCostReports.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Total);
+                }
+            }
+        }
+
+        private void rbdYearCost_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbdYearCost.Checked)
+            {
+                cmbFinalCostDate.Visible = false;
+                cmbInitialCostDate.Visible = false;
+                label6.Visible = false;
+                label7.Visible = false;
+                btnReportCost.Visible = false;
+                DateTime finish = DateTime.Now;
+                int today = int.Parse(DateTime.Today.DayOfYear.ToString());
+                DateTime init = DateTime.Today.AddDays(-(today));
+                String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+                String inicio = init.Year + "-" + init.Month + "-" + init.Day;
+                List<ReportPOJO> reports = ReportDAO.getAllReportCost(inicio, fin);
+                dtgCostReports.Rows.Clear();
+                for (int i = 0; i < reports.Count; i++)
+                {
+                    dtgCostReports.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Total);
+                }
+            }
+        }
+
+        private void btnReportCost_Click(object sender, EventArgs e)
+        {
+            DateTime finish = cmbFinalCostDate.Value;
+            DateTime init = cmbInitialCostDate.Value;
+            String fin = finish.Year + "-" + finish.Month + "-" + (finish.Day + 1);
+            String inicio = init.Year + "-" + init.Month + "-" + (init.Day - 1);
+            List<ReportPOJO> reports = ReportDAO.getAllReportCost(inicio, fin);
+            dtgCostReports.Rows.Clear();
+            for (int i = 0; i < reports.Count; i++)
+            {
+                dtgCostReports.Rows.Add(reports[i].IdSale, reports[i].Date, reports[i].Total);
+            }
+        }
+
+        private void btnEsportCost_Click(object sender, EventArgs e)
+        {
+            ExportarDataGridViewExcel(dtgCostReports);
+        }
     }
 }

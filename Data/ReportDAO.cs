@@ -90,9 +90,7 @@ namespace Data
             {
                 var list = new List<ReportPOJO>();
                 Conexion con = new Conexion();
-                MySqlCommand cmd = new MySqlCommand("select s.idSale, s.date, s.total from sales s Where " +
-                                                       "And s.date >=  @f1 " +
-                                                       "And s.date <= @f2;");
+                MySqlCommand cmd = new MySqlCommand("select s.idSale, s.date, s.cost from sales s Where s.date >= @f1 And s.date <= @f2;");
                 cmd.Parameters.AddWithValue("@f1", init);
                 cmd.Parameters.AddWithValue("@f2", finish);
 
@@ -103,7 +101,7 @@ namespace Data
                     report = new ReportPOJO(
                         int.Parse(dr["idSale"].ToString()),
                         dr["date"].ToString(),
-                        Double.Parse(dr["total"].ToString())
+                        Double.Parse(dr["cost"].ToString())
                         );
                     list.Add(report);
                 }
